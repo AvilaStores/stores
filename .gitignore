@@ -2,3 +2,5 @@
 var/session
 var/log
 var/cache
+app/etc/local.xml
+downloader/connect.cfg
