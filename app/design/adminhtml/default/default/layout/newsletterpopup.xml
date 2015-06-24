@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addJs"><script>newsletterpopup/adminhtml/jscolor/jscolor.js</script></action>
+            <action method="addItem"><type>skin_css</type><name>newsletterpopup/adminhtml.css</name><params/></action>
+        </reference>
+    </adminhtml_system_config_edit>
+
+    <adminhtml_newsletterpopup_report_index>
+        <reference name="head">
+            <action method="addCss"><name>newsletterpopup/style.css</name></action>
+            <action method="addItem"><type>skin_js</type><name>newsletterpopup/jquery-2.1.1.min.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>newsletterpopup/chart/Chart.Core.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>newsletterpopup/chart/Chart.Line.js</name></action>
+            <action method="addItem"><type>skin_js</type><name>newsletterpopup/report.js</name></action>
+        </reference>
+
+        <reference name="content">
+            <block type="newsletterpopup/adminhtml_newsletterpopup_report" name="report" >
+                <block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher" template="store/switcher.phtml">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+
+                <block type="newsletterpopup/adminhtml_newsletterpopup_report_tabs" name="tabs">
+                    <block type="newsletterpopup/adminhtml_newsletterpopup_report_tabs_container" name="report_subscriptions_container">
+                        <action method="setTabLabel"><label>Subscriptions Overview</label></action>
+                        <block type="newsletterpopup/adminhtml_newsletterpopup_report_tabs_subscription" name="report_tabs_subscription"/>
+                    </block>
+
+                    <block type="newsletterpopup/adminhtml_newsletterpopup_report_tabs_container" name="report_coupon_container">
+                        <action method="setTabLabel"><label>Discount Coupon Overview</label></action>
+                        <block type="newsletterpopup/adminhtml_newsletterpopup_report_tabs_coupon" name="report_tabs_coupon"/>
+                    </block>
+
+                    <action method="addTab"><name>report_subscription</name><block>report_subscriptions_container</block></action>
+                    <action method="addTab"><name>report_coupon</name><block>report_coupon_container</block></action>
+                </block>
+            </block>
+        </reference>
+    </adminhtml_newsletterpopup_report_index>
+</layout>

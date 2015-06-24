@@ -1,0 +1,267 @@
+/*!
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+
+
+/* bof Product buttons common styles */
+
+.apptrian-socialintegrator-product-social-buttons-horizontal-layout, 
+.apptrian-socialintegrator-product-social-buttons-vertical-layout {
+    clear: both;
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+    border: 0 none;
+    background: none;
+    display: block;
+}
+.apptrian-socialintegrator-product-social-buttons-horizontal-layout + p, 
+.apptrian-socialintegrator-product-social-buttons-vertical-layout + p {
+    clear: both;
+}
+
+/* eof Product buttons common styles */
+
+
+/* bof Product buttons */
+
+/* Horizontal */
+.apptrian-socialintegrator-product-social-buttons-horizontal-layout {
+    text-align: left; /* use this if you want to align buttons to the left, right, or center */
+}
+.apptrian-socialintegrator-product-social-buttons-horizontal-layout li {
+    display: inline-block;
+    margin: 0 2px;
+    vertical-align: top; /* facebook button fix for button going under but it is useful for other buttons too */
+}
+.apptrian-socialintegrator-product-social-buttons-horizontal-layout-facebook {
+    padding-bottom: 5px; /* facebook fix for the bottom, other buttons have 5px on the bottom by default */
+}
+
+/* Vertical */
+.apptrian-socialintegrator-product-social-buttons-vertical-layout {
+    text-align: left; /* use this if you want to align buttons to the left, right, or center */
+}
+.apptrian-socialintegrator-product-social-buttons-vertical-layout li {
+    display: block;
+    margin: 1px 0;
+    vertical-align: top; /* facebook button fix for button going under but it is useful for other buttons too */
+}
+.apptrian-socialintegrator-product-social-buttons-vertical-layout-facebook {
+    padding-bottom: 5px; /* facebook fix for the bottom, other buttons have 5px on the bottom by default */
+}
+
+/* eof Product buttons */
+
+
+/* bof Category buttons common styles */
+
+.apptrian-socialintegrator-category-social-buttons-horizontal-layout, 
+.apptrian-socialintegrator-category-social-buttons-vertical-layout {
+    clear: both;
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+    border: 0 none;
+    background: none;
+    display: block;
+}
+
+/* eof Category buttons common styles */
+
+
+/* bof Category buttons */
+
+/* Horizontal */
+.apptrian-socialintegrator-category-social-buttons-horizontal-layout {
+    text-align: center; /* use this if you want to align buttons to the left, right, or center */
+}
+.apptrian-socialintegrator-category-social-buttons-horizontal-layout li {
+    display: inline-block;
+    margin: 0 2px;
+    vertical-align: bottom; /* facebook button fix for button going under but it is useful for other buttons too, Especially for tall buttons with counter on top */
+}
+.apptrian-socialintegrator-category-social-buttons-horizontal-layout-facebook {
+    padding-bottom: 5px; /* facebook fix for the bottom, other buttons have 5px on the bottom by default */
+}
+
+/* Vertical */
+.apptrian-socialintegrator-category-social-buttons-vertical-layout {
+    text-align: left; /* use this if you want to align buttons to the left, right, or center */
+}
+.apptrian-socialintegrator-category-social-buttons-vertical-layout li {
+    display: block;
+    margin: 1px 0;
+    vertical-align: top; /* facebook button fix for button going under but it is useful for other buttons too */
+}
+.apptrian-socialintegrator-category-social-buttons-vertical-layout-facebook {
+    padding-bottom: 5px; /* facebook fix for the bottom, other buttons have 5px on the bottom by default */
+}
+
+/* eof Category buttons */
+
+
+/* bof CMS buttons common styles */
+
+.apptrian-socialintegrator-cms-social-buttons-horizontal-layout, 
+.apptrian-socialintegrator-cms-social-buttons-vertical-layout {
+    clear: both;
+    margin: 10px 0;
+    padding: 0;
+    list-style-type: none;
+    border: 0 none;
+    background: none;
+    display: block;
+}
+
+/* eof CMS buttons common styles */
+
+
+/* bof CMS buttons */
+
+/* Horizontal */
+.apptrian-socialintegrator-cms-social-buttons-horizontal-layout {
+    text-align: center; /* use this if you want to align buttons to the left, right, or center */
+}
+.apptrian-socialintegrator-cms-social-buttons-horizontal-layout li {
+    display: inline-block;
+    margin: 0 2px;
+    vertical-align: top; /* facebook button fix for button going under but it is useful for other buttons too */
+}
+.apptrian-socialintegrator-cms-social-buttons-horizontal-layout-facebook {
+    padding-bottom: 5px; /* facebook fix for the bottom, other buttons have 5px on the bottom by default */
+}
+
+/* Vertical */
+.apptrian-socialintegrator-cms-social-buttons-vertical-layout {
+    text-align: left; /* use this if you want to align buttons to the left, right, or center */
+}
+.apptrian-socialintegrator-cms-social-buttons-vertical-layout li {
+    display: block;
+    margin: 1px 0;
+    vertical-align: top; /* facebook button fix for button going under but it is useful for other buttons too */
+}
+.apptrian-socialintegrator-cms-social-buttons-vertical-layout-facebook {
+    padding-bottom: 5px; /* facebook fix for the bottom, other buttons have 5px on the bottom by default */
+}
+
+/* eof CMS buttons */
+
+
+/* bof Icons common styles */
+
+.apptrian-socialintegrator-primary-social-icons-horizontal-layout, 
+.apptrian-socialintegrator-primary-social-icons-vertical-layout, 
+.apptrian-socialintegrator-secondary-social-icons-horizontal-layout, 
+.apptrian-socialintegrator-secondary-social-icons-vertical-layout {
+    clear: both;
+    overflow: auto;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    border: 0 none;
+    background: none;
+    display: block;
+}
+.apptrian-socialintegrator-primary-social-icons-horizontal-layout li, 
+.apptrian-socialintegrator-primary-social-icons-vertical-layout li, 
+.apptrian-socialintegrator-secondary-social-icons-horizontal-layout li, 
+.apptrian-socialintegrator-secondary-social-icons-vertical-layout li {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+    background: none;
+    
+}
+.apptrian-socialintegrator-primary-social-icons-horizontal-layout a, 
+.apptrian-socialintegrator-primary-social-icons-vertical-layout a, 
+.apptrian-socialintegrator-secondary-social-icons-horizontal-layout a, 
+.apptrian-socialintegrator-secondary-social-icons-vertical-layout a {
+	display: inline-block;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+.apptrian-socialintegrator-primary-social-icons-horizontal-layout a:hover, 
+.apptrian-socialintegrator-primary-social-icons-vertical-layout a:hover, 
+.apptrian-socialintegrator-secondary-social-icons-horizontal-layout a:hover, 
+.apptrian-socialintegrator-secondary-social-icons-vertical-layout a:hover {
+    text-decoration: none;
+}
+.apptrian-socialintegrator-primary-social-icons-horizontal-layout img, 
+.apptrian-socialintegrator-primary-social-icons-vertical-layout img, 
+.apptrian-socialintegrator-secondary-social-icons-horizontal-layout img, 
+.apptrian-socialintegrator-secondary-social-icons-vertical-layout img {
+    margin: 0;
+    padding: 0;
+    border: 0 none;
+}
+
+/* eof Icons common styles */
+
+/* bof Primary Social Icons */
+
+/* Horizontal */
+.apptrian-socialintegrator-primary-social-icons-horizontal-layout {
+    text-align: right; /* use this if you want to align icons to the left, right, or center */
+}
+.apptrian-socialintegrator-primary-social-icons-horizontal-layout li {
+    display: inline-block;
+    margin: 3px 2px;
+}
+
+/* Vertical */
+.apptrian-socialintegrator-primary-social-icons-vertical-layout {
+    text-align: center; /* use this if you want to align icons to the left, right, or center */
+}
+.apptrian-socialintegrator-primary-social-icons-vertical-layout li {
+	display: block;
+    margin: 5px 0;
+}
+
+/* eof Primary Social Icons */
+
+
+/* bof Secondary Social Icons */
+
+/* Horizontal */
+.apptrian-socialintegrator-secondary-social-icons-horizontal-layout {
+	text-align: center; /* use this if you want to align icons to the left, right, or center */
+}
+.apptrian-socialintegrator-secondary-social-icons-horizontal-layout li {
+    display: inline-block;
+    margin: 3px 2px;
+}
+
+/* Vertical */
+.apptrian-socialintegrator-secondary-social-icons-vertical-layout {
+    text-align: center; /* use this if you want to align icons to the left, right, or center */
+}
+.apptrian-socialintegrator-secondary-social-icons-vertical-layout li {
+	display: block;
+    margin: 5px 0;
+}
+
+/* eof Secondary Social Icons */
+
+
+/* bof AddThis buttons */
+
+.apptrian-socialintegrator-addthis-product-buttons-container, 
+.apptrian-socialintegrator-addthis-category-buttons-container, 
+.apptrian-socialintegrator-addthis-cms-buttons-container, 
+.apptrian-socialintegrator-addthis-primary-icons-container, 
+.apptrian-socialintegrator-addthis-secondary-icons-container {
+	clear: both;
+}
+
+.apptrian-socialintegrator-addthis-custom-buttons li.apptrian-socialintegrator-product-social-buttons-horizontal-layout-facebook {
+	padding-bottom: 0; /* this is unfix for custom facebook button */
+}
+
+/* bof AddThis buttons */
+

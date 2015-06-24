@@ -1,0 +1,61 @@
+<?php
+
+?>
+
+<script type="text/javascript">
+    //<![CDATA[
+    function syncnow() {
+        doSync();
+    }
+
+    function doSync() {
+        new Ajax.Request('<?php echo $this->getCatalogInfo() ?>', {
+            method: 'get',
+            onSuccess: function(transport) {
+                if (transport.responseText) {
+                    var data = eval('(' + transport.responseText + ')');
+                    if (data.success) {
+                        syncCatalog(data.pages);
+                    } else {
+                        alert(data.message);
+                    }
+                }
+            }
+        });
+    }
+
+    function syncCatalog(page) {
+        if (page == 0) {
+            updateIndexedDocumentCount();
+            return;
+        }
+        new Ajax.Request('<?php echo $this->getAjaxSyncNowUrl() ?>page/' + page + '/', {
+            method: 'get',
+            onSuccess: function(transport) {
+                if (transport.responseText) {
+                    updateIndexedDocumentCount();
+                }
+            },
+            onComplete: function(response) {
+                syncCatalog(page - 1);
+            }
+        });
+    }
+
+    function updateIndexedDocumentCount() {
+        new Ajax.Request('<?php echo $this->getIndexedDocCountUrl() ?>', {
+            method: 'get',
+            onSuccess: function(transport) {
+                if (transport.responseText) {
+                    if (transport.responseText != 'ERROR')  {
+                        var data = transport.responseText;
+                        $('indexedDocsCount').update(data);
+                    }
+                }
+            }
+        });
+    }
+    //]]>
+</script>
+
+<?php echo $this->getButtonHtml() ?>

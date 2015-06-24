@@ -1,0 +1,89 @@
+<?php
+/**
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+
+    if (Mage::getStoreConfig('apptrian_socialintegrator/general/include_platformjs')): ?>
+    
+    <!-- Google +1 platform.js -->
+    <script type="text/javascript">
+        <?php
+            $localeCode = Mage::app()->getLocale()->getLocaleCode();
+            if ($localeCode != 'en_US') {
+                // Google locale uses '-' instead of '_'
+                $googleLocaleString = str_replace('_', '-', $localeCode);
+                echo "window.___gcfg = {lang: '" . $googleLocaleString . "'};";  
+            }
+        ?>
+        
+        (function() {
+            var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+            po.src = 'https://apis.google.com/js/platform.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+        })();
+    </script>
+    
+<?php endif; ?>
+
+
+<?php if (Mage::getStoreConfig('apptrian_socialintegrator/general/include_pinitjs')): ?>
+
+    <!-- Pinterest pinit.js -->
+    <script type="text/javascript" async defer<?php echo Mage::helper('apptrian_socialintegrator')->getPinterestAttributes('hover'); ?>src="//assets.pinterest.com/js/pinit.js"></script>
+    
+<?php endif; ?>
+
+
+<?php if (Mage::getStoreConfig('apptrian_socialintegrator/general/include_widgetsjs')): ?>
+    
+    <!-- Twitter widgets.js -->
+    <script>window.twttr = (function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0],
+	    t = window.twttr || {};
+	  if (d.getElementById(id)) return t;
+	  js = d.createElement(s);
+	  js.id = id;
+	  js.src = "https://platform.twitter.com/widgets.js";
+	  fjs.parentNode.insertBefore(js, fjs);
+	 
+	  t._e = [];
+	  t.ready = function(f) {
+	    t._e.push(f);
+	  };
+	 
+	  return t;
+	}(document, "script", "twitter-wjs"));</script>
+    
+<?php endif; ?>
+
+<?php
+	if (Mage::getStoreConfig('apptrian_socialintegrator/general/addthis_sidebar_enabled') == 1
+        || Mage::getStoreConfig('apptrian_socialintegrator/product_buttons/addthis_enabled') == 1 
+        || Mage::getStoreConfig('apptrian_socialintegrator/category_buttons/addthis_enabled') == 1 
+        || Mage::getStoreConfig('apptrian_socialintegrator/cms_buttons/addthis_enabled') == 1 
+        || Mage::getStoreConfig('apptrian_socialintegrator/primary_icons/addthis_enabled') == 1 
+		|| Mage::getStoreConfig('apptrian_socialintegrator/secondary_icons/addthis_enabled') == 1): ?>
+
+	<?php 
+	
+		$addThisId = Mage::getStoreConfig('apptrian_socialintegrator/general/addthis_id');
+	
+		if ($addThisId != ''): ?>
+			
+			<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=<?php echo $addThisId; ?>" async="async"></script>
+			
+		<?php else: ?>
+			
+			<script type="text/javascript">
+				var addthisScript = document.createElement('script');
+				addthisScript.setAttribute('src', 'http://s7.addthis.com/js/250/addthis_widget.js#domready=1')
+				document.body.appendChild(addthisScript)
+			</script>
+			
+		<?php endif; ?>
+
+<?php endif; ?>

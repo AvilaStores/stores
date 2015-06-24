@@ -1,0 +1,34 @@
+<?php
+/**
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+
+    $localeCode  = Mage::app()->getLocale()->getLocaleCode();
+    $buttonSet = $this->getData('buttonSet');
+    
+    $dataCount  = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/twitter_data_count');
+    $dataSize   = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/twitter_data_size');
+    
+    $attribs = '';
+    
+    if ($dataCount != 'horizontal') {
+    	$attribs .= ' data-count="' . $dataCount . '"';
+    }
+    if ($dataSize != 'medium') {
+    	$attribs .= ' data-size="' . $dataSize . '"';
+    }
+    if ($localeCode != 'en_US') {
+    	// Twitter uses short locale codes (example: "en" instead of "en_US")
+    	$la = explode('_', $localeCode);
+    	$attribs .= ' data-lang="' . $la[0] . '"';
+    }
+    
+?>
+<!-- Twitter Button -->
+<a href="https://twitter.com/share" class="twitter-share-button"<?php echo $attribs; ?>>
+    <?php echo $this->__('Tweet'); ?>
+</a>

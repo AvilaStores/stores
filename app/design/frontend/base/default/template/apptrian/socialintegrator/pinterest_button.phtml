@@ -1,0 +1,108 @@
+<?php
+/**
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+
+    $buttonSet = $this->getData('buttonSet');
+    
+    // Product url and full image url
+    $url = urlencode(Mage::helper('core/url')->getCurrentUrl());
+    
+    // Get page type
+    $pageType = Mage::helper('apptrian_socialintegrator')->getPageType();
+    
+    if ($pageType == 'product') {
+    	
+    	$product     = Mage::registry('current_product');
+    	$description = urlencode($product->getMetaDescription());
+    	if ($description == '') {
+    		$description = urlencode($product->getName());
+    	}
+    	$imageUrl    = urlencode($this->helper('catalog/image')->init($product, 'image')->__toString());
+    	
+    } elseif ($pageType == 'category') {
+    	
+    	$category    = Mage::registry('current_category');
+    	$description = urlencode($category->getMetaDescription());
+    	if ($description == '') {
+    		$description = urlencode($category->getName());
+    	}
+    	
+    	$imageUrl = urlencode(Mage::helper('apptrian_socialintegrator')->getCategoryImageUrl($category, 'pinterest_button', true));
+    	
+    } else {
+    	
+    	$description = urlencode(Mage::app()->getLayout()->getBlock('head')->getDescription());
+    	// if description is not present use name for this field
+    	if ($description == '') {
+    		$description = urlencode(Mage::getSingleton('cms/page')->getTitle());
+    	}
+    	// This will return placeholder image
+    	$imageUrl = urlencode(Mage::getModel('catalog/product')->getSmallImageUrl(600,600));
+    	
+    }
+    
+    $attribs = Mage::helper('apptrian_socialintegrator')->getPinterestAttributes('buttonPin', $buttonSet);
+    
+?>
+<!-- Pinterest Button -->
+<a href="//pinterest.com/pin/create/button/?url=<?php echo $url; ?>&amp;media=<?php echo $imageUrl; ?>&amp;description=<?php echo $description; ?>"<?php echo $attribs; ?>>
+    <img src="//assets.pinterest.com/images/pidgets/pin_it_button.png" alt="<?php echo $this->__('Pinterest Pin it button'); ?>" />
+</a>
+
+<?php
+
+	if (strpos($attribs, 'data-pin-config="above"') !== false) {
+		$count = 'above';
+	} elseif (strpos($attribs, 'data-pin-config="beside"') !== false) {
+		$count = 'beside';
+	} else {
+		$count = null;
+	}
+	
+if ($count !== null): ?>
+<script type="text/javascript">
+//<![CDATA[
+window.addEventListener('load', function (){
+	
+	var className = '<?php echo 'apptrian-socialintegrator-' . Mage::getStoreConfig('apptrian_socialintegrator/'. $buttonSet . '/layout') . '-pinterest'; ?>';
+	var position  = '<?php echo $count; ?>';
+
+	var liItems = document.getElementsByClassName(className);
+	
+	if (liItems.length > 0) {
+		
+		var li         = liItems[0];
+		var aItems     = li.getElementsByTagName('a');
+		var a          = aItems[0];
+		var spanItems  = a.getElementsByTagName('span');
+		var span       = spanItems[0];
+		
+		if (position == 'above') {
+			var spanHeight = span.offsetHeight;
+			// If counter is not turned off
+			if (spanHeight > 0) {
+				var newTopPadding   = spanHeight + 1;
+				li.style.paddingTop = newTopPadding + 'px';
+			}
+		}
+
+		if (position == 'beside') {
+			var spanWidth = span.offsetWidth;
+			// If counter is not turned off
+			if (spanWidth > 0) {
+				var newRightPadding   = spanWidth + 3;
+				li.style.paddingRight = newRightPadding + 'px';
+			}
+		}
+		
+	}
+	
+});
+//]]>
+</script>
+<?php endif; ?>

@@ -1,0 +1,56 @@
+<?php
+/**
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+
+    // This is returning name of the block from the layout and than strips left part
+    // to get 'primary_icons' or 'secondary_icons' string
+    $iconSet = str_replace('apptrian_socialintegrator_', '', $this->getNameInLayout());
+	
+    // Get icons array from the helper.
+	$icons = Mage::helper('apptrian_socialintegrator')->getIcons($iconSet);
+	
+	$cssClass = 'apptrian-socialintegrator-' . Mage::getStoreConfig('apptrian_socialintegrator/'. $iconSet . '/layout');
+	$height   = Mage::getStoreConfig('apptrian_socialintegrator/'. $iconSet . '/height');
+	$width    = Mage::getStoreConfig('apptrian_socialintegrator/'. $iconSet . '/width');
+	
+	$dAttribs = '';
+	
+	if ($height) {
+        $dAttribs .= 'height="' . $height . '" ';
+	}
+
+	if ($width) {
+		$dAttribs .= 'width="' . $width . '" ';
+	}
+
+?>
+
+<?php if (Mage::getStoreConfig('apptrian_socialintegrator/'. $iconSet . '/addthis_enabled')): ?>
+
+<div class="apptrian-socialintegrator-addthis-<?php echo str_replace('_', '-', $iconSet); ?>-container">
+    <div class="<?php echo Mage::getStoreConfig('apptrian_socialintegrator/'. $iconSet . '/addthis_class'); ?>"></div>
+</div>
+
+<?php else: ?>
+
+<ul class="<?php echo $cssClass; ?>">
+    <?php foreach ($icons as $icon): ?>
+    <li>
+        <?php
+           $attribs  = 'src="' . $this->getSkinUrl('images/apptrian/socialintegrator/' . $icon['file']) . '" ';
+           $attribs .= 'alt="' . $icon['alt'] . '" ';
+           $attribs .= $dAttribs;
+        ?>
+        <a href="<?php echo $icon['url']; ?>">
+            <img <?php echo $attribs; ?>/>
+        </a>
+    </li>
+    <?php endforeach; ?>
+</ul>
+
+<?php endif; ?>

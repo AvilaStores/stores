@@ -1,0 +1,32 @@
+<?php
+$active = Mage::helper('measuredsearch_instantsearch')->isMeasuredSearchServiceEnabled();
+if($active)
+{ $_product = Mage::getModel('core/session')->getProductToShoppingCart();
+  if ($_product && $_product->getId()):
+  $key    = Mage::helper('measuredsearch_instantsearch')->getDeveloperKey();
+  $session = Mage::getSingleton("core/session")->getSessionId();
+  $user_id = 0;
+  if(Mage::getSingleton('customer/session')->isLoggedIn()) 
+  {
+	 $user_id = Mage::getSingleton('customer/session')->getCustomer()->getId();
+  }
+ 
+?>
+ 
+    <script type="text/javascript">  
+	var _msq = _msq || [];
+        _msq.push(['addToCart', { 
+			   key: "<?php echo $key?>", 
+			   user: "<?php echo $user_id?>", 
+			   session: "<?php echo $session?>", 
+			   sku: "<?php echo $_product->getSku()?>",
+			   id: <?php echo $_product->getId()?>, 
+			   name: "<?php echo $_product->getName()?>", 
+			   category: "<?php echo $_product->getCategoryName()?>", 
+			   price: <?php echo $_product->getPrice()?>,
+			   quantity: <?php echo $_product->getQty()?>
+			   }]);
+    </script>
+    <?php Mage::getModel('core/session')->unsProductToShoppingCart(); ?>
+<?php endif; ?>
+<?php } ?>

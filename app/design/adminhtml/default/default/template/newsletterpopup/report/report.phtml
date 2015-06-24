@@ -1,0 +1,56 @@
+<?php $helper = Mage::helper('newsletterpopup/adminhtml');?>
+<div id="report-head">
+    <div class="content-header">
+        <table cellspacing="0">
+            <tr>
+            <td><h3 class="head-dashboard"><?php echo $this->__('Newsletter Popup Pro Reports') ?></h3></td>
+                <td class="es-report-date-select">
+                    <input class="es-date-input input-text " id="es_report_date_from"  name="es_report_from" value="<?php echo $helper->getDateFrom(true);?>"><img src="<?php echo $this->getSkinUrl();?>images/grid-cal.gif" alt="" class="v-middle es-report-date-picker" id="es_report_from_trig" title="Select Date" /><span class="es-report-date-sep">-</span>
+                    <input class="es-date-input input-text " id="es_report_date_to" name="es_report_to" value="<?php echo $helper->getDateTo(true);?>"><img src="<?php echo $this->getSkinUrl();?>images/grid-cal.gif" alt="" class="v-middle es-report-date-picker" id="es_report_to_trig" title="Select Date" />
+                    <select class="es-date-select " id="es_report_date_period" name="es_report_period">
+
+                        <option value=""><?php echo $this->__('Custom');?></option>
+                        <?php
+                        $periods = $this->getPeriods();
+                        $currentPeriod = $this->getCurrentPeriod();
+                        foreach ($periods as $period) : ?>
+                            <?php
+                            $value =  $this->getPeriod($period);
+                            ?>
+                            <option<?php echo $value==$currentPeriod?' selected="selected"':'';?> value="<?php echo $value;?>"><?php echo $this->__(ucfirst($period));?></option>
+                        <?php endforeach;?>
+                    </select>
+                    <span class="filter-actions es-report-action"> <button class="scalable save es-report-reload" type="submit" onclick="esReport.reloadCurrentReport();" ><?php echo $this->__('Preview Report');?></button></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+
+<div class="es-report-container">
+    <?php echo $this->getChildHtml('store_switcher'); ?>
+
+    <div class="columns">
+        <div class="side-col">
+            <?php echo $this->getChildHtml('tabs'); ?>
+
+        </div>
+        <div class="main-col" id="content">
+            <div>
+                <div id="es_report_content"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<?php $format = Mage::app()->getLocale()->getDateStrFormat(Mage_Core_Model_Locale::FORMAT_TYPE_SHORT);?>
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        esReportDate.init({
+            dateFormat: '<?php echo $format;?>'
+        });
+        esReport.init();
+    });
+</script>

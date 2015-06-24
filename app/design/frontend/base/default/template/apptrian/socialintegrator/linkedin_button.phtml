@@ -1,0 +1,66 @@
+<?php
+/**
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+	
+    $buttonSet = $this->getData('buttonSet');
+    
+    $dataCounter  = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/linkedin_data_counter');
+    $dataShowZero = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/linkedin_data_showzero');
+    
+    $attribs = '';
+    
+    if ($dataCounter != 'disabled') {
+    	$attribs .= ' data-counter="' . $dataCounter . '"';
+    }
+    if ($dataShowZero != '') {
+    	$attribs .= ' data-showzero="' . $dataShowZero . '"';
+    }
+    
+?>
+<!-- Linkedin Button -->
+<script type="IN/Share"<?php echo $attribs; ?>></script>
+
+<?php if ($dataCounter == 'right'): ?>
+<script type="text/javascript">
+//<![CDATA[
+window.addEventListener('load', function (){
+
+	var className = '<?php echo 'apptrian-socialintegrator-' . Mage::getStoreConfig('apptrian_socialintegrator/'. $buttonSet . '/layout') . '-linkedin'; ?>';
+	var position  = '<?php echo $dataCounter; ?>';
+
+	if (position == 'right') {
+
+		var liItems = document.getElementsByClassName(className);
+
+		if (liItems.length > 0) {
+
+			var spanItems = liItems[0].getElementsByClassName('IN-right');
+
+			for (var i = 0; i < spanItems.length; i++) {
+				
+				var id    = spanItems[i].getAttribute('id');
+				var regex = /container|inner|content/i;
+
+				if (id.match(regex) === null) {
+					
+					spanItems[i].setAttribute('style','margin-right: 0px ! important;');
+
+					break;
+					
+				}
+				
+			}
+			
+		}
+		
+	}
+	
+});
+//]]>
+</script>
+<?php endif; ?>

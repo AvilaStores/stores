@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <measuredsearch_tab translate="label">
+            <label>MeasuredSearch</label>
+            <sort_order>990</sort_order>
+        </measuredsearch_tab>
+    </tabs>
+    <sections>
+        <instantsearch_section translate="label">
+            <label>Settings</label>
+            <tab>measuredsearch_tab</tab>
+            <sort_order>200</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+            <groups>
+                <configuration_group translate="label">
+                    <label>Settings</label>
+                    <sort_order>10</sort_order>
+                    <expanded>false</expanded>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+
+                    <fields>
+                        <collection_field translate="label comment">
+                            <label>Collection-slug</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Collection slug to store all data.</comment>
+                            <validate>required-entry</validate>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </collection_field>
+                        <developer_key_field translate="label comment">
+                            <label>Developer Key</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Developer key provided by MeasuredSearch.</comment>
+                            <validate>required-entry</validate>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </developer_key_field>
+                        <secret_key_field translate="label comment">
+                            <label>Secret Key</label>
+                            <frontend_type>text</frontend_type>
+                            <comment>Secret key provided by MeasuredSearch.</comment>
+                            <validate>required-entry</validate>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </secret_key_field>
+                        <measuredsearch_service_field translate="label">
+                            <label>Measured Search Service</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </measuredsearch_service_field>
+                    </fields>
+                </configuration_group>
+            </groups>
+        </instantsearch_section>
+        <instantsearch_sync_section translate="label">
+            <label>Sync</label>
+            <tab>measuredsearch_tab</tab>
+            <sort_order>250</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+
+            <groups>
+                <sync_group translate="label">
+                    <label>Sync</label>
+                    <sort_order>20</sort_order>
+                    <expanded>false</expanded>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+
+                    <fields>
+                        <indexed_doc_count_label translate="label">
+                            <label>Number of Indexed Documents</label>
+                            <frontend_type>label</frontend_type>
+                            <frontend_model>measuredsearch_instantsearch/adminhtml_system_config_form_status</frontend_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </indexed_doc_count_label>
+                        <sync_now_button translate="label">
+                            <label></label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>measuredsearch_instantsearch/adminhtml_system_config_form_button</frontend_model>
+                            <comment>Loading your products with Measured Search ensures that your search engine has indexed all products you have added. It shouldn't be necessary to synchronize regularly (the update process is automated after your initial setup), but you may use this feature any time you suspect search index is out of date.</comment>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sync_now_button>
+                    </fields>
+                </sync_group>
+            </groups>
+        </instantsearch_sync_section>
+    </sections>
+</config>

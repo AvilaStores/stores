@@ -1,0 +1,67 @@
+<?php
+/**
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+
+	$data = Mage::helper('apptrian_socialintegrator')->getMetaTagsData();
+
+?>
+<?php if ($data !== null): ?>
+
+<?php if (Mage::getStoreConfig('apptrian_socialintegrator/pinterest_rich_pins/enabled') == 0): ?>
+<meta name="pinterest-rich-pin" content="false" />
+<?php endif; ?>
+
+<?php
+	$og      = $data['og'];
+	$schema  = $data['schema'];
+	$twitter = $data['twitter'];
+?>
+<?php if ($og !== null): ?>
+<?php foreach ($og as $k => $v): ?>
+<?php if (is_array($v) && $k == 'og:imageArray'): ?>
+<?php foreach ($v as $url): ?>
+<meta property="og:image" content="<?php echo $url; ?>" />
+<?php endforeach; ?>
+<?php else: ?>
+<meta property="<?php echo $k; ?>" content="<?php echo $v; ?>" />
+<?php endif; ?>
+<?php endforeach; ?>
+<?php endif; ?>
+
+<?php if (Mage::getStoreConfig('apptrian_socialintegrator/schema_org/enabled')): ?>
+<?php
+	$author    = Mage::getStoreConfig('apptrian_socialintegrator/schema_org/author_url');
+	$publisher = Mage::getStoreConfig('apptrian_socialintegrator/schema_org/publisher_url');
+
+	if ($author != ''): ?>
+<link rel="author" href="<?php echo $author; ?>"/>
+<?php endif; ?>
+<?php if ($publisher != ''): ?>
+<link rel="publisher" href="<?php echo $publisher; ?>"/>
+<?php endif; ?>
+<?php endif; ?>
+
+<?php if ($schema !== null): ?>
+<?php foreach ($schema as $k => $v): ?>
+<?php if (is_array($v) && $k == 'imageArray'): ?>
+<?php foreach ($v as $url): ?>
+<meta itemprop="image" content="<?php echo $url; ?>" />
+<?php endforeach; ?>
+<?php else: ?>
+<meta itemprop="<?php echo $k; ?>" content="<?php echo $v; ?>" />
+<?php endif; ?>
+<?php endforeach; ?>
+<?php endif; ?>
+
+<?php if ($twitter !== null): ?>
+<?php foreach ($twitter as $k => $v): ?>
+<meta property="<?php echo $k; ?>" content="<?php echo $v; ?>" />
+<?php endforeach; ?>
+<?php endif; ?>
+
+<?php endif; ?>

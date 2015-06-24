@@ -1,0 +1,47 @@
+<?php
+/**
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+
+    $buttonSet = $this->getData('buttonSet');
+    
+    $dataHref            = Mage::helper('core/url')->getCurrentUrl();
+    $dataAction          = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/facebook_data_action');
+    $dataColorScheme     = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/facebook_data_colorscheme');
+    $dataKidDirectedSite = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/facebook_data_kid_directed_site');
+    $dataLayout          = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/facebook_data_layout');
+    $dataShare           = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/facebook_data_share');
+    $dataShowFaces       = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/facebook_data_show_faces');
+    $dataWidth           = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/facebook_data_width');
+        
+    $attribs = ' data-href="'. $dataHref . '"';
+        
+    if ($dataAction != '') {
+        $attribs .= ' data-action="' . $dataAction . '"';
+    }
+    if ($dataColorScheme != 'light') {
+        $attribs .= ' data-colorscheme="' . $dataColorScheme . '"';
+    }
+    if ($dataKidDirectedSite != 'false') {
+        $attribs .= ' data-kid-directed-site="' . $dataKidDirectedSite . '"';
+    }
+    if ($dataLayout != '') {
+        $attribs .= ' data-layout="' . $dataLayout . '"';
+    }
+    if ($dataShare != '') {
+        $attribs .= ' data-share="' . $dataShare . '"';
+    }
+    if ($dataShowFaces != '' && $dataKidDirectedSite == 'false') {
+        $attribs .= ' data-show-faces="' . $dataShowFaces . '"';
+    }
+    if ($dataWidth != '') {
+        $attribs .= ' data-width="' . $dataWidth . '"';
+    }
+    
+?>
+<!-- Facebook Button -->
+<div class="fb-like"<?php echo $attribs; ?>></div>

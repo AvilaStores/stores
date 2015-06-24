@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<package>
+    <name>MeasuredSearch_InstantSearch</name>
+    <version>1.5.0</version>
+    <stability>stable</stability>
+    <license uri="https://www.measuredsearch.com/terms/">Measured Search</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>Increase conversions with cloud based Site Search, Autocomplete &amp; Product Suggestions. Get detailed insights around users with Analytics Dashboard.</summary>
+    <description>Measured Search for Magento offers better search for your ecommerce store. The extension enhances the default search with search-as-you-type capability and provides you with detailed search analytics to gain insights about your customers. The extension automatically keeps your products in sync with the service and changes are posted immediately.&#xD;
+&#xD;
+Measured Search is a fully managed search service and scales as your catalog or traffic increases. By utilizing Measured Search, you are free to focus on building and adding value to your product, while we manage the complexities of search and analytics infrastructure and operations.</description>
+    <notes>Measured Search Magento Extension v1.5.0 released.&#xD;
+&#xD;
+What's New?&#xD;
+&#xD;
+- Enhancement: Start tracking add to cart actions&#xD;
+- Enhancement: Start tracking searches and click through rates on search page</notes>
+    <authors><author><name>Measured Search Inc.</name><user>sameer</user><email>sameer@measuredsearch.com</email></author></authors>
+    <date>2015-03-06</date>
+    <time>10:27:53</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="MeasuredSearch_InstantSearch.xml" hash="8ceddf76a7a2f55e2a7042da1ee5ec37"/></dir></target><target name="magecommunity"><dir name="MeasuredSearch"><dir name="InstantSearch"><dir name="Block"><dir name="Adminhtml"><dir name="System"><dir name="Config"><dir name="Form"><file name="Button.php" hash="eb3fac2dff4891d9ae40811145f9ef71"/><file name="Status.php" hash="520615b50c02f0c10f5acc419adb5978"/></dir></dir></dir></dir><file name="Autocomplete.php" hash="b0432c0a87416d4b575193fb8aa20dd0"/><dir name="Html"><file name="Head.php" hash="16d0376fd0bd4db078b04ac2ab98cd06"/></dir></dir><dir name="Helper"><file name="Data.php" hash="1f5ce05a635054092a613e14726bea87"/></dir><dir name="Model"><dir name="CatalogSearch"><dir name="Resource"><file name="Fulltext.php" hash="6f0fb8db98d5ea55eb6b27b75dfc50d2"/></dir></dir><file name="Observer.php" hash="ba8ded045e045085fc5f6133ba871a4f"/></dir><dir name="controllers"><dir name="Adminhtml"><file name="InstantsearchController.php" hash="fb469ac479d5925b2f08b30bdd54eb9d"/></dir></dir><dir name="etc"><file name="config.xml" hash="bc637c69e94a32aaf242d4122b7ab42f"/><file name="system.xml" hash="3a43c209e90055da7d5e83a1cec9f5b0"/></dir></dir></dir></target><target name="magedesign"><dir name="adminhtml"><dir name="default"><dir name="default"><dir name="template"><dir name="measuredsearch"><dir name="system"><dir name="config"><file name="button.phtml" hash="5676442c4c8a860d5b24fdb51c8471c4"/></dir></dir></dir></dir></dir></dir></dir><dir name="frontend"><dir name="base"><dir name="default"><dir name="layout"><file name="measuredsearch_external.xml" hash="231af7479d9361797bc61661d7b31f4f"/></dir><dir name="template"><dir name="measuredsearch"><file name="add_to_cart.phtml" hash="683d7b078fdf6da29ccba03448422c3f"/><file name="addscript.phtml" hash="4a2f0ee22108edcef1e7886397a0f6aa"/><file name="track_starttime.phtml" hash="e0e5f6e5e35fb4947c5a67d6bd2ee93f"/></dir></dir></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>

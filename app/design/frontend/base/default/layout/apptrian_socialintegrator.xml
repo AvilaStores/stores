@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem" ifconfig="apptrian_socialintegrator/general/enabled">
+                <type>skin_css</type>
+                <name>css/apptrian_socialintegrator.css</name>
+            </action>
+        </reference>
+        <reference name="head">
+            <block type="core/template" name="apptrian_socialintegrator_head" after="-">
+                <action method="setTemplate" ifconfig="apptrian_socialintegrator/general/enabled">
+                    <template>apptrian/socialintegrator/head.phtml</template>
+                </action>
+            </block>
+        </reference>
+        <reference name="after_body_start">
+            <block type="core/template" name="apptrian_socialintegrator_after_body_start" before="-">
+                <action method="setTemplate" ifconfig="apptrian_socialintegrator/general/enabled">
+                    <template>apptrian/socialintegrator/after_body_start.phtml</template>
+                </action>
+            </block>
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" name="apptrian_socialintegrator_before_body_end" after="-">
+                <action method="setTemplate" ifconfig="apptrian_socialintegrator/general/enabled">
+                    <template>apptrian/socialintegrator/before_body_end.phtml</template>
+                </action>
+            </block>
+        </reference>
+    </default>
+    
+    
+    <apptrian_socialintegrator_primary_icons_after_body_start_after>
+        <reference name="after_body_start">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_after_body_start_after>
+    <apptrian_socialintegrator_primary_icons_after_body_start_before>
+        <reference name="after_body_start">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_after_body_start_before>
+    <apptrian_socialintegrator_primary_icons_top_container_after>
+        <reference name="top.container">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_top_container_after>
+    <apptrian_socialintegrator_primary_icons_top_container_before>
+        <reference name="top.container">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_top_container_before>
+    <apptrian_socialintegrator_primary_icons_top_menu_after>
+        <reference name="top.menu">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_top_menu_after>
+    <apptrian_socialintegrator_primary_icons_top_menu_before>
+        <reference name="top.menu">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_top_menu_before>
+    <apptrian_socialintegrator_primary_icons_content_after>
+        <reference name="content">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_content_after>
+    <apptrian_socialintegrator_primary_icons_content_before>
+        <reference name="content">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_content_before>
+    <apptrian_socialintegrator_primary_icons_left_after>
+        <reference name="left">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_left_after>
+    <apptrian_socialintegrator_primary_icons_left_before>
+        <reference name="left">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_left_before>
+    <apptrian_socialintegrator_primary_icons_right_after>
+        <reference name="right">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_right_after>
+    <apptrian_socialintegrator_primary_icons_right_before>
+        <reference name="right">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_right_before>
+    <apptrian_socialintegrator_primary_icons_footer_after>
+        <reference name="footer">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_footer_after>
+    <apptrian_socialintegrator_primary_icons_footer_before>
+        <reference name="footer">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_footer_before>
+    <apptrian_socialintegrator_primary_icons_bottom_container_after>
+        <reference name="bottom.container">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_bottom_container_after>
+    <apptrian_socialintegrator_primary_icons_bottom_container_before>
+        <reference name="bottom.container">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_bottom_container_before>
+    <apptrian_socialintegrator_primary_icons_before_body_end_after>
+        <reference name="before_body_end">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_before_body_end_after>
+    <apptrian_socialintegrator_primary_icons_before_body_end_before>
+        <reference name="before_body_end">
+            <block type="core/template" name="apptrian_socialintegrator_primary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_primary_icons_before_body_end_before>
+    
+    
+    <apptrian_socialintegrator_secondary_icons_after_body_start_after>
+        <reference name="after_body_start">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_after_body_start_after>
+    <apptrian_socialintegrator_secondary_icons_after_body_start_before>
+        <reference name="after_body_start">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_after_body_start_before>
+    <apptrian_socialintegrator_secondary_icons_top_container_after>
+        <reference name="top.container">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_top_container_after>
+    <apptrian_socialintegrator_secondary_icons_top_container_before>
+        <reference name="top.container">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_top_container_before>
+    <apptrian_socialintegrator_secondary_icons_top_menu_after>
+        <reference name="top.menu">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_top_menu_after>
+    <apptrian_socialintegrator_secondary_icons_top_menu_before>
+        <reference name="top.menu">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_top_menu_before>
+    <apptrian_socialintegrator_secondary_icons_content_after>
+        <reference name="content">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_content_after>
+    <apptrian_socialintegrator_secondary_icons_content_before>
+        <reference name="content">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_content_before>
+    <apptrian_socialintegrator_secondary_icons_left_after>
+        <reference name="left">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_left_after>
+    <apptrian_socialintegrator_secondary_icons_left_before>
+        <reference name="left">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_left_before>
+    <apptrian_socialintegrator_secondary_icons_right_after>
+        <reference name="right">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_right_after>
+    <apptrian_socialintegrator_secondary_icons_right_before>
+        <reference name="right">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_right_before>
+    <apptrian_socialintegrator_secondary_icons_footer_after>
+        <reference name="footer">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_footer_after>
+    <apptrian_socialintegrator_secondary_icons_footer_before>
+        <reference name="footer">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_footer_before>
+    <apptrian_socialintegrator_secondary_icons_bottom_container_after>
+        <reference name="bottom.container">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_bottom_container_after>
+    <apptrian_socialintegrator_secondary_icons_bottom_container_before>
+        <reference name="bottom.container">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_bottom_container_before>
+    <apptrian_socialintegrator_secondary_icons_before_body_end_after>
+        <reference name="before_body_end">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" after="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_before_body_end_after>
+    <apptrian_socialintegrator_secondary_icons_before_body_end_before>
+        <reference name="before_body_end">
+            <block type="core/template" name="apptrian_socialintegrator_secondary_icons" template="apptrian/socialintegrator/icons.phtml" before="-"/>
+        </reference>
+    </apptrian_socialintegrator_secondary_icons_before_body_end_before>
+    
+    
+    <apptrian_socialintegrator_buttons_alert_urls_after>
+        <reference name="alert.urls">
+            <block type="core/template" name="apptrian_socialintegrator_buttons" template="apptrian/socialintegrator/buttons.phtml" after="-">
+                <block type="core/template" name="apptrian_socialintegrator_facebook_button" template="apptrian/socialintegrator/facebook_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_google_button" template="apptrian/socialintegrator/google_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_linkedin_button" template="apptrian/socialintegrator/linkedin_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_pinterest_button" template="apptrian/socialintegrator/pinterest_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_twitter_button" template="apptrian/socialintegrator/twitter_button.phtml"/>
+            </block>
+        </reference>
+    </apptrian_socialintegrator_buttons_alert_urls_after>
+    <apptrian_socialintegrator_buttons_alert_urls_before>
+        <reference name="alert.urls">
+            <block type="core/template" name="apptrian_socialintegrator_buttons" template="apptrian/socialintegrator/buttons.phtml" before="-">
+                <block type="core/template" name="apptrian_socialintegrator_facebook_button" template="apptrian/socialintegrator/facebook_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_google_button" template="apptrian/socialintegrator/google_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_linkedin_button" template="apptrian/socialintegrator/linkedin_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_pinterest_button" template="apptrian/socialintegrator/pinterest_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_twitter_button" template="apptrian/socialintegrator/twitter_button.phtml"/>
+            </block>
+        </reference>
+    </apptrian_socialintegrator_buttons_alert_urls_before>
+    <apptrian_socialintegrator_buttons_content_after>
+        <reference name="content">
+            <block type="core/template" name="apptrian_socialintegrator_buttons" template="apptrian/socialintegrator/buttons.phtml" after="-">
+                <block type="core/template" name="apptrian_socialintegrator_facebook_button" template="apptrian/socialintegrator/facebook_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_google_button" template="apptrian/socialintegrator/google_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_linkedin_button" template="apptrian/socialintegrator/linkedin_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_pinterest_button" template="apptrian/socialintegrator/pinterest_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_twitter_button" template="apptrian/socialintegrator/twitter_button.phtml"/>
+            </block>
+        </reference>
+    </apptrian_socialintegrator_buttons_content_after>
+    <apptrian_socialintegrator_buttons_content_before>
+        <reference name="content">
+            <block type="core/template" name="apptrian_socialintegrator_buttons" template="apptrian/socialintegrator/buttons.phtml" before="-">
+                <block type="core/template" name="apptrian_socialintegrator_facebook_button" template="apptrian/socialintegrator/facebook_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_google_button" template="apptrian/socialintegrator/google_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_linkedin_button" template="apptrian/socialintegrator/linkedin_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_pinterest_button" template="apptrian/socialintegrator/pinterest_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_twitter_button" template="apptrian/socialintegrator/twitter_button.phtml"/>
+            </block>
+        </reference>
+    </apptrian_socialintegrator_buttons_content_before>
+    <apptrian_socialintegrator_buttons_left_after>
+        <reference name="left">
+            <block type="core/template" name="apptrian_socialintegrator_buttons" template="apptrian/socialintegrator/buttons.phtml" after="-">
+                <block type="core/template" name="apptrian_socialintegrator_facebook_button" template="apptrian/socialintegrator/facebook_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_google_button" template="apptrian/socialintegrator/google_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_linkedin_button" template="apptrian/socialintegrator/linkedin_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_pinterest_button" template="apptrian/socialintegrator/pinterest_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_twitter_button" template="apptrian/socialintegrator/twitter_button.phtml"/>
+            </block>
+        </reference>
+    </apptrian_socialintegrator_buttons_left_after>
+    <apptrian_socialintegrator_buttons_left_before>
+        <reference name="left">
+            <block type="core/template" name="apptrian_socialintegrator_buttons" template="apptrian/socialintegrator/buttons.phtml" before="-">
+                <block type="core/template" name="apptrian_socialintegrator_facebook_button" template="apptrian/socialintegrator/facebook_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_google_button" template="apptrian/socialintegrator/google_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_linkedin_button" template="apptrian/socialintegrator/linkedin_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_pinterest_button" template="apptrian/socialintegrator/pinterest_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_twitter_button" template="apptrian/socialintegrator/twitter_button.phtml"/>
+            </block>
+        </reference>
+    </apptrian_socialintegrator_buttons_left_before>
+    <apptrian_socialintegrator_buttons_right_after>
+        <reference name="right">
+            <block type="core/template" name="apptrian_socialintegrator_buttons" template="apptrian/socialintegrator/buttons.phtml" after="-">
+                <block type="core/template" name="apptrian_socialintegrator_facebook_button" template="apptrian/socialintegrator/facebook_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_google_button" template="apptrian/socialintegrator/google_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_linkedin_button" template="apptrian/socialintegrator/linkedin_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_pinterest_button" template="apptrian/socialintegrator/pinterest_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_twitter_button" template="apptrian/socialintegrator/twitter_button.phtml"/>
+            </block>
+        </reference>
+    </apptrian_socialintegrator_buttons_right_after>
+    <apptrian_socialintegrator_buttons_right_before>
+        <reference name="right">
+            <block type="core/template" name="apptrian_socialintegrator_buttons" template="apptrian/socialintegrator/buttons.phtml" before="-">
+                <block type="core/template" name="apptrian_socialintegrator_facebook_button" template="apptrian/socialintegrator/facebook_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_google_button" template="apptrian/socialintegrator/google_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_linkedin_button" template="apptrian/socialintegrator/linkedin_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_pinterest_button" template="apptrian/socialintegrator/pinterest_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_twitter_button" template="apptrian/socialintegrator/twitter_button.phtml"/>
+            </block>
+        </reference>
+    </apptrian_socialintegrator_buttons_right_before>
+    <apptrian_socialintegrator_buttons_footer_after>
+        <reference name="footer">
+            <block type="core/template" name="apptrian_socialintegrator_buttons" template="apptrian/socialintegrator/buttons.phtml" after="-">
+                <block type="core/template" name="apptrian_socialintegrator_facebook_button" template="apptrian/socialintegrator/facebook_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_google_button" template="apptrian/socialintegrator/google_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_linkedin_button" template="apptrian/socialintegrator/linkedin_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_pinterest_button" template="apptrian/socialintegrator/pinterest_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_twitter_button" template="apptrian/socialintegrator/twitter_button.phtml"/>
+            </block>
+        </reference>
+    </apptrian_socialintegrator_buttons_footer_after>
+    <apptrian_socialintegrator_buttons_footer_before>
+        <reference name="footer">
+            <block type="core/template" name="apptrian_socialintegrator_buttons" template="apptrian/socialintegrator/buttons.phtml" before="-">
+                <block type="core/template" name="apptrian_socialintegrator_facebook_button" template="apptrian/socialintegrator/facebook_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_google_button" template="apptrian/socialintegrator/google_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_linkedin_button" template="apptrian/socialintegrator/linkedin_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_pinterest_button" template="apptrian/socialintegrator/pinterest_button.phtml"/>
+                <block type="core/template" name="apptrian_socialintegrator_twitter_button" template="apptrian/socialintegrator/twitter_button.phtml"/>
+            </block>
+        </reference>
+    </apptrian_socialintegrator_buttons_footer_before>
+    
+    
+</layout>

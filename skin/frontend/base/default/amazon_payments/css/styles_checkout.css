@@ -1,0 +1,192 @@
+/* Default Amazon Payments CSS */
+
+.col-amz {
+  width:32%;
+  display: table-cell;
+}
+
+#col-1-amz {
+  padding-right:2%;
+}
+
+#col-2-amz {
+  padding-right:2%;
+  padding-left:2%;
+  border-left:1px solid #ededed;
+  border-right:1px solid #ededed;
+}
+
+#col-3-amz {
+  padding-left:2%;
+  position:relative;
+}
+
+#checkout-amazon-payments {
+  margin-top:1em;
+  display: table;
+  width:100%;
+}
+
+#checkout-amazon-columns {
+  display: table-row;
+}
+
+#checkout-amazon-payments h2 {
+  margin-top:1em;
+}
+
+#amazon-widget-address,
+#amazon-widget-wallet {
+  max-width:100%;
+  height: 250px;
+}
+
+#shipping-method-wrapper {
+  margin-top:2em;
+  border-top:1px solid #ededed;
+}
+
+#checkout-review-submit .buttons-set {
+  border-top:0;
+}
+
+#checkout-amazon-payments .button.btn-checkout,
+#checkout-amazon-payments .button.btn-checkout:hover {
+  background: #efd57f; /* Old browsers */
+  background: -moz-linear-gradient(top,  #efd57f 0%, #e5b842 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#efd57f), color-stop(100%,#e5b842)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #efd57f 0%,#e5b842 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #efd57f 0%,#e5b842 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #efd57f 0%,#e5b842 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #efd57f 0%,#e5b842 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#efd57f', endColorstr='#e5b842',GradientType=0 ); /* IE6-9 */
+
+
+  border:1px solid #9c7d2e;
+  border-radius:3px;
+  /*border-image: linear-gradient(to bottom, rgba(207, 186, 132, 0), rgba(156, 125, 46, 0)) 1 100%;*/
+
+  text-transform:none;
+  display:block;
+  width:100%;
+  padding:5px 15px;
+
+}
+
+#checkout-amazon-payments button.btn-checkout span {
+  color:#4f3310;
+  background:none;
+  height:auto;
+  padding:0;
+}
+#checkout-amazon-payments button.btn-checkout span span {
+  padding:0;
+}
+
+/* Ajax Loader */
+#amz-review-loader {
+  position:absolute;
+  left:48%;
+  top:30%;
+  width:60px;
+  height:60px;
+  padding:5px;
+  background:#fff url(https://images-na.ssl-images-amazon.com/images/G/01/ep/loading-large.gif) center center no-repeat;
+  z-index:10;
+}
+
+
+/* Forgot an Item */
+#review-buttons-container .f-left {
+  display:none;
+}
+
+
+
+/* Popup Modal */
+body.page-popup {
+  padding:0px;
+}
+
+body.page-popup #amazon-checkout {
+  margin-top:1em;
+  padding:20px;
+}
+
+#popup-header {
+  background: #ffffff; /* Old browsers */
+  background: -moz-linear-gradient(top,  #ffffff 0%, #ebebeb 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#ebebeb)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#ebebeb 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  #ffffff 0%,#ebebeb 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  #ffffff 0%,#ebebeb 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  #ffffff 0%,#ebebeb 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ebebeb',GradientType=0 ); /* IE6-9 */
+}
+
+#popup-header #amazon-payments-logo {
+  padding-top:20px;
+  padding-bottom:20px;
+  padding-left:20px;
+  width:300px;
+}
+
+#popup-footer {
+  height:60px;
+  border-top:1px solid #ddd;
+  background:#fafafa;
+  overflow:hidden;
+}
+
+#popup-footer-links,
+#popup-footer-right {
+  margin-top:0.25em;
+}
+
+#popup-footer-links li {
+  float:left;
+  padding-left:20px;
+}
+#popup-footer-right {
+  float:right;
+  color:#888;
+  padding-right:20px;
+}
+
+textarea#sandbox { width:100%;}
+
+
+/* Responsive */
+@media all and (max-width: 880px) {
+  #checkout-amazon-columns,
+  #checkout-amazon-columns {
+    display:block;
+  }
+
+  .col-amz {
+    display:block;
+    width:auto;
+    margin-right:0;
+    padding-right:0;
+    border-right:0;
+  }
+}
+
+/*
+@media all and (max-width: 900px) {
+  #col-1-amz {
+    width:49%;
+  }
+  #col-2-amz {
+    width:50%;
+    margin-right:0;
+  }
+  #col-3-amz {
+    float:none;
+    width:auto;
+    margin-right:0;
+  }
+}
+*/
+
+

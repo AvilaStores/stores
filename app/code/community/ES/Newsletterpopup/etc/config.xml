@@ -1,0 +1,186 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <ES_Newsletterpopup>
+            <version>1.5.4</version>
+        </ES_Newsletterpopup>
+    </modules>
+
+    <frontend>
+        <routers>
+            <newsletter>
+                <args>
+                    <modules>
+                        <ES_Newsletterpopup before="Mage_Newsletter">ES_Newsletterpopup</ES_Newsletterpopup>
+                    </modules>
+                </args>
+            </newsletter>
+        </routers>
+
+        <layout>
+            <updates>
+                <newsletterpopup>
+                    <file>newsletterpopup.xml</file>
+                </newsletterpopup>
+            </updates>
+        </layout>
+
+        <translate>
+            <modules>
+                <ES_Newsletterpopup>
+                    <files>
+                        <default>ES_Newsletterpopup.csv</default>
+                    </files>
+                </ES_Newsletterpopup>
+            </modules>
+        </translate>
+    </frontend>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <ES_Newsletterpopup>
+                    <files>
+                        <default>ES_Adminhtml_Newsletterpopup.csv</default>
+                    </files>
+                </ES_Newsletterpopup>
+            </modules>
+        </translate>
+    </adminhtml>
+
+    <global>
+        <blocks>
+            <newsletterpopup>
+                <class>ES_Newsletterpopup_Block</class>
+            </newsletterpopup>
+            <adminhtml>
+                <rewrite>
+                    <newsletter_subscriber_grid>ES_Newsletterpopup_Block_Adminhtml_Newsletter_Subscriber_Grid</newsletter_subscriber_grid>
+                </rewrite>
+            </adminhtml>
+        </blocks>
+
+        <helpers>
+            <newsletterpopup>
+                <class>ES_Newsletterpopup_Helper</class>
+            </newsletterpopup>
+        </helpers>
+
+        <models>
+            <newsletterpopup>
+                <class>ES_Newsletterpopup_Model</class>
+            </newsletterpopup>
+            <core>
+                <rewrite>
+                    <email_template>ES_Newsletterpopup_Model_Core_Email_Template</email_template>
+                </rewrite>
+            </core>
+        </models>
+
+        <resources>
+            <newsletterpopup_setup>
+                <setup>
+                    <module>ES_Newsletterpopup</module>
+                    <class>ES_Newsletterpopup_Model_Resource_Setup</class>
+                </setup>
+            </newsletterpopup_setup>
+        </resources>
+
+        <events>
+            <newsletter_subscriber_save_before>
+                <observers>
+                    <newsletterpopup_newsletter_subscriber_save_before>
+                        <class>ES_Newsletterpopup_Model_Observer</class>
+                        <method>beforeSaveSubscriber</method>
+                    </newsletterpopup_newsletter_subscriber_save_before>
+                </observers>
+            </newsletter_subscriber_save_before>
+
+            <admin_system_config_changed_section_newsletterpopup>
+                <observers>
+                    <yourmodule>
+                        <type>singleton</type>
+                        <class>newsletterpopup/observer</class>
+                        <method>afterConfigSave</method>
+                    </yourmodule>
+                </observers>
+            </admin_system_config_changed_section_newsletterpopup>
+        </events>
+
+    </global>
+
+    <adminhtml>
+        <layout>
+            <updates>
+                <newsletterpopup>
+                    <file>newsletterpopup.xml</file>
+                </newsletterpopup>
+            </updates>
+        </layout>
+    </adminhtml>
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <newsletterpopup before="Mage_Adminhtml">ES_Newsletterpopup_Adminhtml</newsletterpopup>
+                    </modules>
+                </args>
+            </adminhtml>
+        </routers>
+    </admin>
+    <default>
+        <newsletterpopup>
+            <general>
+                <jquery>0</jquery>
+                <dev>0</dev>
+            </general>
+            <popup>
+                <isactive>0</isactive>
+                <layer_close>1</layer_close>
+                <showafterseconds>3</showafterseconds>
+                <cookielifetime>999</cookielifetime>
+                <cookiename>es_newsletterpopup</cookiename>
+                <theme>orange</theme>
+                <firsttitle>Get your voucher now.</firsttitle>
+                <secondtitle>5 euro gift for you!</secondtitle>
+                <message>Would you like to be one of the first to receive exclusive information about the latest collections, offers and events from this online shop? Then just subscribe to our free newsletter now and get a voucher to the value of 5 € for your next purchase in our Online-Shop.</message>
+            </popup>
+            <coupon>
+                <isactive>0</isactive>
+                <format>alphanum</format>
+                <length>8</length>
+            </coupon>
+            <button>
+                <isactive>0</isactive>
+                <text>Your free voucher is here</text>
+                <usage>1</usage>
+                <position>leftcenter</position>
+                <top>150</top>
+            </button>
+            <theme_default>
+                <firsttitle><![CDATA[Subscribe our newsletter]]></firsttitle>
+                <secondtitle><![CDATA[get &euro; 5 voucher]]></secondtitle>
+                <message><![CDATA[Would you like to be one of the first to receive exclusive information about the latest collections, offers and events from our store? Then just subscribe to our free newsletter now and get a voucher to the value of 5 € for your next purchase in our Online-Shop.]]></message>
+            </theme_default>
+            <theme_label>
+                <firsttitle><![CDATA[Subscribe our newsletter]]></firsttitle>
+                <secondtitle><![CDATA[get &euro; 5 voucher]]></secondtitle>
+                <message><![CDATA[Would you like to be one of the first to receive exclusive information about the latest collections, offers and events from this online shop? Then just subscribe to our free newsletter!]]></message>
+            </theme_label>
+            <theme_clear>
+                <firsttitle><![CDATA[Subscribe our newsletter]]></firsttitle>
+                <secondtitle><![CDATA[get &euro; 5 voucher]]></secondtitle>
+                <color1>33c95a</color1>
+                <footer_title><![CDATA[More ways to stay connected:]]></footer_title>
+            </theme_clear>
+            <theme_orange>
+                <firsttitle><![CDATA[Subscribe & get <span>$5</span> discount!]]></firsttitle>
+                <secondtitle><![CDATA[get the first offers and events from our store]]></secondtitle>
+                <footer_title><![CDATA[More ways to stay connected:]]></footer_title>
+                <color1>fa814c</color1>
+                <icon>giftcard</icon>
+            </theme_orange>
+        </newsletterpopup>
+    </default>
+</config>

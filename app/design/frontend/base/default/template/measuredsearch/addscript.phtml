@@ -1,0 +1,86 @@
+<?php
+$active = Mage::helper('measuredsearch_instantsearch')->isMeasuredSearchServiceEnabled();
+if($active)
+{  
+	$total=0;
+	$shown=0;
+	$page=0;
+	
+	$user_id = 0;
+	if(Mage::getSingleton('customer/session')->isLoggedIn()) 
+	{
+	     $user_id = Mage::getSingleton('customer/session')->getCustomer()->getId();
+	}
+		
+	$key 		= Mage::helper('measuredsearch_instantsearch')->getDeveloperKey();
+	$start_time = Mage::getSingleton('core/session')->getStartTime(); //$_SESSION['start_time'];
+	$end_time   = round(microtime(true) * 1000);
+	$latency    = $end_time-$start_time;
+	$query 		= $this->helper('catalogsearch')->getQueryText();
+	$result     = $this->getLayout()->getBlock("search.result")->getResultCount();
+	
+	$session = Mage::getSingleton("core/session")->getSessionId();
+	
+		if($result)
+		{
+			$total = $this->getLayout()->getBlock('product_list_toolbar')->getTotalNum();
+			$first = $this->getLayout()->getBlock('product_list_toolbar')->getFirstNum();
+			$last  = $this->getLayout()->getBlock('product_list_toolbar')->getLastNum();
+			$shown = ($last-$first)+1;
+			$page  = $this->getLayout()->getBlock('product_list_toolbar')->getCurrentPage();
+		}
+	
+	if(! (isset($_GET['limit']) || isset($_GET['mode']) || isset($_GET['dir']) || isset($_GET['order'])))
+	{
+		//$key 		= Mage::helper('measuredsearch')->ms_apikey();
+		echo "<div><script>var _msq = _msq || []; _msq.push(['track', {
+			key: '".$key."',
+			user: '".$user_id."',
+			session: '".$session."',
+			query: '".$query."',
+			shownHits: ".$shown.",
+			totalHits: ".$total.",
+			latency: ".$latency.",
+			pageNo: ".$page."
+			}]);</script>";
+	}
+		//echo "<script src='http://code.jquery.com/jquery-latest.js'></script>";
+		echo "<script>jQuery(document).ready(function (){ jQuery('.product-image').click(function(){
+			var listitem= jQuery(this).closest('a').closest('li.item');
+			var pos= jQuery('li.item').index(listitem)+1;
+			var title=jQuery(this).closest('a').attr('title');
+			var url=jQuery(this).closest('a').attr('href');
+			var msg= _msq.push(['trackClick', {
+					key: '".$key."',
+					query: '".$query."',
+					session: '".$session."',
+					position: pos,
+					cDocId: url,
+					cDocTitle: title,
+					pageNo: ".$page.",
+					shownHits: ".$shown.",
+					totalHits: ".$total."}]);
+		}); }); </script>";
+
+		echo "<script>jQuery(document).ready(function (){ jQuery('.product-name').click(function(){
+
+			var title=jQuery(this).find('a').attr('title');
+			var listitem= jQuery(this).closest('li');
+			var pos= jQuery('li.item').index(listitem)+1;
+			var url=jQuery(this).find('a').attr('href');
+			var msg= _msq.push(['trackClick', {
+					key: '".$key."',
+					query: '".$query."',
+					session: '".$session."',
+					position: pos,
+					cDocId: url,
+					cDocTitle: title,
+					pageNo: ".$page.",
+					shownHits: ".$shown.",
+					totalHits: ".$total."}]); 
+		}); }); </script></div>";	
+}
+?>
+<script>
+	jQuery = jQuery.noConflict(); 
+</script>

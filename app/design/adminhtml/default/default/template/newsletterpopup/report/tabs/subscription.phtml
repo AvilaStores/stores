@@ -1,0 +1,26 @@
+<table cellspacing="0" width="100%">
+    <tr>
+        <td><h3 class="head-dashboard"><?php echo $this->__('Subscriptions Overview') ?></h3></td>
+
+    </tr>
+</table>
+
+<div id="chart_container_error" class="es-report-chart-error"></div>
+<div id="chart_container" class="es-report-chart">
+</div>
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        esReport.addTab('report_subscription', {
+            storeId: '<?php echo $this->getStoreId();?>',
+            chart: [
+                {
+                    requestUrl: '<?php echo $this->getChartAjaxUrl();?>',
+                    containerId: 'chart_container',
+                    errorContainerId: 'chart_container_error'
+                }
+            ]
+        });
+    });
+    jQuery.noConflict();
+</script>

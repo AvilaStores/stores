@@ -1,0 +1,8 @@
+<input
+    name="<?php echo $this->getName();?>"
+    type="text"
+    value="<?php echo $this->getLabel()?>"
+    class="esns-additional-field esns-additional-field-<?php echo $this->getName();?>"
+    id="esns_additional_<?php echo $this->getName();?>"
+    onclick="if(this.value=='<?php echo $this->getLabel()?>') this.value=''" onblur="if(this.value=='') this.value='<?php echo $this->getLabel()?>'"
+    />

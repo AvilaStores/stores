@@ -1,0 +1,84 @@
+.es-report-container .switcher {
+    margin-bottom: 30px;
+}
+.es-report-chart-error,
+.es-report-chart {
+    border:  1px solid #d6d6d6;
+    box-sizing: border-box;
+    padding: 20px 30px;
+    text-align: center;
+    display: none;
+    height: auto;
+    overflow: hidden;
+}
+
+
+.es-report-date-select {
+    width: 519px;
+}
+
+.es-date-input {
+    width: 70px;
+    float: left;
+    margin: 0 0 0 10px;
+    display: block;
+}
+.es-report-date-picker {
+    margin: 3px 10px 0 3px;
+    display: block;
+    float: left;
+}
+
+.es-date-select {
+    padding: 1px 5px;
+    margin: 0 30px 0 10px;
+    display: block;
+    float: left;
+    width: 140px;
+}
+
+.es-report-date-sep {
+    float: left;
+    display: block;
+    padding: 1px 0 0;
+}
+
+.filter-actions.es-report-action {
+    display: block;
+    float: left;
+}
+
+.es-report-table {
+    padding: 20px 0 0;
+}
+#latest_search_terms {
+    margin: 0 0 0 10px;
+}
+
+#top_search_terms {
+    margin: 0 10px 0 0;
+}
+
+.es-report-chart canvas {
+    display: block;
+}
+.es-report-chart .legend {
+    text-align: center;
+    width: auto;
+    clear: both;
+    display: block;
+    padding: 30px 0 0 0;
+}
+
+.es-report-chart .legend .line-legend li{
+    line-height: 20px;
+    display: inline-block;
+    margin: 0 10px 0 0;
+}
+.es-report-chart .legend .line-legend span{
+    display: inline-block;
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 0 10px 0 0;
+}

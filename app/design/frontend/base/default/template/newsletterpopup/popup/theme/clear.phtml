@@ -1,0 +1,38 @@
+<?php $additionalFields = $this->getAdditionalFields(); ?>
+<div id="esns_box_layer" class="esns_theme_clear">
+    <div id="esns_box_close"></div>
+    <div class="esns_box_icon" style="background-color: <?php echo $this->getColor1();?>"></div>
+    <?php if ($this->getFirstTitle()): ?>
+        <div id="esns_box_block_1">
+            <?php echo $this->getFirstTitle() ?>
+        </div>
+    <?php endif; ?>
+    <?php if ($this->getSecondTitle()): ?>
+        <div id="esns_box_block_2">
+            <?php echo $this->getSecondTitle() ?>
+        </div>
+    <?php endif; ?>
+    <div id="esns_box_subscribe" <?php if ($additionalFields): ?>class="esns-with-additional"<?php endif;?>>
+        <div id="esns_box_subscribe_form">
+            <?php if ($additionalFields): ?>
+                <?php foreach ($additionalFields as $field): ?>
+                    <?php echo $field['html'];?>
+                <?php endforeach;?>
+            <?php endif;?>
+            <input onclick="if(this.value=='<?php echo $this->__('Email'); ?>') this.value=''" onblur="if(this.value=='') this.value='<?php echo $this->__('Email'); ?>'" id="esns_email" name="subscribe_email" value="<?php echo $this->__('Email'); ?>" type="text">
+            <a href="javascript:void(0)" id="esns_submit" ><?php echo $this->__('Subscribe'); ?></a>
+        </div>
+        <div id="esns_box_subscribe_response_error"></div>
+        <div id="esns_box_subscribe_response_success" style="color: <?php echo $this->getColor1(); ?>"></div>
+    </div>
+    <?php if ($socials = $this->getSocial()):?>
+        <div class="esns-footer" style="background-color: <?php echo $this->getColor1(); ?>">
+            <div class="esns-block-title"><?php echo $this->getFooterTitle() ?></div>
+            <ul class="esns-social">
+                <?php foreach ($socials as $social): ?>
+                    <li><a target="_blank" class="esns-<?php echo $social['name'];?>" href="<?php echo $social['link'];?>" title="<?php echo $social['title'];?>"></a></li>
+                <?php endforeach; ?>
+            </ul>
+        </div>
+    <?php endif;?>
+</div>

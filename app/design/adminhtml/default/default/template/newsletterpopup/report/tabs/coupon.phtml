@@ -1,0 +1,25 @@
+<table cellspacing="0" width="100%">
+    <tr>
+        <td><h3 class="head-dashboard"><?php echo $this->__('Discount Coupon Overview') ?></h3></td>
+    </tr>
+</table>
+
+<div id="coupon_overview_error" class="es-report-chart-error"></div>
+<div id="coupon_overview" class="es-report-chart"></div>
+
+
+<script type="text/javascript">
+    jQuery(document).ready(function(){
+        esReport.addTab('report_coupon', {
+            storeId: '<?php echo $this->getStoreId();?>',
+            chart: [
+                {
+                    requestUrl: '<?php echo $this->getChartAjaxUrl();?>',
+                    containerId: 'coupon_overview',
+                    errorContainerId: 'coupon_overview_error'
+                }
+            ]
+        });
+    });
+    jQuery.noConflict();
+</script>

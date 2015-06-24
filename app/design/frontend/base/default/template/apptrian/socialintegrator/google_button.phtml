@@ -1,0 +1,38 @@
+<?php
+/**
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+
+    $buttonSet = $this->getData('buttonSet');
+    
+    $dataSize            = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/google_data_size');
+    $dataAnnotation      = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/google_data_annotation');
+    $dataWidth           = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/google_data_width');
+    $dataAlign           = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/google_data_align');
+    $dataRecommendations = Mage::getStoreConfig('apptrian_socialintegrator/' . $buttonSet . '/google_data_recommendations');
+    
+    $attribs = '';
+    
+    if ($dataSize != 'standard') {
+    	$attribs .= ' data-size="' . $dataSize . '"';
+    }
+    if ($dataAnnotation != 'bubble') {
+    	$attribs .= ' data-annotation="' . $dataAnnotation . '"';
+    }
+    if ($dataWidth != '' && $dataAnnotation == 'inline') {
+    	$attribs .= ' data-width="' . $dataWidth . '"';
+    }
+    if ($dataAlign != 'left') {
+    	$attribs .= ' data-align="' . $dataAlign . '"';
+    }
+    if ($dataRecommendations != 'true') {
+    	$attribs .= ' data-recommendations="' . $dataRecommendations . '"';
+    }
+    
+?>
+<!-- Google +1 Button -->
+<div class="g-plusone"<?php echo $attribs; ?>></div>

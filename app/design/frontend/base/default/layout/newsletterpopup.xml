@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+	<reference name="head">		
+		<action method="addItem"><type>skin_css</type><name>css/newsletterpopup.css</name><params/></action>
+        <action method="addJs" ifconfig="newsletterpopup/general/jquery"><script>newsletterpopup/jquery-2.1.1.min.js</script></action>
+        <action method="addItem"><type>skin_js</type><name>js/newsletterpopup/newsletterpopup.js</name><params/></action>
+	</reference>
+    <block type="newsletterpopup/button" name="newsletterpopup_button" template="newsletterpopup/button.phtml" />
+    <reference name="before_body_end">
+        <action method="append" ifconfig="newsletterpopup/button/isactive"><block>newsletterpopup_button</block></action>
+        <block type="newsletterpopup/popup" name="popup" template="newsletterpopup/popup.phtml">
+            <block type="newsletterpopup/popup_theme_default" name="popup_theme_default" as="default"/>
+            <block type="newsletterpopup/popup_theme_label" name="popup_theme_label" as="label"/>
+            <block type="newsletterpopup/popup_theme_clear" name="popup_theme_clear" as="clear"/>
+            <block type="newsletterpopup/popup_theme_orange" name="popup_theme_orange" as="orange"/>
+        </block>
+    </reference>
+  </default>
+</layout> 

@@ -1,0 +1,21 @@
+<div id="esns_box_layer" class="esns_theme_label">
+    <div id="esns_box_close"></div>
+    <div id="esns_box_block_1">
+        <?php echo $this->getFirstTitle() ?>
+    </div>
+    <div id="esns_box_block_2">
+        <?php echo $this->getSecondTitle() ?>
+    </div>
+    <div id="esns_box_block_3">
+        <?php echo $this->getText() ?>
+    </div>
+
+    <div id="esns_box_subscribe">
+        <div id="esns_box_subscribe_response_error"></div>
+        <div id="esns_box_subscribe_response_success"></div>
+        <div id="esns_box_subscribe_form">
+            <div id="esns_box_subscribe_input"><input onclick="if(this.value=='<?php echo $this->__('Email'); ?>') this.value=''" onblur="if(this.value=='') this.value='<?php echo $this->__('Email'); ?>'" id="esns_email" name="subscribe_email" value="<?php echo $this->__('Email'); ?>" type="text"></div>
+            <div id="esns_box_subscribe_submit"><a href="javascript:void(0)" id="esns_submit" ><?php echo $this->__('Subscribe'); ?></a></div>
+        </div>
+    </div>
+</div>

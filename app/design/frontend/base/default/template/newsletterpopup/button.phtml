@@ -1,0 +1,12 @@
+<?php if (Mage::getModel('core/cookie')->get($this->getCookieName().'_button') != 1):?>
+<a
+    id="esnp_button"
+    class="esnp-<?php echo $this->getButtonPosition();?>"
+    <?php if ($this->getButtonPositionTop()): ?>
+    style="top: <?php echo $this->getButtonPositionTop();?>px"
+    <?php endif;?>
+    href="javascript:void(0)"
+    title="<?php echo $this->getButtonText()?>">
+        <?php echo $this->getButtonText()?>
+</a>
+<?php endif;?>

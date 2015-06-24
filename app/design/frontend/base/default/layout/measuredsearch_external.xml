@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addItem"><type>external_css</type><name>https://measuredsearch.com/static/css/jquery.measuredsearch.magento.css</name><params/></action>
+            <action method="addExternalItem">
+                <type>external_js_code</type>
+                <name>
+                <![CDATA[
+                    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+                    <script type="text/javascript" src="https://measuredsearch.com/static/js/jquery.measuredsearch.v5.min.js" ></script>
+                    <link rel="stylesheet" type="text/css" href="https://measuredsearch.com/static/css/jquery.measuredsearch.v2.css" />
+                    <script>
+                        $jv9 = jQuery.noConflict();
+                        $jv9(function($) {
+                            $(document).ready(function() {
+                                $("#search").measuredSearch({
+                                    protocol: 'https',
+                                    domain: 'api.measuredsearch.com',
+                                    collection: '<collection>',
+                                    key: '<developer_key>',
+                                    align: 'right',
+                                    suggest: true,
+                                    data: {'qf':'allwhitespace_content sku'}
+                                });
+                            });
+                        });
+                    </script>
+                ]]>
+                </name>
+            </action>
+        </reference>
+        <reference name="before_body_end">
+                <block type="core/template" name="measuredsearch_add_to_cart" as="measuredsearch_add_to_cart" template="measuredsearch/add_to_cart.phtml"></block>
+        </reference>
+    </default>
+    <catalogsearch_result_index>
+        <reference name="head">
+            <block type="core/template" name="measuredsearch_init_time" as="measuredsearch_init_time" template="measuredsearch/track_starttime.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="core/text_list" name="msearch_before_body_end" as="msearch_before_body_end" />
+        </reference>
+        <reference name="msearch_before_body_end">
+            <block type="core/template" name="measuredsearch_add_script" as="measuredsearch_add_script" template="measuredsearch/addscript.phtml">
+                <block type="catalog/product_list_toolbar" name="product_list_toolbar" >
+                    <block type="page/html_pager" name="product_list_toolbar_pager"/>
+                </block>
+            </block>
+        </reference>
+    </catalogsearch_result_index>
+</layout>

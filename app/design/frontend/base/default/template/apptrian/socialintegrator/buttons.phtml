@@ -1,0 +1,86 @@
+<?php
+/**
+ * @category   Apptrian
+ * @package    Apptrian_SocialIntegrator
+ * @author     Apptrian
+ * @copyright  Copyright (c) 2015 Apptrian (http://www.apptrian.com)
+ * @license    http://www.apptrian.com/license    Proprietary Software License (EULA)
+ */
+
+	// Get page type
+	$pageType = Mage::helper('apptrian_socialintegrator')->getPageType();
+	$buttonSet = $pageType . '_buttons';
+
+	// Get button sort order array from the helper and CSS class from config
+	$sortOrder = Mage::helper('apptrian_socialintegrator')->getButtonSortOrder($buttonSet);
+	$cssClass  = 'apptrian-socialintegrator-' . Mage::getStoreConfig('apptrian_socialintegrator/'. $buttonSet . '/layout');
+
+?>
+
+<?php if (Mage::getStoreConfig('apptrian_socialintegrator/'. $buttonSet . '/addthis_enabled')): ?>
+
+<div class="apptrian-socialintegrator-addthis-<?php echo str_replace('_', '-', $buttonSet); ?>-container">
+
+	<?php if (Mage::getStoreConfig('apptrian_socialintegrator/'. $buttonSet . '/addthis_custom')): ?>
+	
+		<div class="addthis_toolbox">
+		<ul class="<?php echo $cssClass; ?> apptrian-socialintegrator-addthis-custom-buttons">
+		<?php foreach ($sortOrder as $network): ?>
+			<?php
+				
+				$adtsClass = 'addthis_button_' . $network;
+				
+				if ($network == 'pinterest') {
+					$adtsClass .= '_share'; 
+				}
+				
+				if ($network == 'google') {
+					$adtsClass .= '_plusone_share';
+				}
+				
+				$customImageSrc = $this->getSkinUrl('images/apptrian/socialintegrator/custom-' . $network . '-button.png');
+				
+			?>
+			<li class="<?php echo $cssClass . '-' . $network; ?>">
+		    	<a class="<?php echo $adtsClass; ?>">
+		    		<img src="<?php echo $customImageSrc; ?>" alt="<?php echo $this->__('Share on') . ' ' . $network; ?>" />
+		    	</a>
+	    	</li>
+    	<?php endforeach; ?>
+    	</ul>
+		</div>
+		
+	<?php else: ?>
+		
+		<div class="<?php echo Mage::getStoreConfig('apptrian_socialintegrator/'. $buttonSet . '/addthis_class'); ?>"></div>
+		
+	<?php endif; ?>
+	
+	<?php // javascript is moved to the before_body_end.phtml ?>
+	
+</div>
+
+<?php endif; ?>
+
+
+
+<?php 
+
+$enabledButtonSet = Mage::getStoreConfig('apptrian_socialintegrator/'. $buttonSet . '/enabled');
+$enabledAddThis   = Mage::getStoreConfig('apptrian_socialintegrator/'. $buttonSet . '/addthis_enabled');
+$showBoth         = Mage::getStoreConfig('apptrian_socialintegrator/'. $buttonSet . '/addthis_show_both');
+
+if ($enabledAddThis != 1 || ($enabledAddThis == 1 && $showBoth == 1)): ?>
+
+<ul class="<?php echo $cssClass; ?>">
+    <?php foreach ($sortOrder as $network): ?>
+    <li class="<?php echo $cssClass . '-' . $network; ?>">
+        <?php
+        	$templateName = 'apptrian_socialintegrator_' . $network . '_button';
+        	echo $this->getChild($templateName)->setData('buttonSet', $buttonSet)->toHtml();
+        ?>
+    </li>
+    <?php endforeach; ?>
+</ul>
+
+<?php endif; ?>

@@ -1,0 +1,15 @@
+<?php if ($this->isActivePopUp()): ?>
+<script type="text/javascript">
+    <?php echo $this->getConfigJs(); ?>
+</script>
+
+<div id="esns_background_layer">
+    <?php if ($this->isStaticBlockActive()): ?>
+        <div id="esns_box_layer" class="esns_static_block">
+            <?php echo $this->getStaticBlockHtml(); ?>
+        </div>
+    <?php else: ?>
+        <?php echo $this->getThemeHtml();?>
+    <?php endif; ?>
+</div>
+<?php endif; ?>
