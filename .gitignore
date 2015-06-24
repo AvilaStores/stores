@@ -1,1 +1,4 @@
 .idea/workspace.xml
+var/session
+var/log
+var/cache
