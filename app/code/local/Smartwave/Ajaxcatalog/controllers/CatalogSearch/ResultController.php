@@ -2,7 +2,7 @@
 /**
  * Catalog Search Controller
  */
-require_once(Mage::getBaseDir().'app/code/core/Mage/CatalogSearch/controllers/ResultController.php');
+require_once(Mage::getBaseDir().'/app/code/core/Mage/CatalogSearch/controllers/ResultController.php');
 class Smartwave_Ajaxcatalog_CatalogSearch_ResultController extends Mage_CatalogSearch_ResultController
 {
 	
