@@ -39,22 +39,23 @@ button.button span,.pager li >a:hover,.pager li >a:focus,.pager .pages .current,
 @media (max-width: 767px){
     .owl-banner-carousel .content.type2 h2{border-top-color:#eeffff}
 }
+html,body{color:#e8e8e9}
 button.button span{
-}
+    color:#000000}
 button.button:hover span{
-}
+    color:#00ff00}
 span.new-product-icon{
-}
+    color:#e8e8e9}
 span.sale-product-icon{
-}
+    color:#e8e8e9}
 .fixed-header .menu > li > a > span.cat-label.cat-label-label1, .main-nav .menu > li > a > span.cat-label.cat-label-label1,.fixed-header .menu > li .nav-sublist-dropdown ul li a > span > span.cat-label.cat-label-label1, .main-nav .menu > li .nav-sublist-dropdown ul li a > span > span.cat-label.cat-label-label1,div.mobile-nav .sw-mobile-menu li>a span.cat-label.cat-label-label1,.menu.side-menu li>a span.cat-label.cat-label-label1{
-}
+    color:#e8e8e9}
 .fixed-header .menu > li > a > span.cat-label.cat-label-label2, .main-nav .menu > li > a > span.cat-label.cat-label-label2,.fixed-header .menu > li .nav-sublist-dropdown ul li a > span > span.cat-label.cat-label-label2, .main-nav .menu > li .nav-sublist-dropdown ul li a > span > span.cat-label.cat-label-label2,div.mobile-nav .sw-mobile-menu li>a span.cat-label.cat-label-label2,.menu.side-menu li>a span.cat-label.cat-label-label2{
-}
+    color:#e8e8e9}
 .top-container >.breadcrumbs{background-color:transparent}
-.top-container >.breadcrumbs{color:#ffffff}
-.breadcrumbs li a{color:#ffffff}
-.breadcrumbs li a:hover{color:#ffffff}
+.top-container >.breadcrumbs{color:#e8e8e9}
+.breadcrumbs li a{color:#e8e8e9}
+.breadcrumbs li a:hover{color:#e8e8e9}
 .footer-middle{
     background-color:#f6f6f6;
 }
