@@ -567,6 +567,7 @@ class Apptrian_SocialIntegrator_Helper_Data extends Mage_Core_Helper_Abstract
             ->load($product->getId());
 
         $aggregateRating = $summaryData['rating_summary'];
+        $reviewsCount = $summaryData['reviews_count'];
     	
     	$r = array();
     	
@@ -620,6 +621,7 @@ class Apptrian_SocialIntegrator_Helper_Data extends Mage_Core_Helper_Abstract
     		}
     		$r['schema']['sku']                    = $sku;
             $r['schema']['aggregateRating']        = $aggregateRating;
+            $r['schema']['reviewCount']            = $reviewsCount;
     		
     	} else {
     		
