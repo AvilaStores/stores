@@ -621,6 +621,7 @@ class Apptrian_SocialIntegrator_Helper_Data extends Mage_Core_Helper_Abstract
     		}
     		$r['schema']['sku']                    = $sku;
             $r['schema']['aggregateRating']        = $aggregateRating;
+            $r['schema']['ratingValue']            = 4.5;
             $r['schema']['reviewCount']            = $reviewsCount;
     		
     	} else {
