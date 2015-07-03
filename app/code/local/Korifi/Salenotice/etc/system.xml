@@ -1,0 +1,102 @@
+<?xml version="1.0"?>
+<config>
+    <sections>
+        <salenotice translate="label" module="salenotice">
+            <label>Sold Item Notification</label>
+            <tab>sales</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>5000</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <settings translate="label">
+                    <label>Sold Item Notification Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <data_using translate="comment">
+                            <label>Use Actual Orders</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[Set to Yes if use actual orders.<br> Set to No if use dummy orders in Sales -> Sold Item Notification]]></comment>
+                        </data_using>
+                        <limit_last_order translate="label">
+                            <label>Limit Last Orders</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Apply when using actual orders</comment>
+                        </limit_last_order>
+                        <first_load translate="label">
+                            <label>After first load Page</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>millisecond - Notification will appear after first time of page load</comment>
+                        </first_load>
+                        <time_delay translate="label">
+                            <label>Time Delay</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>millisecond - Next notification will appear after x time‎</comment>
+                        </time_delay>
+                        <time_display translate="label">
+                            <label>Display within</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>millisecond - Notification will disappear after x time‎</comment>
+                        </time_display>
+                    </fields>
+                </settings>
+                <inclusion translate="label">
+                    <label>jQuery Inclusion</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <jquery>
+                            <label>Include jQuery Library</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<strong style="color:red">Warning!</strong> Set to Yes if jQuery Library is not existing in the website]]></comment>
+                        </jquery>
+                        <noconflict>
+                            <label>Include jQuery noConflict File</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><![CDATA[<strong style="color:red">Warning!</strong> Set to Yes if jQuery Library is conflicting with Prototype Library]]></comment>
+                        </noconflict>
+                    </fields>
+                </inclusion>
+            </groups>
+        </salenotice>
+    </sections>
+</config>

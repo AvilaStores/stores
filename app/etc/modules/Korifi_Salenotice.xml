@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Korifi_Salenotice>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Korifi_Salenotice>
+    </modules>
+</config>

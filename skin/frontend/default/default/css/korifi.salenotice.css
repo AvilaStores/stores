@@ -1,0 +1,30 @@
+.notify_content {
+
+    background: rgba(245,245,245,0.7);
+    color: #000;
+    width: 260px;
+    border: solid 1px #d4d4d4;
+    border-radius: 2px;
+    padding: 5px;
+    position: relative;
+}
+
+.notification {
+    clear: left;
+    float: left;
+    list-style: none;
+}
+
+#notification_area {
+    position: fixed;
+    bottom: 50px;
+    left: 10px;
+}
+.notify_content .notice-product-link{ display: block;}
+.notify_content .cl{ position: absolute; top: 0; right: 1px;}
+.notify_content .cl a, .notify_content .cl a:hover{ color: red; font-weight: bold; padding: 1px; text-decoration: none; background: none;}
+.salenotice:after{clear: both; content: "."; display: block; visibility: hidden; overflow: hidden; height: 0}
+.salenotice .notice-img{ float: left;}
+.salenotice .notice-text{ width: 200px; float:right; text-align: left;}
+.notify_content .time-ago{ font-style: italic; color: #999; font-size: 11px; padding-top: 5px;}
+.notify_content  a.notice-product-link,.notify_content  a.notice-product-link:hover{color: #0000ff;}
