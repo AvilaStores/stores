@@ -559,16 +559,7 @@ class Apptrian_SocialIntegrator_Helper_Data extends Mage_Core_Helper_Abstract
     	$logoUrl         = Mage::getDesign()->getSkinUrl(Mage::getStoreConfig('design/header/logo_src'));
     	$manufacturer    = Mage::helper('core')->htmlEscape($product->getAttributeText('manufacturer'));
     	$sku             = $helper->productAttribute($product, $product->getSku(), 'sku');
-
-
-        $storeId = Mage::app()->getStore()->getId();
-        $summaryData = Mage::getModel('review/review_summary')
-            ->setStoreId($storeId)
-            ->load($product->getId());
-
-        $aggregateRating = $summaryData['rating_summary'];
-        $reviewsCount = $summaryData['reviews_count'];
-    	
+        
     	$r = array();
     	
     	// Open Graph data
@@ -620,10 +611,7 @@ class Apptrian_SocialIntegrator_Helper_Data extends Mage_Core_Helper_Abstract
     			$r['schema']['manufacturer']       = $manufacturer;
     		}
     		$r['schema']['sku']                    = $sku;
-            $r['schema']['aggregateRating']        = $aggregateRating;
-            $r['schema']['ratingValue']            = 4.5;
-            $r['schema']['reviewCount']            = $reviewsCount;
-    		
+
     	} else {
     		
     		$r['schema'] = null;
