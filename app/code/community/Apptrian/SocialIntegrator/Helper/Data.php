@@ -559,7 +559,7 @@ class Apptrian_SocialIntegrator_Helper_Data extends Mage_Core_Helper_Abstract
     	$logoUrl         = Mage::getDesign()->getSkinUrl(Mage::getStoreConfig('design/header/logo_src'));
     	$manufacturer    = Mage::helper('core')->htmlEscape($product->getAttributeText('manufacturer'));
     	$sku             = $helper->productAttribute($product, $product->getSku(), 'sku');
-        
+
     	$r = array();
     	
     	// Open Graph data
@@ -606,7 +606,7 @@ class Apptrian_SocialIntegrator_Helper_Data extends Mage_Core_Helper_Abstract
     		$r['schema']['imageArray']             = $images;
     		$r['schema']['url']                    = $url;
     		$r['schema']['logo']                   = $logoUrl;
-    		$r['schema']['brand']                  = $siteName;
+//    		$r['schema']['brand']                  = $siteName;
     		if ($manufacturer) {
     			$r['schema']['manufacturer']       = $manufacturer;
     		}
