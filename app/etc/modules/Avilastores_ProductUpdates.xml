@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Avilastores_ProductUpdates>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Avilastores_ProductUpdates>
+    </modules>
+</config> 

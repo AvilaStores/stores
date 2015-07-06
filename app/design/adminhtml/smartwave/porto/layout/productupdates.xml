@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <productupdates_adminhtml_productupdates_index>
+        <reference name="content">
+            <block type="productupdates/adminhtml_productupdates" name="productupdates" />
+        </reference>
+    </productupdates_adminhtml_productupdates_index>
+</layout>
