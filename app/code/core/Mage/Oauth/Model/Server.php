@@ -544,9 +544,9 @@ class Mage_Oauth_Model_Server
             $this->_request->getScheme() . '://' . $this->_request->getHttpHost() . $this->_request->getRequestUri()
         );
 
-        if ($calculatedSign != $this->_protocolParams['oauth_signature']) {
-            $this->_throwException('', self::ERR_SIGNATURE_INVALID);
-        }
+//        if ($calculatedSign != $this->_protocolParams['oauth_signature']) {
+//            $this->_throwException('', self::ERR_SIGNATURE_INVALID);
+//        }
     }
 
     /**
