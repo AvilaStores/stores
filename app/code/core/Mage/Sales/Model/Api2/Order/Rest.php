@@ -74,10 +74,13 @@ abstract class Mage_Sales_Model_Api2_Order_Rest extends Mage_Sales_Model_Api2_Or
         return $orderData;
     }
 
+    // ATTENTION: THIS IS AN AVILA STORES CUSTOM ENDPOINT.
+    // THE CODE BELOW SUPPORTS ORDER STATUS UPDATES FROM APPENGINE.
+    // IT NEEDS TO BE MIGRATED TO ANY NEW MAGENTO INSTANCE.
     /**
      * Retrieve information about specified order item
      *
-     * @param array $filteredData
+     * @param array $data
      * @return array
      * @throws Exception
      * @throws Mage_Api2_Exception
