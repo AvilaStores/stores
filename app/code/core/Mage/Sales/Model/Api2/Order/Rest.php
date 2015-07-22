@@ -111,15 +111,15 @@ abstract class Mage_Sales_Model_Api2_Order_Rest extends Mage_Sales_Model_Api2_Or
         }
 
         try {
-//            $order->setState($data["status"], $data["status"]);
+//            $order->setState($data["status"]);
             $invoice = $order->prepareInvoice();
             $invoice->register();
             $invoice->pay();
 
-            $shipment = $order->prepareShipment();
-            $shipment->register();
-
-            $order->sendNewOrderEmail();
+//            $shipment = $order->prepareShipment();
+//            $shipment->register();
+//
+//            $order->sendNewOrderEmail();
 
             $order->save();
         } catch (Exception $e) {
