@@ -4,5 +4,4 @@ var/log
 var/cache
 app/etc/local.xml
 downloader/connect.cfg
-media
 .idea/vcs.xml
