@@ -3,7 +3,6 @@ SetEnvIf Host .*thecollectorstoystore.* MAGE_RUN_CODE=thecollectorstoystore
 
 SetEnvIf Host .*thecollectorstoystore.* MAGE_RUN_TYPE=website or store
 
-- See more at: https://docs.nexcess.net/article/how-to-configure-multiple-magento-storefronts.html#sthash.Tb1l9rCT.dpuf
 RewriteEngine On
 RewriteBase /
 
