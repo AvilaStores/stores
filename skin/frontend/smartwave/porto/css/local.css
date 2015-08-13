@@ -493,11 +493,11 @@ tr.summary-details-excluded{font-style:italic}
 .header>.logo{margin:30px 40px 30px 0;text-decoration:none !important;max-width:100%;display:inline-block;vertical-align:middle;max-width:249px;position:relative;z-index:2;transition:none}
 .header>.logo>.logo{margin:0 !important;padding:0 !important;width:100%}
 .header .logo strong{position:absolute;top:-999em;left:-999em;width:0;height:0;font-size:0;line-height:0;text-indent:-999em;overflow:hidden}
-.header .logo img{max-width:100%;position:absolute;width:280px;top:-36px;left:-253px;z-index:500;}
+.header .logo img{position:absolute;width:280px;top:-36px;left:-253px;z-index:500;}
 .header-container .welcome-msg{margin:3px 20px 3px 0;text-align:left;float:right;font-size:11px;line-height:19px;text-transform:uppercase}
 .header-container .welcome-msg a{color:#7dbd22}
 .header #search_mini_form{display:inline-block;vertical-align:middle;margin-right:35px}
-.header .form-search{overflow:visible;border:1px solid #ccc;border-radius:20px;position:relative;width:100%;min-width:250px;padding-right:170px;background-color:#fff}
+.header .form-search{overflow:visible;border:1px solid #ccc;border-radius:20px;position:relative;width:135%;min-width:250px;padding-right:170px;background-color:#fff !important;}
 .header .form-search label{float:left;width:24px;height:21px;text-align:left;text-indent:-999em;overflow:hidden;display:none}
 .header .form-search #search{border:0;height:38px;background-color:transparent;padding:10px 15px;color:#999;font-family:Arial;width:100%;margin:0;font-size:13px;line-height:20px;border-radius:20px 0 0 20px}
 .header .form-search #cat{margin:0;width:130px;height:38px;background-color:transparent;border:1px solid #ccc;border-top:0;border-bottom:0;font-family:Arial;font-size:13px;line-height:34px;color:#777;padding:2px 0;padding-left:10px;position:absolute;right:40px;border-radius:0;-moz-appearance:none;-webkit-appearance:none}
