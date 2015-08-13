@@ -614,7 +614,7 @@ tr.summary-details-excluded{font-style:italic}
 .header-container.type1 .menu-icon a{color:#fff}
 
 /*** Header Type 2 ***/
-.header-container.type2{border-top-color:#08c}
+.header-container.type2{border-top-color:#08c; position:absolute;top:0;left:0;z-index:2;background-color:transparent;width:100%;max-height:100%;}
 .header-container.type2 .top-links-area{display:block;float:right;padding:0}
 .header-container.type2 .top-links a{color:inherit}
 .header-container.type2 .top-links-icon:before{margin-top:-5px;color:#777}
@@ -634,7 +634,8 @@ tr.summary-details-excluded{font-style:italic}
 .header-container.type2 .main-nav ul.menu>li>a{padding-top:14px;padding-bottom:14px}
 .header-container.type2 .header .mini-cart .topCartContent{right:0;top:40px}
 .header-container.type2 .header-wrapper{border:0}
-.header-container.type2 .main-nav .menu-wrapper{border-radius:5px}
+.header-container.type2 .main-nav .menu-wrapper{border-radius:5px; background-color: transparent;}
+.header-container.type2 .main-nav .menu-wrapper .nav-sublist-dropdown {background-color: #282d36;}
 .header-container.type2 .top-links > .top-select:first-child .selectbox .select{padding-left:0;}
 
 /*** Header Type 3 ***/
