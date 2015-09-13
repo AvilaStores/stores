@@ -1796,7 +1796,7 @@ li.etalage_small_thumbs{margin-top:8px;top:100%}
 .block-progress .block-title strong{color:#313131}
 .block-progress .block-content{background:none}
 .block-progress dt{background-color:#f5f5f5;border:1px solid #ddd;border-radius:7px;color:#313131;font-size:13px;font-weight:bold;margin-top:13px;padding:10px 15px;position:relative;text-transform:uppercase}
-.block-progress dd{background-color:#fbfbfb;border:1px solid #ddd;border-radius:0 0 7px 7px;border-top-width:0;font-size:13px;padding:10px 15px}
+.block-progress dd{background-color:#a0a0a0;border:1px solid #ddd;border-radius:0 0 7px 7px;border-top-width:0;font-size:13px;padding:10px 15px}
 .block-progress dt.complete{border-radius:7px 7px 0 0}
 .block-progress dd.complete{}
 .block-progress dt .changelink{text-transform:none;font-weight:normal}
