@@ -113,6 +113,10 @@
 SetEnvIf Host .*thecollectorstoystore.* MAGE_RUN_CODE=thecollectorstoystore
 SetEnvIf Host .*thecollectorstoystore.* MAGE_RUN_TYPE=website or store
 
+SetEnvIf Host .*connectedanywhere.* MAGE_RUN_CODE=connectedanywhere
+SetEnvIf Host .*connectedanywhere.* MAGE_RUN_TYPE=website or store
+
+
 ############################################
 ## enable rewrites
 
