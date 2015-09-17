@@ -85,8 +85,7 @@ jQuery(function($){
     $(".full-screen-slider div.item").width(s_width);
     $(".full-screen-slider div.item").height(s_height);
     $(".full-screen-slider div.item").click(function() {
-      alert(s_urls[$(".full-screen-slider div.item").index()]);
-      window.location.href=(s_urls[$(".full-screen-slider div.item").index()]);
+      window.location.href=(s_urls[$(".full-screen-slider div.item").index()+1]);
     });
     $(".full-screen-slider div.item > video").css("position","absolute");
     $(".full-screen-slider div.item > video").bind("loadedmetadata",function(){
