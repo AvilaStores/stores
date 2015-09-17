@@ -85,7 +85,8 @@ jQuery(function($){
     $(".full-screen-slider div.item").width(s_width);
     $(".full-screen-slider div.item").height(s_height);
     $(".full-screen-slider div.item").click(function() {
-      window.location.href=("http://cnn.com");
+      alert(s_urls[this.index()]);
+      window.location.href=(s_urls[this.index()]);
     });
     $(".full-screen-slider div.item > video").css("position","absolute");
     $(".full-screen-slider div.item > video").bind("loadedmetadata",function(){
