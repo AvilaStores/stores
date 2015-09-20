@@ -87,6 +87,12 @@ jQuery(function($){
     $(".full-screen-slider div.item").click(function() {
       window.location.href=(s_urls[this.id.charAt(this.id.length-1)-1]);
     });
+    $("#half-image-1").click(function() {
+      window.location.href=("http://www.thecollectorstoystore.com/movies/star-wars.html");
+    });
+    $("#half-image-2").click(function() {
+      window.location.href=("http://www.thecollectorstoystore.com/tv/doctor-who.html");
+    });
     $(".full-screen-slider div.item > video").css("position","absolute");
     $(".full-screen-slider div.item > video").bind("loadedmetadata",function(){
         v_width = this.videoWidth;
