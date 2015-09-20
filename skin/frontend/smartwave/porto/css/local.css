@@ -620,7 +620,7 @@ tr.summary-details-excluded{font-style:italic}
 .header-container.type2 .top-links a{color:inherit}
 .header-container.type2 .top-links-icon:before{margin-top:-5px;color:#777}
 .header-container.type2 .selectbox .select{color:#777}
-.header-container.type2 .header{display:block;vertical-align:middle;padding:19px 0}
+.header-container.type2 .header{display:block;vertical-align:middle;padding:4px 0}
 .header-container.type2 .header .logo{display:inline-block;vertical-align:middle;padding:0 15px;margin:0 40px 0 0}
 .header-container.type2 .header .search-area{position:static;margin:0}
 .header-container.type2 .header .search-area .search-icon{display:none}
