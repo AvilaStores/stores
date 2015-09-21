@@ -3680,7 +3680,7 @@ body.side-header .top-container > .breadcrumbs.fixed-position{position:fixed;wid
 .sticky-product .sticky-detail .product-name-area,.sticky-product .ratings,.sticky-product .sticky-detail .availability{display:inline-block;vertical-align:top;margin:0;margin-right:15px}
 .sticky-product .sticky-detail .product-name-area .product-name,.sticky-product .ratings,.sticky-product .sticky-detail .availability{line-height:25px}
 .sticky-product .sticky-detail .product-name-area .product-name{font-size:16px;font-weight:600}
-.sticky-product .sticky-detail .availability span{font-size:14px;font-weight:400}
+.sticky-product .sticky-detail .availability span{font-size:14px;font-weight:400; color:#222;}
 .sticky-product .add-to-cart{position:absolute;right:15px;top:75%;margin-top:-19px}
 .side-header .sticky-product > .container{width:100%;padding-left:277px}
 .product-view.moved-tab .product-shop .short-description{border:0}
