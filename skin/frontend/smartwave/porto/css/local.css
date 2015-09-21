@@ -1228,6 +1228,7 @@ div.star-rating a{transition:initial}
 /* Availability */
 .availability{margin:0}
 .availability span{font-weight:bold}
+.sticky-product .availability.in-stock span{color #222;}
 .availability.in-stock span{}
 .availability.out-of-stock span{color:#d83820}
 
