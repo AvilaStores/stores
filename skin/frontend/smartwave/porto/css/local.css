@@ -73,7 +73,7 @@ th.label{display:inherit}
 .page-print{background:#fff;padding:25px 30px;text-align:left}
 .page-empty{background:#fff;padding:20px;text-align:left}
 .page-popup{background:#fff;padding:25px 30px;text-align:left}
-.top-container{}
+.top-container{padding-top: 11px;}
 
 /******** For Boxed Version ************/
 body.boxed{background:url(../images/boxed_bg.jpg) center center no-repeat;background-color:#000;background-size:cover;background-attachment:fixed}
@@ -1330,6 +1330,86 @@ div.star-rating a{transition:initial}
 .price-box-bundle{padding:0 0 10px 0}
 .price-box-bundle .price-box{margin:0 !important;padding:0 !important}
 .price-box-bundle .price{color:#555}
+
+.sticky-product .price{white-space:nowrap !important}
+
+.sticky-product .price-box{margin:10px 0 5px}
+.sticky-product .price-box .price{font-weight:600;color:#444}
+.sticky-product .price-box a{display:inline-block;vertical-align:middle;line-height:20px}
+.sticky-product .price-box .price {color: #0088CC;}
+.sticky-product .price-box .availability {color: #777;}
+
+/* Regular price */
+.sticky-product .regular-price{color:#444}
+.sticky-product .regular-price .price{font-weight:600;font-size:20px;color:#444;display:inline-block;vertical-align:middle;line-height:1}
+
+/* Old price */
+.sticky-product .old-price{margin:0;display:inline-block;vertical-align:middle}
+.sticky-product .std .price-box p{margin:0}
+.sticky-product .old-price .price-label{white-space:nowrap;display:none}
+.sticky-product .old-price .price{color:#999;text-decoration:line-through;font-size:14px;vertical-align:middle}
+
+/* Special price */
+.sticky-product .special-price{margin:0;display:inline-block;vertical-align:middle;line-height:1}
+.sticky-product .special-price .price-label{font-size:13px;font-weight:bold;white-space:nowrap;display:none}
+.sticky-product .special-price .price{font-size:20px}
+
+/* Minimal price (as low as) */
+.sticky-product .minimal-price{margin:0}
+.sticky-product .minimal-price .price-label{font-weight:normal;white-space:nowrap}
+
+.sticky-product .minimal-price-link{display:inline-block;vertical-align:middle}
+.sticky-product .minimal-price-link .label{color:#ccc;display:inline-block;vertical-align:middle;font-size:13px;font-weight:normal;padding:0 0 0 10px}
+.sticky-product .minimal-price-link .price{font-weight:normal;display:inline-block;vertical-align:middle;font-size:14px}
+
+/* Excluding tax */
+.sticky-product .price-excluding-tax{display:inline-block;color:#999}
+.sticky-product .price-excluding-tax .label{white-space:nowrap;color:#999}
+.sticky-product .price-excluding-tax .price{font-size:13px;font-weight:normal;color:#08c}
+
+/* Including tax */
+.sticky-product .price-including-tax{display:inline-block;color:#999}
+.sticky-product .price-including-tax .label{white-space:nowrap;color:#999}
+.sticky-product .price-including-tax .price{font-size:13px;font-weight:bold;color:#08c}
+
+/* Configured price */
+.sticky-product .configured-price{margin:0}
+.sticky-product .configured-price .price-label{font-weight:bold;white-space:nowrap}
+.sticky-product .configured-price .price{font-weight:bold}
+
+/* FPT */
+.sticky-product .weee{display:inline-block;font-size:11px;color:#444}
+.sticky-product .weee .price{font-size:11px;font-weight:normal}
+
+/* Excl tax (for order tables) */
+.sticky-product .price-excl-tax{display:inline-block}
+.sticky-product .price-excl-tax .label{display:inline-block;white-space:nowrap}
+.sticky-product .price-excl-tax .price{display:inline-block}
+
+/* Incl tax (for order tables) */
+.sticky-product .price-incl-tax{display:block}
+.sticky-product .price-incl-tax .label{display:block;white-space:nowrap}
+.sticky-product .price-incl-tax .price{display:block;font-weight:bold}
+
+/* Price range */
+.sticky-product .price-from{margin:0;display:inline-block;vertical-align:middle;font-size:18px}
+.sticky-product .price-from .price-label{font-weight:bold;white-space:nowrap;display:none}
+
+.sticky-product .price-to{margin:0;display:inline-block;vertical-align:middle;font-size:18px}
+.sticky-product .price-to:before{content:"-";color:#444;font-weight:bold}
+.sticky-product .price-to .price-label{font-weight:bold;white-space:nowrap;display:none}
+
+/* Price notice next to the options */
+.sticky-product .price-notice{padding-left:10px;color:#999}
+.sticky-product .price-notice .price{font-weight:bold;color:#2f2f2f}
+
+/* Price as configured */
+.sticky-product .price-as-configured{margin:0}
+.sticky-product .price-as-configured .price-label{font-weight:bold;white-space:nowrap}
+
+.sticky-product .price-box-bundle{padding:0 0 10px 0}
+.sticky-product .price-box-bundle .price-box{margin:0 !important;padding:0 !important}
+.sticky-product .price-box-bundle .price{color:#555}
 /********** Product Prices >*/
 /* Tier Prices */
 .product-pricing,
@@ -1426,6 +1506,7 @@ li.etalage_small_thumbs{margin-top:8px;top:100%}
 .product-view .product-shop .availability{margin:0 0 10px 0;font-size:14px;color:#777;font-weight:600}
 .product-view .product-shop .short-description{padding:5px 0 20px;border-bottom:1px solid #ebebeb;font-size:14px;font-weight:300;line-height:1.5}
 .product-view .product-shop .short-description h2 {display:none}
+.product-view .product-shop .short-description ul br {display:none}
 .product-view .product-shop .price-box{margin:0 0 20px 0}
 .product-view .product-shop .price-box .regular-price .price{font-size:36px;color:#08c}
 .product-view .product-shop .price-box .old-price{vertical-align:bottom}
@@ -3599,7 +3680,7 @@ body.side-header .top-container > .breadcrumbs.fixed-position{position:fixed;wid
 .sticky-product .sticky-detail .product-name-area .product-name,.sticky-product .ratings,.sticky-product .sticky-detail .availability{line-height:25px}
 .sticky-product .sticky-detail .product-name-area .product-name{font-size:16px;font-weight:600}
 .sticky-product .sticky-detail .availability span{font-size:14px;font-weight:400}
-.sticky-product .add-to-cart{position:absolute;right:15px;top:50%;margin-top:-19px}
+.sticky-product .add-to-cart{position:absolute;right:15px;top:75%;margin-top:-19px}
 .side-header .sticky-product > .container{width:100%;padding-left:277px}
 .product-view.moved-tab .product-shop .short-description{border:0}
 
