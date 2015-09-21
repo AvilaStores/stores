@@ -621,7 +621,7 @@ tr.summary-details-excluded{font-style:italic}
 .header-container.type2 .top-links a{color:inherit}
 .header-container.type2 .top-links-icon:before{margin-top:-5px;color:#777}
 .header-container.type2 .selectbox .select{color:#777}
-.header-container.type2 .header{display:block;vertical-align:middle;padding:4px 0}
+.header-container.type2 .header{display:block;vertical-align:middle;padding:4px 0; min-height:40px;}
 .header-container.type2 .header .logo{display:inline-block;vertical-align:middle;padding:0 15px;margin:0 40px 0 0}
 /*.header-container.type2 .header .search-area{position:static;margin:0}*/
 .header-container.type2 .header .search-area .search-icon{display:none}
@@ -637,7 +637,7 @@ tr.summary-details-excluded{font-style:italic}
 .header-container.type2 .header .mini-cart .topCartContent{right:0;top:40px}
 .header-container.type2 .header-wrapper{border:0; position:relative; top:20px;}
 .header-container.type2 .main-nav .menu-wrapper{border-radius:5px; background-color: transparent;}
-.header-container.type2 .main-nav .menu-wrapper .nav-sublist-dropdown {background-color: #282d36; left:-25%; width:100%;}
+.header-container.type2 .main-nav .menu-wrapper .nav-sublist-dropdown {background-color: #282d36; left:-41%; width:100%;}
 .header-container.type2 .top-links > .top-select:first-child .selectbox .select{padding-left:0;}
 
 /*** Header Type 3 ***/
