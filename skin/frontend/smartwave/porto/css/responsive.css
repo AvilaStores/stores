@@ -201,7 +201,7 @@
     .header-container.type1 .header-wrapper{display:none}
     
     .header-container.type2 .header .logo{width:auto;float:left;margin:0}
-    .header-container.type2 .header .logo img{height:50px}
+    .header-container.type2 .header .logo img{height:117px;left:-300%;}
     .header-container.type2 .cart-area{position:static;display:inline-block;float:left;margin:5px 10px}
     .header-container.type2 .header .mini-cart{width:auto;position:relative;margin:5px 15px;float:right;top:0;left:0}
     .header-container.type2 .header .search-area{float:right;margin:5px 0;line-height:40px;display:block;position:relative;left:0;top:0;z-index:2}
