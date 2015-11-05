@@ -4,5 +4,5 @@ var/log
 var/cache
 app/etc/local.xml
 .idea/vcs.xml
-media/*
+#media/*
 downloader/*
