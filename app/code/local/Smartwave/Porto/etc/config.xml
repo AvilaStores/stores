@@ -2,7 +2,7 @@
 <config>
     <modules>
         <Smartwave_Porto>
-            <version>1.5.1.1</version>
+            <version>1.6.2.1</version>
         </Smartwave_Porto>
     </modules>                   
     <admin>
@@ -26,6 +26,15 @@
                 </Smartwave_Porto>
             </modules>
         </translate>
+		<product>
+			<configurable>
+				<child>
+					<attributes>
+						<name/>
+					</attributes>
+				</child>
+			</configurable>
+		</product>
     </frontend>
     <global>
         <blocks>
@@ -175,6 +184,10 @@
                 <ratio_width>300</ratio_width>
                 <ratio_height>400</ratio_height>
                 <side_nav>1</side_nav>
+                <rating_star>1</rating_star>
+                <product_price>1</product_price>
+                <actions>1</actions>
+                <qty_field>0</qty_field>
                 <compare>1</compare>
                 <page_layout>two_column_left</page_layout>
                 <fullwidth_description>1</fullwidth_description>
@@ -197,6 +210,7 @@
                 <prev_next>1</prev_next>
                 <prev_text><![CDATA[<i class="icon-left-open"></i>]]></prev_text>
                 <next_text><![CDATA[<i class="icon-right-open"></i>]]></next_text>
+                <product_image_size>5</product_image_size>
                 <page_layout>two_column_right</page_layout>
             </product_view>
             <product_view_custom_tab>

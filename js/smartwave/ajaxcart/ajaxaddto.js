@@ -5,8 +5,8 @@ jQuery.noConflict();
 		if(data.status == 'ERROR'){
 			alert(data.message.replace("<br/>",""));
 		}else{
-            if(jQuery('.header .mini-cart')){
-                jQuery('.header .mini-cart').replaceWith(data.toplink);
+            if(jQuery('.header-container .mini-cart')){
+                jQuery('.header-container .mini-cart').replaceWith(data.toplink);
             }
             if(jQuery('.fixed-header .mini-cart')){
                 jQuery('.fixed-header .mini-cart').replaceWith(data.toplink);
@@ -35,7 +35,10 @@ jQuery.noConflict();
 			}
 		}
 	}
-	function setLocationAjax(url,id,type){
+	function setLocationAjax(el,url,id,type){
+        var qty = 1;
+        if(jQuery("#qty_"+id).val()>0)
+            qty = jQuery("#qty_"+id).val();
         if (url.indexOf("?")){
             url = url.split("?")[0];
         }
@@ -48,13 +51,16 @@ jQuery.noConflict();
             url = url.replace("https://", "http://");
         }
 		jQuery('#loading-mask').show();
-
+        jQuery(el).parent().parent().parent().children(".product-image-area").children(".loader-container").show();
+        jQuery(el).parent().children(".loader-container").show();
 		try {
 			jQuery.ajax( {
 				url : url,
 				dataType : 'json',
+                data: {qty: qty},
 				success : function(data) {
 					jQuery('#loading-mask').hide();
+                    jQuery(".loader-container").hide();
          			setAjaxData(data,false,type);
 				}
 			});
@@ -83,12 +89,28 @@ jQuery.noConflict();
 						jQuery.fancybox.resize();
 					});
 
-				}
+				},
+                'beforeLoad'        : function() {
+                    jQuery("head").append('<style type="text/css" id="fancybox_hide_loading_css">#fancybox-loading{display:none}.fancybox-overlay{background:transparent}</style>');
+                    jQuery(".loader-container").hide();
+                    jQuery(this.element).parent().parent().parent().children(".product-image-area").children(".loader-container").show();
+                    jQuery(this.element).parent().children(".loader-container").show();
+                },
+                'afterLoad'        : function() {     
+                    jQuery("#fancybox_hide_loading_css").remove();
+                    jQuery(".loader-container").hide();
+                },
+                'afterClose': function(){
+                    setTimeout(function(){
+                        jQuery("#fancybox_hide_loading_css").remove();
+                    }, 500);
+                    jQuery(".loader-container").hide();
+                }
 			}
 		);
 		});   	
 	}
-	function ajaxCompare(url,id){
+	function ajaxCompare(el,url,id){
 	    url = url.replace("catalog/product_compare/add","ajaxcart/whishlist/compare");
 		if (url.indexOf("?")){
             url = url.split("?")[0];
@@ -101,12 +123,14 @@ jQuery.noConflict();
             url = url.replace("https://", "http://");
         }
 		jQuery('#loading-mask').show();
-
+        jQuery(el).parent().parent().parent().children(".product-image-area").children(".loader-container").show();
+        jQuery(el).parent().children(".loader-container").show();
 	    jQuery.ajax( {
 		    url : url,
 		    dataType : 'json',
 		    success : function(data) {
 			    jQuery('#loading-mask').hide();
+                jQuery(".loader-container").hide();
 			    if(data.status == 'ERROR'){
 				    alert(data.message.replace("<br/>",""));
 			    }else{
@@ -125,7 +149,7 @@ jQuery.noConflict();
 		    }
 	    });
     }
-    function ajaxWishlist(url,id){
+    function ajaxWishlist(el,url,id){
 	    url = url.replace("wishlist/index","ajaxcart/whishlist");
         if (url.indexOf("?")){
             url = url.split("?")[0];
@@ -138,11 +162,14 @@ jQuery.noConflict();
             url = url.replace("https://", "http://");
         }
 	    jQuery('#loading-mask').show();
+        jQuery(el).parent().parent().parent().children(".product-image-area").children(".loader-container").show();
+        jQuery(el).parent().children(".loader-container").show();
 	    jQuery.ajax( {
 		    url : url,
 		    dataType : 'json',
 		    success : function(data) {
 			    jQuery('#loading-mask').hide();
+                jQuery(".loader-container").hide();
 			    if(data.status == 'ERROR'){
 				    alert(data.message.replace("<br/>",""));
 			    }else{

@@ -7,7 +7,7 @@ class Smartwave_Blog_Model_Blog extends Mage_Core_Model_Abstract
         parent::_construct();
         $this->_init('blog/blog');
     }
-	
+
 	public function getBannerContent() {
         $content = $this->getData('banner_content');
         if (Mage::getStoreConfig(Smartwave_Blog_Helper_Config::XML_BLOG_PARSE_CMS)) {

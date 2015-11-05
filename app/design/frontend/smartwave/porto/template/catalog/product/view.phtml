@@ -6,6 +6,7 @@
 ?>
 <?php $_product = $this->getProduct(); ?>
 <?php
+    $product = Mage::getModel('catalog/product')->load($_product->getId());
     $product_type = $_product->getTypeId();
     $enabled_richsnippets = ($helper_richsnippets->isEnabled() && $product_type !== "grouped");
     $price_properties = "";
@@ -16,6 +17,9 @@
     
     $enable_addtocart_sticky = Mage::getStoreConfig("porto_settings/product_view/enable_addtocart_sticky",$code);
     $move_product_tab = Mage::getStoreConfig("porto_settings/product_view/move_product_tab",$code);
+    $sticky_header = "";
+    if(!Mage::getStoreConfig("porto_settings/header/sticky_header", $code))
+        $sticky_header = "no-sticky-header";
 ?>
 <script type="text/javascript">
     var optionsPrice = new Product.OptionsPrice(<?php echo $this->getJsonConfig() ?>);
@@ -47,9 +51,6 @@ if($enable_addtocart_sticky){
     $ratio = $ratio_height / $ratio_width;
     $ratio_width = 50;
     $ratio_height = $ratio_width * $ratio;
-    $sticky_header = "";
-    if(!Mage::getStoreConfig("porto_settings/header/sticky_header", $code))
-        $sticky_header = "no-sticky-header";
 ?>
                 <div class="sticky-image">
                     <img src="<?php if($aspect_ratio):?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(50);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_product, 'small_image')->resize($ratio_width,$ratio_height); ?><?php endif; ?>" alt="<?php echo $this->stripTags($this->getImageLabel($_product, 'small_image'), null, true) ?>"/>
@@ -61,10 +62,9 @@ if($enable_addtocart_sticky){
                     </div>
                     <?php 
                     if (Mage::helper('catalog')->isModuleEnabled('Mage_Review')):
-                    if($_product->getRatingSummary()): 
                     ?>
                     <?php 
-                        $review_html = $this->getReviewsSummaryHtml($_product, 'short');
+                        $review_html = $this->getReviewsSummaryHtml($product, 'short');
                         if($review_html){
                             echo $review_html;
                         }else{
@@ -84,7 +84,6 @@ if($enable_addtocart_sticky){
                             </div>
                         </div>
                     <?php 
-                    endif; 
                     endif;
                     ?>
 					<?php if ($_product->isAvailable()): ?>
@@ -105,10 +104,10 @@ if($enable_addtocart_sticky){
 }
 ?>
         <div class="row">
-            <div class="product-img-box col-sm-5">
+            <div class="product-img-box col-sm-<?php echo Mage::getStoreConfig("porto_settings/product_view/product_image_size", $code); ?> <?php echo Mage::getStoreConfig("porto_settings/product_view/thumbnail_image_type", $code); ?>">
                 <?php echo $this->getChildHtml('media') ?>
             </div>
-            <div class="product-shop col-sm-7">
+            <div class="product-shop col-sm-<?php echo 12-Mage::getStoreConfig("porto_settings/product_view/product_image_size", $code); ?>">
             <?php
                 if (Mage::getStoreConfig("porto_settings/product_view/prev_next",$code)){
             ?>
@@ -149,6 +148,21 @@ if($enable_addtocart_sticky){
                 <div class="product-name">
                     <h1 <?php if($enabled_richsnippets): ?>itemprop="name"<?php endif; ?>><?php echo $_helper->productAttribute($_product, $_product->getName(), 'name') ?></h1>
                 </div>
+                <?php if($enabled_richsnippets): ?>
+                <?php
+                    $storeId = Mage::app()->getStore()->getId();
+                    $summaryData = Mage::getModel('review/review_summary')->setStoreId($storeId)->load($_product->getId());
+                ?>
+                <?php if ($summaryData['reviews_count']): ?>
+                    <span itemprop="aggregateRating" itemscope itemtype="http://schema.org/AggregateRating" class="no-display">
+                        <span itemprop="ratingValue"><?php echo $summaryData['rating_summary']; ?></span>
+                        <span itemprop="reviewCount"><?php echo $summaryData['reviews_count']; ?></span>
+                        <span itemprop="bestRating">100</span>
+                        <span itemprop="worstRating">0</span>
+                    </span>
+                <?php endif; ?>
+                <?php endif; ?>
+
                 <?php echo $this->getReviewsSummaryHtml($_product, false, true)?>
                 <?php if ($_product->getShortDescription()):?>
                     <div class="short-description">
@@ -193,7 +207,8 @@ if($enable_addtocart_sticky){
                 <?php if ($_product->isSaleable() && $this->hasOptions()):?>
                     <?php echo $this->getChildChildHtml('container1', '', true, true) ?>
                 <?php endif;?>
-                <?php echo $this->getChildHtml('smartwave_sharetool'); ?>
+                <div class="clearer"></div>
+                <?php echo $this->getChildHtml('addthis_sharetool'); ?>
             </div>
 
         </div>
@@ -252,8 +267,8 @@ if($enable_addtocart_sticky){
                                     alert(data.message.replace("<br/>",""));
                             }else{
                                 if(is_quickview){
-                                    if(window.parent.jQuery('.header .mini-cart')){
-                                        window.parent.jQuery('.header .mini-cart').replaceWith(data.toplink);
+                                    if(window.parent.jQuery('.header-container .mini-cart')){
+                                        window.parent.jQuery('.header-container .mini-cart').replaceWith(data.toplink);
                                     }
                                     if(window.parent.jQuery('.fixed-header .mini-cart')){
                                         window.parent.jQuery('.fixed-header .mini-cart').replaceWith(data.toplink);
@@ -282,8 +297,8 @@ if($enable_addtocart_sticky){
                                     },ajaxcart_sec*1000);
                                 }
                                 else {
-                                    if(jQuery('.header .mini-cart')){
-                                        jQuery('.header .mini-cart').replaceWith(data.toplink);
+                                    if(jQuery('.header-container .mini-cart')){
+                                        jQuery('.header-container .mini-cart').replaceWith(data.toplink);
                                     }
                                     if(jQuery('.fixed-header .mini-cart')){
                                         jQuery('.fixed-header .mini-cart').replaceWith(data.toplink);
@@ -387,7 +402,7 @@ if($enable_addtocart_sticky){
 </div>
 <script type="text/javascript">
     jQuery(function($){
-        $("body.quickview-index-view .product-info a, body.quickview-index-view .no-rating a, body.quickview-index-view .ratings a").off('click').on("click",function(e){
+        $("body.quickview-index-view .no-rating a, body.quickview-index-view .ratings a").off('click').on("click",function(e){
             window.parent.location.href = $(this).attr("href");
             window.parent.jQuery.fancybox.close();
         });

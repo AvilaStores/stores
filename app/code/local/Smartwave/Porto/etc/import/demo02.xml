@@ -14,7 +14,7 @@
             <default>porto</default>
         </theme>
         <header>
-            <logo_src>images/logo_white.png</logo_src>
+            <logo_src>images/logo.png</logo_src>
         </header>
     </design>
     <cms>
@@ -198,15 +198,21 @@
         <category>
             <alternative_image>1</alternative_image>
             <aspect_ratio>1</aspect_ratio>
-            <ratio_width></ratio_width>
-            <ratio_height></ratio_height>
+            <ratio_width>300</ratio_width>
+            <ratio_height>400</ratio_height>
             <compare>1</compare>
+			<rating_star>1</rating_star>
+			<product_price>1</product_price>
+			<actions>1</actions>
+			<qty_field>0</qty_field>
+			<page_layout>two_column_left</page_layout>
         </category>
         <category_grid>
             <columns>4</columns>
             <show_addtocart>1</show_addtocart>
             <show_addtolinks>1</show_addtolinks>
             <move_actions>0</move_actions>
+			<flex_grid>0</flex_grid>
         </category_grid>
         <product_label>
             <new>1</new>

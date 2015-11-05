@@ -14,6 +14,7 @@
             <input type="hidden" name="billing[address_id]" value="<?php echo $this->getAddress()->getId() ?>" id="billing:address_id" />
             <ul>
                 <li class="fields"><?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getAddress()->getFirstname() ? $this->getAddress() : $this->getQuote()->getCustomer())->setForceUseCustomerRequiredAttributes(!$this->isCustomerLoggedIn())->setFieldIdFormat('billing:%s')->setFieldNameFormat('billing[%s]')->toHtml() ?></li>
+                <div class="clear"></div>
                 <li class="fields">
                     <div class="field">
                         <label for="billing:company"><?php echo $this->__('Company') ?></label>
@@ -30,6 +31,7 @@
                     </div>
         <?php endif; ?>
                 </li>
+                <div class="clear"></div>
         <?php $_streetValidationClass = $this->helper('opc')->getAttributeValidationClass('street'); ?>
                 <li class="wide">
                     <label for="billing:street1" class="required"><em>*</em><?php echo $this->__('Address') ?></label>
@@ -120,6 +122,7 @@
                                 </div>
                             <?php endif ?>
                             </li>
+                            <div class="clear"></div>
                         <?php endif ?>
 
                     <?php $_taxvat = $this->getLayout()->createBlock('customer/widget_taxvat') ?>
@@ -145,6 +148,14 @@
     </li>
     <?php /* Extensions placeholder */ ?>
     <?php echo $this->getChildHtml('checkout.onepage.billing.extra')?>
+
+    <!-- fix browser autocomplete -->
+	<div style="display:none !important">
+		<input type="text" autocomplete="off" value="" />
+		<input type="password" autocomplete="off" value=""/>
+	</div>
+	<!-- end fix browser autocomplete -->
+    
     <?php if(!$this->isCustomerLoggedIn()): ?>
     
     	<?php
@@ -161,13 +172,13 @@
 			<div class="field">
 				<label for="billing:customer_password" class="required"><em>*</em><?php echo $this->__('Password') ?></label>
 				<div class="input-box">
-					<input type="password" name="billing[customer_password]" id="billing:customer_password" title="<?php echo $this->__('Password') ?>" class="input-text validate-password <?php if(!$guest_allowed):?>required-entry<?php endif;?>" autocomplete="off"/>
+					<input type="password" name="billing[customer_password]" title="<?php echo $this->__('Password') ?>" id="billing:customer_password" class="input-text validate-password <?php if(!$guest_allowed):?>required-entry<?php endif;?>" autocomplete="off" value=""/>
 				</div>
 			</div>
 			<div class="field">
 				<label for="billing:confirm_password" class="required"><em>*</em><?php echo $this->__('Confirm Password') ?></label>
 				<div class="input-box">
-					<input type="password" name="billing[confirm_password]" title="<?php echo $this->__('Confirm Password') ?>" id="billing:confirm_password" class="input-text validate-cpassword <?php if(!$guest_allowed):?>required-entry<?php endif;?>" autocomplete="off"/>
+					<input type="password" name="billing[confirm_password]" title="<?php echo $this->__('Confirm Password') ?>" id="billing:confirm_password" class="input-text validate-cpassword <?php if(!$guest_allowed):?>required-entry<?php endif;?>" autocomplete="off" value=""/>
 				</div>
 			</div>
 		</li>

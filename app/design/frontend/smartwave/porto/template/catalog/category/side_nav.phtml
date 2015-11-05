@@ -1,5 +1,5 @@
 <?php $menuHelper = Mage::helper('megamenu'); ?>
-<div class="side-block">
+<div class="side-block side-menu-type2">
     <div class="menu-all-pages-container">
         <ul class="menu">
             <?php echo $menuHelper->getMobileMenuContent(); ?>
@@ -8,8 +8,8 @@
 </div>
 <script type="text/javascript">
 jQuery(function($){
-    $(".home-side-menu-type2 .side-block ul.menu li.menu-parent-item>a").before('<a class="open-child" href="javascript:void(0)"><i class="icon-down-dir"></i></a>');
-    $(".home-side-menu-type2>.side-block ul.menu a.open-child").click(function(){
+    $(".side-menu-type2.side-block ul.menu li.menu-parent-item>a").before('<a class="open-child" href="javascript:void(0)"><i class="icon-down-dir"></i></a>');
+    $(".side-menu-type2.side-block ul.menu a.open-child").click(function(){
         if($(this).parent().hasClass("opened")){
             $(this).parent().removeClass("opened");
             $(this).parent().children("ul").slideUp();

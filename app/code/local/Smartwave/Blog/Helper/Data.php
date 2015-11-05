@@ -165,11 +165,10 @@ class Smartwave_Blog_Helper_Data extends Mage_Core_Helper_Abstract
 
     public function getRoute($store = null)
     {
-        $route = trim($this->conf(self::XML_ROOT));
+        $route = trim($this->conf(self::XML_ROOT, $store));
         if (!$route) {
             $route = self::DEFAULT_ROOT;
         }
-        //$route .= "/index/";
         return $route;
     }
 

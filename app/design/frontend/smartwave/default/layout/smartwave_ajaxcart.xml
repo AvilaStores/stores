@@ -2,12 +2,13 @@
 <layout version="0.1.0">
     <default>
         <reference name="head">
-            <action method="addJs"><script>smartwave/jquery/jquery-1.10.2.min.js</script></action>
+            <action method="addJs"><script>smartwave/jquery/jquery-1.11.3.min.js</script></action>
+			<action method="addJs"><script>smartwave/jquery/jquery-migrate-1.2.1.min.js</script></action>
             <action method="addJs"><script>smartwave/jquery/jquery-noconflict.js</script></action>
             <action method="addJs"><script>smartwave/jquery/plugins/fancybox/js/jquery.fancybox.js</script></action>
             <action method="addJs"><script>smartwave/ajaxcart/ajaxaddto.js</script></action>
                         
-            <action method="addItem"><type>js_css</type><name>smartwave/jquery/plugins/fancybox/css/jquery.fancybox.css</name></action>
+			<action method="addCss"><stylesheet>fancybox/css/jquery.fancybox.css</stylesheet></action>
             <action method="addItem"><type>js_css</type><name>smartwave/ajaxcart/ajaxaddto.css</name></action>
         </reference>
         <reference name="content">

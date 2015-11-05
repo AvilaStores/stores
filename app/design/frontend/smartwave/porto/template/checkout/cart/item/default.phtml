@@ -76,7 +76,7 @@ $ratio = ($aspect_ratio || (!$aspect_ratio && Mage::getStoreConfig("porto_settin
     <?php if ($this->helper('wishlist')->isAllowInCart()) : ?>
     <td>
         <?php if ($isVisibleProduct): ?>
-            <a href="<?php echo $this->helper('wishlist')->getMoveFromCartUrl($_item->getId()); ?>" class="link-wishlist use-ajax"><?php echo $this->__('Move'); ?></a>
+            <a href="<?php echo $this->helper('wishlist')->getMoveFromCartUrl($_item->getId()); ?>" class="link-wishlist use-ajax"><?php echo $this->__('Move to Wishlist'); ?></a>
         <?php endif ?>
     </td>
     <?php endif ?>

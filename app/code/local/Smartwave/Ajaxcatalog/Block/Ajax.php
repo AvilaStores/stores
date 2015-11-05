@@ -9,6 +9,7 @@ class Smartwave_Ajaxcatalog_Block_Ajax extends Mage_Core_Block_Template{
 		$this->ajaxSlider = $this->config['price_slider_settings']['slider'];
 		$this->ajaxLayered = $this->config['price_slider_settings']['layered'];
 		$this->ajaxToolbar = $this->config['price_slider_settings']['toolbar'];
+        $this->infiniteScroll = $this->config['price_slider_settings']['infinitescroll'];
 		$this->overlayColor = $this->config['ajax_conf']['overlay_color'];
 		$this->overlayOpacity = $this->config['ajax_conf']['overlay_opacity'];
 		$this->loadingText = $this->config['ajax_conf']['loading_text'];

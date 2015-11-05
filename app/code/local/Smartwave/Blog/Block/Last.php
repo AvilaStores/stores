@@ -18,8 +18,8 @@ class Smartwave_Blog_Block_Last extends Smartwave_Blog_Block_Menu_Sidebar implem
             ->setOrder('created_time', 'desc')
         ;
 
-        if ($this->getBlogCount()) {
-            $collection->setPageSize($this->getBlogCount());
+        if ($this->getBlocksCount()) {
+            $collection->setPageSize($this->getBlocksCount());
         } else {
             $collection->setPageSize(Mage::helper('blog')->getRecentPage());
         }

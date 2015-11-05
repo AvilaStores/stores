@@ -38,11 +38,6 @@ class Smartwave_Filterproducts_Block_Bestsellers_Home_List extends Smartwave_Fil
             $adapter->quoteInto('e.entity_type_id = ?', $products->getProductEntityTypeId())
         );
 
-        if ($from != '' && $to != '') {
-            $fieldName            = $orderTableAliasName . '.created_at';
-            $orderJoinCondition[] = $this->_prepareBetweenSql($fieldName, $from, $to);
-        }
-
         $products->getSelect()->reset()
             ->from(
                 array('order_items' => $products->getTable('sales/order_item')),

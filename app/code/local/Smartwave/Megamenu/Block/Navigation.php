@@ -73,7 +73,12 @@ class Smartwave_Megamenu_Block_Navigation extends Mage_Catalog_Block_Navigation
         
         // --- class for active category ---
         $active = ''; if ($this->isCategoryActive($category)) $active = ' act';
-
+        
+        $float = $catModel->getData('sw_cat_float_type');
+        $hide_item = $catModel->getData('sw_cat_hide_menu_item');
+        if($float == "right")
+            $float = "fl-right";
+        
         $staticWidth = $catModel->getData('sw_cat_static_width');
         if(!$staticWidth)
 			$staticWidth = "500px";
@@ -83,7 +88,19 @@ class Smartwave_Megamenu_Block_Navigation extends Mage_Catalog_Block_Navigation
         if (Mage::getStoreConfig('megamenu/general/non_breaking_space')) {
             $name = str_replace(' ', '&nbsp;', $name);
         }
-        $drawPopup = ($block_top || $block_left || $block_right || $block_bottom || count($activeChildren));        
+        
+        // --- category icon ---
+        $cat_icon_img = $catModel->getData('sw_icon_image');
+        $cat_font_icon = $catModel->getData('sw_font_icon');
+        $cat_icon = "";
+        if($cat_icon_img){
+            $cat_icon = '<img class="category-icon" src="'.Mage::getBaseUrl('media').'catalog/category/'.$cat_icon_img.'" alt="'.$name.'"/>';
+        } else if($cat_font_icon){
+            $cat_icon = '<i class="category-icon '.$cat_font_icon.'"></i>';
+        }
+        
+        $drawPopup = ($block_top || $block_left || $block_right || $block_bottom || count($activeChildren));
+        if(!$hide_item){
         if ($drawPopup) {
             //Has subcategories or static blocks
             if ($blockType == 'wide') {
@@ -93,8 +110,8 @@ class Smartwave_Megamenu_Block_Navigation extends Mage_Catalog_Block_Navigation
             } else {
                 $parentClass = 'menu-item menu-item-has-children menu-parent-item';
             }            
-            $html[] = '<li class="'.$parentClass.' '.$active.'">';
-            $html[] = '<a href="'.$this->getCategoryUrl($category).'">'.$name.$catLabel.'</a>';
+            $html[] = '<li class="'.$parentClass.' '.$active.' '.$float.'">';
+            $html[] = '<a href="'.$this->getCategoryUrl($category).'">'.$cat_icon.$name.$catLabel.'</a>';
             if ($mode != 'mb') {
                 if($blockType == 'staticwidth'){
                     $html[] = '<div class="nav-sublist-dropdown" style="display: none; width:'.$staticWidth.';">';
@@ -152,9 +169,10 @@ class Smartwave_Megamenu_Block_Navigation extends Mage_Catalog_Block_Navigation
             $html[] = '</li>';
         } else {
             //Has no subcategories and static blocks
-            $html[] = '<li class="'.$active.'">';
-            $html[] = '<a href="'.$this->getCategoryUrl($category).'">'.$name.$catLabel.'</a>';
+            $html[] = '<li class="'.$active.' '.$float.'">';
+            $html[] = '<a href="'.$this->getCategoryUrl($category).'">'.$cat_icon.$name.$catLabel.'</a>';
             $html[] = '</li>';
+        }
         }
         $html = implode("\n", $html);
         return $html;
@@ -280,6 +298,8 @@ class Smartwave_Megamenu_Block_Navigation extends Mage_Catalog_Block_Navigation
                 if (count($activeChildren) > 0) {
                     $class .= ' menu-item-has-children menu-parent-item';
                 }
+                $hide_item = $catModel->getData('sw_cat_hide_menu_item');
+                if(!$hide_item){
                 if ($level == 1) {
                     if ($type == 'wide') {
                         //$class .= ' col-sm-'.$width;  ---version 1.0.0---
@@ -314,6 +334,7 @@ class Smartwave_Megamenu_Block_Navigation extends Mage_Catalog_Block_Navigation
                     }
                 }
                 $html .= '</li>';
+                }
             }
         }        
         return $html;
@@ -373,7 +394,7 @@ class Smartwave_Megamenu_Block_Navigation extends Mage_Catalog_Block_Navigation
         }
         else
         {
-            $children = $parent->getChildren();
+            $children = Mage::getModel('catalog/category')->getCategories($parent->getId());
             $childrenCount = $children->count();
         }
         $hasChildren = $children && $childrenCount;
@@ -381,10 +402,58 @@ class Smartwave_Megamenu_Block_Navigation extends Mage_Catalog_Block_Navigation
         {
             foreach ($children as $child)
             {
-                array_push($activeChildren, $child);
+                if ($this->_isCategoryDisplayed($child))
+                {
+                    array_push($activeChildren, $child);
+                }
             }
         }
         return $activeChildren;
+    }
+
+	private function _isCategoryDisplayed(&$child)
+    {
+        if (!$child->getIsActive()) return false;
+        // === check products count ===
+        // --- get collection info ---
+        if (!Mage::getStoreConfig('megamenu/general/display_empty_categories'))
+        {
+            $data = $this->_getProductsCountData();
+            // --- check by id ---
+            $id = $child->getId();
+            #Mage::log($id); Mage::log($data);
+            if (!isset($data[$id]) || !$data[$id]['product_count']) return false;
+        }
+        // === / check products count ===
+        return true;
+    }
+
+	private function _getProductsCountData()
+    {
+        if (is_null($this->_productsCount))
+        {
+            $collection = Mage::getModel('catalog/category')->getCollection();
+            $storeId = Mage::app()->getStore()->getId();
+            /* @var $collection Mage_Catalog_Model_Resource_Eav_Mysql4_Category_Collection */
+            $collection->addAttributeToSelect('name')
+                ->addAttributeToSelect('is_active')
+                ->setStoreId($storeId);
+            if(!Mage::helper('catalog/category_flat')->isEnabled()){
+                $collection->setProductStoreId($storeId)
+                    ->setLoadProductCount(true);
+            }
+            $productsCount = array();
+            foreach($collection as $cat)
+            {
+                $productsCount[$cat->getId()] = array(
+                    'name' => $cat->getName(),
+                    'product_count' => $cat->getProductCount(),
+                );
+            }
+            #Mage::log($productsCount);
+            $this->_productsCount = $productsCount;
+        }
+        return $this->_productsCount;
     }
 
 	private function _explodeByColumns($target, $num, $catNum)

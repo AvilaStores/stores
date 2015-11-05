@@ -19,14 +19,14 @@ class Smartwave_Blog_Model_Observer
         $priority = (string)Mage::getStoreConfig('sitemap/blog/priority');
         $collection = Mage::getModel('blog/blog')->getCollection()->addStoreFilter($storeId);
         Mage::getSingleton('blog/status')->addEnabledFilterToCollection($collection);
-        $route = Mage::getStoreConfig('blog/blog/route');
+        $route = Mage::getStoreConfig('blog/blog/route',$sitemapObject->getStoreId());
         if ($route == "") {
             $route = "blog";
         }
         foreach ($collection as $item) {
             $xml = sprintf(
                 '<url><loc>%s</loc><lastmod>%s</lastmod><changefreq>%s</changefreq><priority>%.1f</priority></url>',
-                htmlspecialchars($baseUrl . $route . '/' . $item->getIdentifier()), $date, $changefreq, $priority
+                htmlspecialchars($baseUrl . $route . '/' . $item->getIdentifier()) . '/', $date, $changefreq, $priority
             );
 
             $sitemapObject->sitemapFileAddLine($xml);

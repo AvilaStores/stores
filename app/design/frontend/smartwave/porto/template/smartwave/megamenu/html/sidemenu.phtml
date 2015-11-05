@@ -1,7 +1,8 @@
 <?php $menuHelper = Mage::helper('megamenu'); ?>
 <?php $menuData = $menuHelper->getMenuData(); extract($menuData); ?>
+<?php $only_categories = $this->getOnlyCategories(); ?>
 <ul class="menu side-menu">
-    <?php echo $menuHelper->getMenuContent(); ?>
+    <?php echo $menuHelper->getMenuContent($only_categories); ?>
 </ul>
 <script type="text/javascript">
 //<![CDATA[

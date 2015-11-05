@@ -7,7 +7,7 @@ class Smartwave_QuickView_Block_TopJs extends Mage_Page_Block_Html
         $layout = $this->getLayout();
         $head = $layout->getBlock('head');
         if (is_object($head)) {
-            $head->addJs('smartwave/jquery/jquery-1.10.2.min.js');
+            $head->addJs('smartwave/jquery/jquery-1.11.3.min.js');
             $head->addJs('smartwave/jquery/jquery-noconflict.js');
             $head->addJs('smartwave/jquery/plugins/fancybox/js/jquery.fancybox.js');
             $head->addJs('varien/product.js');
@@ -16,7 +16,7 @@ class Smartwave_QuickView_Block_TopJs extends Mage_Page_Block_Html
             $head->addJs('calendar/calendar-setup.js');
             $head->addItem('skin_js', 'js/bundle.js');
             $head->addItem('skin_js', 'quickview/js/sw_quickview.js');
-            $head->addItem('js_css', 'smartwave/jquery/plugins/fancybox/css/jquery.fancybox.css');
+            $head->addItem('skin_css', 'fancybox/css/jquery.fancybox.css');
             $head->addItem('js_css', 'calendar/calendar-win2k-1.css');
             $head->addItem('skin_css', 'quickview/css/styles.css');            
         }

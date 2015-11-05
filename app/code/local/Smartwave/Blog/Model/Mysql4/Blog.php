@@ -90,7 +90,7 @@ class Smartwave_Blog_Model_Mysql4_Blog extends Mage_Core_Model_Mysql4_Abstract
     protected function _beforeDelete(Mage_Core_Model_Abstract $object)
     {
         // Cleanup stats on blog delete
-        $adapter = $this->_getReadAdapter();
+        $adapter = $this->_getWriteAdapter();
         // 1. Delete blog/store
         $adapter->delete($this->getTable('blog/store'), 'post_id=' . $object->getId());
         // 2. Delete blog/post_cat

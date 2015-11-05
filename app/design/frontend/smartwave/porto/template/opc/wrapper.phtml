@@ -3,19 +3,19 @@
 echo $this->getDesignStyles();
 $package = Mage::getDesign()->getPackageName();
 $theme = Mage::getDesign()->getTheme('frontend');
+$is_persistent = Mage::helper('opc')->isPersistentMember();
 ?>
 <div class="opc-wrapper-opc design_package_<?php echo $package;?> design_theme_<?php echo $theme;?>">
     <div class="page-title">
         <h1><?php echo $this->__('Checkout')?></h1>
     </div>
 	<div class="opc-menu">
-	
+<?php if(!$is_persistent):?>	
 	    <?php echo $this->getChildHtml('paypal.button')?>
 	            
         <?php if (!Mage::getSingleton('customer/session')->isLoggedIn()):?>
     		<?php echo $this->getChildHtml('login');?>	
     	<?php endif;?>
-    	
     	
     	<div class="right review-menu-block">
     	  <a class="review-total theme-bg-color"><i class="icon-cart"></i><?php echo Mage::helper('opc')->getGrandTotal()?></a>
@@ -24,9 +24,14 @@ $theme = Mage::getDesign()->getTheme('frontend');
 		  </div>
 		</div>
 	   <div class="clear move-columns"></div>
+<?php else:?>
+	<?php echo $this->getChildHtml('login');?>
+<?php endif;?>
 	</div>
 	
 	<div class="clear"></div>
+
+<div <?php if($is_persistent):?>style="display:none !important;"<?php endif;?>>
 
     <div class="opc-col-left">
 		<form id="opc-address-form-billing" method="post">
@@ -85,6 +90,9 @@ $theme = Mage::getDesign()->getTheme('frontend');
 		      <button type="button" title="<?php echo $this->__('Place Order Now') ?>" class="button btn-checkout opc-btn-checkout"><span><span><?php echo $this->__('Place Order Now') ?></span></span></button>
 		</div>
     </div>
+    
+</div>
+
 </div>
 <script>
 	var vopc = '<?php echo Mage::getConfig()->getModuleConfig("IWD_Opc")->version;?>';
@@ -95,7 +103,7 @@ $theme = Mage::getDesign()->getTheme('frontend');
 </script>
 
 <div id="agree_error" style="display:none !important;"><?php echo $this->__('Please agree to all the terms and conditions before placing the order.');?></div>
-<div id="pssm_msg" style="display:none !important;"><?php echo $this->__('Please specify shipping method');?></div>
+<div id="pssm_msg" style="display:none !important;"><?php echo $this->__('Please specify shipping method.');?></div>
 <div class="opc-ajax-loader">
     <div style="width:100%;text-align:center;position:absolute;left:0;top:50%;font-size:16px;z-index:10;margin-top:-8px;">
 	    <i class="ajax-loader large animate-spin"></i>
@@ -104,7 +112,7 @@ $theme = Mage::getDesign()->getTheme('frontend');
 <div class="opc-message-wrapper design_package_<?php echo $package;?> design_theme_<?php echo $theme;?>">
 	
 	<div class="opc-messages">
-		<a class="close-message-wrapper"></a>
+		<a class="close-message-wrapper"><i class="fa fa-close"></i></a>
 		<div class="opc-message-container"></div>
 		<div class="opc-messages-action"><button class="button"><span><span><?php echo $this->__('Close')?></span></span></button></div>
 	</div>

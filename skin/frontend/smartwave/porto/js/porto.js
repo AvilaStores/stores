@@ -5,13 +5,13 @@ jQuery.fn.extend({
     scrollToMe: function(){
         if(jQuery(this).length){
             var top = jQuery(this).offset().top - 100;
-            jQuery('html,body').animate({scrollTop: top}, 500);
+            jQuery('html,body').animate({scrollTop: top}, 300);
         }
     },
     scrollToJustMe: function(){
         if(jQuery(this).length){
             var top = jQuery(this).offset().top;
-            jQuery('html,body').animate({scrollTop: top}, 500);
+            jQuery('html,body').animate({scrollTop: top}, 300);
         }
     }
 });
@@ -22,11 +22,19 @@ function portoAlert(msg){
 }
 jQuery(function($){
     $('div.product-view p.no-rating a, div.product-view .rating-links a').click(function(){
-        $('.product-tabs ul li').removeClass('active');
-        $('#tab_review_tabbed').addClass('active');
-        $('.product-tabs .tab-content').hide();
-        $('#tab_review_tabbed_contents').show();
-        $('#tab_review_tabbed').scrollToMe();
+        if($('#tab_review_tabbed').hasClass("panel-collapse")){
+            if(!$('#tab_review_tabbed').hasClass("in"))
+                $('#tab_review_tabbed').prev().find("a").trigger("click");
+            setTimeout(function(){
+                $('#product_tab_accordion').scrollToJustMe();
+            },200);
+        } else {
+            $('.product-tabs ul li').removeClass('active');
+            $('#tab_review_tabbed').addClass('active');
+            $('.product-tabs .tab-content').hide();
+            $('#tab_review_tabbed_contents').show();
+            $('#tab_review_tabbed').scrollToMe();
+        }
         return false;
     });
     
@@ -84,15 +92,6 @@ jQuery(function($){
     $(".full-screen-slider div.item").css("overflow","hidden");
     $(".full-screen-slider div.item").width(s_width);
     $(".full-screen-slider div.item").height(s_height);
-    $(".full-screen-slider div.item").click(function() {
-      window.location.href=(s_urls[this.id.charAt(this.id.length-1)-1]);
-    });
-    $("#half-image-1").click(function() {
-      window.location.href=("http://www.thecollectorstoystore.com/movies/star-wars.html");
-    });
-    $("#half-image-2").click(function() {
-      window.location.href=("http://www.thecollectorstoystore.com/tv/doctor-who.html");
-    });
     $(".full-screen-slider div.item > video").css("position","absolute");
     $(".full-screen-slider div.item > video").bind("loadedmetadata",function(){
         v_width = this.videoWidth;
@@ -252,7 +251,7 @@ jQuery(function($){
                     $("body.side-header .top-container > .breadcrumbs").addClass("fixed-position");
                 }
             }else{
-                if(breadcrumb_pos_top>=$(window).scrollTop()){
+                if($(window).scrollTop()<=1){
                     $("body.side-header .top-container > .breadcrumbs").removeClass("fixed-position");
                 }
             }

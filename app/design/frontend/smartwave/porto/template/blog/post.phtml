@@ -124,7 +124,7 @@
                 <?php
                         if (Mage::getStoreConfig('blog/recaptcha/enabled') && !$this->helper('customer')->isLoggedIn()) {
                             ?><li><?php
-                require_once 'recaptcha/recaptchalib-aw.php';
+                require_once 'recaptcha/recaptchalib-smartwave.php';
 
                 // Get a key from http://recaptcha.net/api/getkey
                 $publickey = Mage::getStoreConfig('blog/recaptcha/publickey');

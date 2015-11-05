@@ -7,7 +7,7 @@
         <ul class="tagcloud">
             <?php foreach ($this->getCollection() as $tag): ?>
                 <li><a class="tag-count-<?php echo $this->getTagWeight($tag) ?>" href="<?php echo $this->getTagHref($tag) ?>"><?php echo $tag->getTag() ?></a></li>
-            <?php endforeach; ?>  
+            <?php endforeach; ?>
         </ul>
     </div>
 </div>

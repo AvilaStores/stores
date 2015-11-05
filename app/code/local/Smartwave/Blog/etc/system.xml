@@ -300,7 +300,7 @@
                     <fields>
                         <enabled translate="label">
                             <label>Enable ReCAPTCHA</label>
-                            <comment><![CDATA[Go to <a href="http://www.google.com/recaptcha/whyrecaptcha">http://www.google.com/recaptcha/whyrecaptcha</a> to get keys]]></comment>
+                            <comment><![CDATA[Go to <a href="http://www.google.com/recaptcha/intro/index.html">http://www.google.com/recaptcha/intro/index.html</a> to get keys]]></comment>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>70</sort_order>
@@ -309,7 +309,7 @@
                             <show_in_store>1</show_in_store>
                         </enabled>
                         <publickey translate="label">
-                            <label>ReCAPTCHA Public Key</label>
+                            <label>ReCAPTCHA Site Key</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>80</sort_order>
                             <show_in_default>1</show_in_default>
@@ -317,7 +317,7 @@
                             <show_in_store>1</show_in_store>
                         </publickey>
                         <privatekey translate="label">
-                            <label>ReCAPTCHA Private Key</label>
+                            <label>ReCAPTCHA Secret Key</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>90</sort_order>
                             <show_in_default>1</show_in_default>
@@ -370,6 +370,16 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </top>
+
+                        <category translate="label">
+                            <label>Enable Categories Menu</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </category>
 
                         <tagcloud_size>
                             <label>Tags to Display</label>

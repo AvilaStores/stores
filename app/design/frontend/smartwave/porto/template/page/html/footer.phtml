@@ -140,7 +140,7 @@
                 }
                 ?>
                 <address><?php echo $footer['copyrights'] ?></address>
-                <?php if($footer['footer_bottom_store_switcher']) echo $this->getChildHtml("store_switcher"); ?>
+                <?php if(isset($footer['footer_bottom_store_switcher']) && $footer['footer_bottom_store_switcher']) echo $this->getChildHtml("store_switcher"); ?>
             </div>
         </div>
     <?php

@@ -8,7 +8,7 @@
 	}
     function getChildrenCategoriesHtml($_category){
         $children = explode( ",", $_category->getChildren() );
-		usort($children, 'cmpCatPosition');
+		//usort($children, 'cmpCatPosition');
         $content = '';
         $content .= '<li class="';
         if(!$children[0])

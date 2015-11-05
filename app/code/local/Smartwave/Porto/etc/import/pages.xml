@@ -1208,7 +1208,7 @@ jQuery(function($){
                 <div class="item"><img src="{{media url="wysiwyg/porto/homepage/content/08/brand4.png"}}" alt=""/></div>
                 <div class="item"><img src="{{media url="wysiwyg/porto/homepage/content/08/brand5.png"}}" alt=""/></div>
             </div>
-            <!--{{block type="zeon_manufacturer/home" template="zeon/manufacturer/owl_list.phtml"}}-->
+            <!--{_{block type="zeon_manufacturer/home" template="zeon/manufacturer/owl_list.phtml"}_}-->
             <script type="text/javascript">
             jQuery(function($){
                 $("#brands-slider-demo-10 .owl-carousel").owlCarousel({
@@ -1292,7 +1292,7 @@ jQuery(function($){
             <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/porto/homepage/content/08/brand4.png"}}" alt="" /></div>
             <div class="item" style="padding-top:10px;"><img src="{{media url="wysiwyg/porto/homepage/content/08/brand5.png"}}" alt="" /></div>
         </div>
-        <!--{{block type="zeon_manufacturer/home" template="zeon/manufacturer/owl_list.phtml"}}--><!--Please enable this block, when you installed zeon manufacturer extension-->
+        <!--{_{block type="zeon_manufacturer/home" template="zeon/manufacturer/owl_list.phtml"}_}--><!--Please enable this block, when you installed zeon manufacturer extension-->
     </div>
     <script type="text/javascript">
     jQuery(function($){
@@ -1483,7 +1483,7 @@ jQuery(function($){
                 <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand5.jpg"}}" alt="" /></div>
                 <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand6.jpg"}}" alt="" /></div>
             </div>
-            <!--{{block type="zeon_manufacturer/home" template="zeon/manufacturer/owl_list.phtml"}}-->
+            <!--{_{block type="zeon_manufacturer/home" template="zeon/manufacturer/owl_list.phtml"}_}-->
             <script type="text/javascript">
             jQuery(function($){
                 $("#brands-slider-demo-7 .owl-carousel").owlCarousel({
@@ -1552,6 +1552,94 @@ jQuery(function($){
          <root_template>one_column</root_template>
          <layout_update_xml><![CDATA[<remove name="content"/>
 <remove name="footer"/>]]></layout_update_xml>
+      </cms_block>
+	  <cms_block>
+         <title>Porto - Homepage 16</title>
+         <identifier>porto_home_16</identifier>
+         <content><![CDATA[Blank!!!]]></content>
+         <is_active>1</is_active>
+         <stores><item>0</item></stores>
+         <root_template>one_column</root_template>
+         <layout_update_xml><![CDATA[<remove name="content"/>
+<remove name="footer"/>]]></layout_update_xml>
+      </cms_block>
+	  <cms_block>
+         <title>Porto - Homepage 17</title>
+         <identifier>porto_home_17</identifier>
+         <content><![CDATA[<style type="text/css">.main-container, .col-main{padding-top:0;padding-bottom:0}</style>
+{{block type="filterproducts/featured_home_list" product_count="8" column_count="4" template="filterproducts/flex_grid.phtml"}}]]></content>
+         <is_active>1</is_active>
+         <stores><item>0</item></stores>
+         <root_template>one_column</root_template>
+         <layout_update_xml><![CDATA[]]></layout_update_xml>
+      </cms_block>
+	  <cms_block>
+         <title>Porto - Homepage 18</title>
+         <identifier>porto_home_18</identifier>
+         <content><![CDATA[<p class="filter-title-type-2" style="margin-top:10px;"><span class="title-line">&nbsp;</span><span style="width: 315px;text-align: center;font-weight: 600;color: #3d3734;">WEEKLY FEATURED PRODUCTS</span><span class="title-line">&nbsp;</span></p>
+<div id="weekly_featured_product" class="hide-addtocart hide-addtolinks owl-middle-outer-narrow" style="margin: 0 -10px">
+	{{block type="filterproducts/featured_home_list" name="latest_list" product_count="10" template="filterproducts/list.phtml"}}
+</div>
+<script type="text/javascript">
+	jQuery(function($){
+		$("#weekly_featured_product .filter-products .owl-carousel").owlCarousel({
+			itemsCustom: [ [0, 1], [320, 1], [480, 2], [768, 3], [992, 4], [1200, 5] ],
+			responsiveRefreshRate: 50,
+			slideSpeed: 200,
+			paginationSpeed: 500,
+			scrollPerPage: false,
+			stopOnHover: true,
+			rewindNav: true,
+			rewindSpeed: 600,
+			pagination: false,
+			navigation: true,
+			autoPlay: true,
+			navigationText:["<i class='icon-left-open'></i>","<i class='icon-right-open'></i>"]
+		});
+	});
+</script>
+<p class="filter-title-type-2" style="margin-top:30px"><span class="title-line">&nbsp;</span><span style="width: 225px;text-align: center;font-weight: 600;color: #3d3734;">FEATURED BRANDS</span><span class="title-line">&nbsp;</span></p>
+<div class="owl-middle-outer-narrow">
+    <div id="brands-slider-demo-18" class="owl-carousel owl-theme">
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand1.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand2.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand3.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand4.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand5.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand6.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand1.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand2.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand3.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand4.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand5.jpg"}}" alt="" /></div>
+        <div class="item" style="padding-top:10px;"><img class="lazyOwl" data-src="{{media url="wysiwyg/porto/homepage/content/04/brand6.jpg"}}" alt="" /></div>
+    </div>
+    <script>
+    jQuery(function($){
+        $("#brands-slider-demo-18").owlCarousel({
+            lazyLoad: true,
+            itemsCustom: [ [0, 1], [320, 1], [480, 2], [640, 3], [768, 4], [992, 5], [1200, 6] ],
+            responsiveRefreshRate: 50,
+            slideSpeed: 200,
+            paginationSpeed: 500,
+            scrollPerPage: false,
+            stopOnHover: true,
+            rewindNav: true,
+            rewindSpeed: 600,
+            pagination: false,
+            navigation: false,
+            autoPlay: true,
+            navigationText:["<i class='icon-left-open'></i>","<i class='icon-right-open'></i>"]
+        });
+    });
+    </script>
+</div>]]></content>
+         <is_active>1</is_active>
+         <stores><item>0</item></stores>
+         <root_template>one_column</root_template>
+         <layout_update_xml><![CDATA[<reference name="head">
+    <action method="addJs"><script>smartwave/jquery/plugins/isotope/packery.pkgd.min.js</script></action>
+</reference>]]></layout_update_xml>
       </cms_block>
       <cms_block>
          <title>Porto - Homepage RTL</title>

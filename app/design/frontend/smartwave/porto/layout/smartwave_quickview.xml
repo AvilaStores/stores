@@ -29,7 +29,7 @@
             <action method="setTemplate">
                 <template>smartwave/quickview/page/media.phtml</template>
             </action>
-            <remove name="smartwave_sharetool" />
+            <remove name="addthis_sharetool" />
         </reference>
     </quickview_index_view>
 </layout>

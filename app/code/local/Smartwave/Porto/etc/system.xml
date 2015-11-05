@@ -2,7 +2,7 @@
 <config>
     <tabs>
         <portotheme translate="label" module="porto">
-            <label>Porto(1.5.1.1)</label>
+            <label>Porto(1.6.2.1)</label>
             <sort_order>101</sort_order>
         </portotheme>
     </tabs>
@@ -1715,11 +1715,32 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </sticky_header>
+                        <sticky_header_logo>
+                            <label>Show Logo Image in Sticky Header</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>31</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <sticky_header>1</sticky_header>
+                            </depends>
+                        </sticky_header_logo>
+                        <sticky_header_logo_img>
+                            <label>Sticky Header Logo Image Src</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>32</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>eg: images/logo.png</comment>
+                        </sticky_header_logo_img>
 						<sticky_header_mobile>
                             <label>Sticky Header on Mobile</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_enabledisable</source_model>
-                            <sort_order>32</sort_order>
+                            <sort_order>33</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
@@ -2303,9 +2324,6 @@
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
-                            <depends>
-                                <aspect_ratio>0</aspect_ratio>
-                            </depends>
                         </ratio_width>
                         <ratio_height>
                             <label>Image Height</label>
@@ -2318,6 +2336,45 @@
                                 <aspect_ratio>0</aspect_ratio>
                             </depends>
                         </ratio_height>
+                        <rating_star>
+                            <label>Show Rating Stars</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>51</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </rating_star>
+                        <product_price>
+                            <label>Show Product Price</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>52</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_price>
+                        <actions>
+                            <label>Show Action Links</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>54</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </actions>
+                        <qty_field>
+                            <label>Show Qty field</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>55</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <actions>1</actions>
+                            </depends>
+                        </qty_field>
                         <compare>
                             <label>Show Add to Compare Link</label>
                             <frontend_type>select</frontend_type>
@@ -2337,7 +2394,7 @@
                             <show_in_store>1</show_in_store>
                         </page_layout>
                         <fullwidth_description>
-                            <label>Show Category Description below of the Header</label>
+                            <label>Show Category Description below the Header</label>
                             <frontend_type>select</frontend_type>
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>80</sort_order>
@@ -2364,6 +2421,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </columns>
+                        <flex_grid>
+                            <label>Flex Grid</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_enabledisable</source_model>
+                            <sort_order>15</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </flex_grid>
                         <show_addtocart translate="label">
                             <label>Show Add to Cart Button</label>
                             <frontend_type>select</frontend_type>
@@ -2514,6 +2580,15 @@
                                 <prev_next>1</prev_next>
                             </depends>
                         </next_text>
+                        <product_image_size>
+                            <label>Product Image Size</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>porto/system_config_source_setting_product_image_size</source_model>
+                            <sort_order>199</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_image_size>
                         <disable_product_zoom>
                             <label>Disable Product Zoom</label>
                             <frontend_type>select</frontend_type>
@@ -2535,6 +2610,18 @@
                                 <disable_product_zoom>0</disable_product_zoom>
                             </depends>
                         </zoom_type>
+                        <thumbnail_image_type>
+                            <label>Thumbnail Images</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>porto/system_config_source_setting_product_image_thumbnail</source_model>
+                            <sort_order>215</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <aspect_ratio>0</aspect_ratio>
+                            </depends>
+                        </thumbnail_image_type>
                         <hide_single_smallthumb>
                             <label>Hide Single Smallthumb Image</label>
                             <frontend_type>select</frontend_type>
@@ -2553,6 +2640,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </enable_addtocart_sticky>
+                        <product_tab_style>
+                            <label>Product Tab Style</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>porto/system_config_source_setting_product_tab_style</source_model>
+                            <sort_order>305</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </product_tab_style>
                         <move_product_tab>
                             <label>Move Product Tabs at the Right of Product Image</label>
                             <frontend_type>select</frontend_type>
@@ -2562,6 +2658,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </move_product_tab>
+                        <show_brand>
+                            <label>Show Brands in the right sidebar</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>315</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_brand>
                         <page_layout>
                             <label>Page Layout</label>
                             <frontend_type>select</frontend_type>
@@ -3169,6 +3274,15 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </infoblock>
+                        <customblock translate="label">
+                            <label>Custom Block before Contacts Form</label>
+                            <comment>Input the Static Block Id, this static block will be shown below of the google map and above of the contacts form.</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </customblock>
                     </fields>
                 </contacts>
                 <custom_settings translate="label comment" module="porto">
@@ -3297,7 +3411,7 @@
                             <show_in_store>1</show_in_store>
                         </import_demo1>
                         <import_demo2>
-                            <label>Demo 2 (Updated)</label>
+                            <label>Demo 2</label>
                             <frontend_type>button</frontend_type>
                             <frontend_model>porto/adminhtml_button_import_demo</frontend_model>
                             <process>import</process>
@@ -3308,20 +3422,8 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </import_demo2>
-						<import_demo2_old>
-                            <label>Demo 2 (Old)</label>
-                            <frontend_type>button</frontend_type>
-                            <frontend_model>porto/adminhtml_button_import_demo</frontend_model>
-                            <process>import</process>
-                            <demo>demo02.old</demo>
-							<comment></comment>
-                            <sort_order>321</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </import_demo2_old>
                         <import_demo3>
-                            <label>Demo 3 (Updated)</label>
+                            <label>Demo 3</label>
                             <frontend_type>button</frontend_type>
                             <frontend_model>porto/adminhtml_button_import_demo</frontend_model>
                             <process>import</process>
@@ -3332,18 +3434,6 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </import_demo3>
-						<import_demo3_old>
-                            <label>Demo 3 (Old)</label>
-                            <frontend_type>button</frontend_type>
-                            <frontend_model>porto/adminhtml_button_import_demo</frontend_model>
-                            <process>import</process>
-                            <demo>demo03.old</demo>
-							<comment></comment>
-                            <sort_order>331</sort_order>
-                            <show_in_default>1</show_in_default>
-                            <show_in_website>1</show_in_website>
-                            <show_in_store>1</show_in_store>
-                        </import_demo3_old>
                         <import_demo4>
                             <label>Demo 4</label>
                             <frontend_type>button</frontend_type>
@@ -3487,6 +3577,28 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>1</show_in_store>
                         </import_demo16>
+                        <import_demo17>
+                            <label>Demo 17</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>porto/adminhtml_button_import_demo</frontend_model>
+                            <process>import</process>
+                            <demo>demo17</demo>
+                            <sort_order>470</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </import_demo17>
+                        <import_demo18>
+                            <label>Demo 18 (New)</label>
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>porto/adminhtml_button_import_demo</frontend_model>
+                            <process>import</process>
+                            <demo>demo18</demo>
+                            <sort_order>480</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </import_demo18>
                     </fields>
                 </install>
             </groups>

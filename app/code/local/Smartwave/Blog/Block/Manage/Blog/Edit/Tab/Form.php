@@ -19,7 +19,7 @@ class Smartwave_Blog_Block_Manage_Blog_Edit_Tab_Form extends Mage_Adminhtml_Bloc
             )
         );
 
-        $noticeMessage = Mage::helper('blog')->__('e.g. domain.com/blog/identifier');
+        $noticeMessage = Mage::helper('blog')->__('e.g. domain.com/blog/<b>identifier</b>');
 
         $validationErrorMessage = addslashes(
             Mage::helper('blog')->__(
@@ -115,8 +115,8 @@ class Smartwave_Blog_Block_Manage_Blog_Edit_Tab_Form extends Mage_Adminhtml_Bloc
                      . '</span>',
             )
         );
-		
-		$fieldset->addField('image', 'image', array(
+
+	$fieldset->addField('image', 'image', array(
             'label'     => Mage::helper('blog')->__('Thumbnail Image'),
             'required'  => false,
             'name'      => 'image',

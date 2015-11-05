@@ -10,12 +10,14 @@
             <action method="addBodyClass" ifconfig="porto_settings/general/layout" condition="full_width"><classname>full-width</classname></action>
         </reference>
         <reference name="head">
-            <action method="addJs"><script>smartwave/jquery/jquery-1.10.2.min.js</script></action>
+            <action method="addJs"><script>smartwave/jquery/jquery-1.11.3.min.js</script></action>
+            <action method="addJs"><script>smartwave/jquery/jquery-migrate-1.2.1.min.js</script></action>
             <action method="addJs"><script>smartwave/jquery/jquery-noconflict.js</script></action>
-            <action method="addJs"><script>smartwave/jquery/jquery-ui-1.10.4.min.js</script></action>
-            <action method="addItem"><type>js_css</type><name>smartwave/jquery/jquery-ui-1.10.4.min.css</name></action>
-            <action method="addJs"><script>smartwave/jquery/plugins/fancybox/js/jquery.fancybox.js</script></action>
-            <action method="addItem"><type>js_css</type><name>smartwave/jquery/plugins/fancybox/css/jquery.fancybox.css</name></action>
+            <action method="addJs"><script>smartwave/jquery/jquery-ui.min.js</script></action>
+            <action method="addItem"><type>js_css</type><name>smartwave/jquery/jquery-ui.min.css</name></action>
+			<action method="addJs"><script>smartwave/jquery/plugins/fancybox/js/jquery.fancybox.js</script></action>
+            <action method="addJs"><script>smartwave/jquery/plugins/fancybox/js/jquery.mousewheel-3.0.6.pack.js</script></action>
+			<action method="addCss"><stylesheet>fancybox/css/jquery.fancybox.css</stylesheet></action>
             <action method="addItem"><type>skin_js</type><name>js/wow.min.js</name></action>
             <action method="addItem"><type>js</type><name>smartwave/jquery/plugins/selectbox/jquery.selectbox.js</name><params/></action>
             <action method="addItem"><type>js</type><name>smartwave/jquery/plugins/parallax/jquery.stellar.min.js</name><params/></action>
@@ -36,6 +38,7 @@
             <action method="addCss"><stylesheet>css/animate.css</stylesheet></action>
             <action method="addItem"><type>skin_js</type><name>js/porto.js</name></action>
             <action method="addJs"><script>smartwave/bootstrap/js/bootstrap.min.js</script></action>
+            <action method="addItem"><type>skin_js</type><name>js/lib/imagesloaded.js</name></action>
             
             <action method="removeItem"><type>skin_css</type><name>css/styles.css</name></action> 
             <action method="addCss"><stylesheet>icons/css/porto.css</stylesheet></action>
@@ -49,6 +52,7 @@
 			<action method="removeItem" ifconfig="porto_settings/general/disable_responsive" condition="1"><type>skin_css</type><name>css/responsive.css</name></action>
 			<action method="addItem" ifconfig="porto_settings/general/disable_responsive" condition="1"><type>skin_js</type><name>js/non_responsive.js</name></action>
             <action method="addCss" ifconfig="porto_design/basic/dark_light" condition="dark"><stylesheet>css/dark.css</stylesheet></action>
+            <action method="addCss" ifconfig="porto_settings/general/border_radius"><stylesheet>css/disable_border_radius.css</stylesheet></action>
 			<action method="addCss"><stylesheet helper="porto/cssconfig/getDesignFile"/></action>
             <action method="addCss"><stylesheet helper="porto/cssconfig/getSettingsFile"/></action>
             <action method="addCss" ifconfig="porto_settings/general/rtl" condition="0"><stylesheet>css/custom.css</stylesheet></action>
@@ -67,6 +71,8 @@
             <action method="setTemplate" ifconfig="porto_settings/header/type" condition="9"><template>page/html/header_type10.phtml</template></action>
             <action method="setTemplate" ifconfig="porto_settings/header/type" condition="10"><template>page/html/header_type11.phtml</template></action>
             <action method="setTemplate" ifconfig="porto_settings/header/type" condition="11"><template>page/html/header_type12.phtml</template></action>
+            <action method="setTemplate" ifconfig="porto_settings/header/type" condition="12"><template>page/html/header_type13.phtml</template></action>
+            <action method="setTemplate" ifconfig="porto_settings/header/type" condition="13"><template>page/html/header_type14.phtml</template></action>
             <block type="directory/currency" name="store_currency" template="page/switch/currency.phtml"/>
 			<block type="catalog/product_compare_sidebar" name="compare_link">
 				<action method="setTemplate" ifconfig="porto_settings/product_compare/show_link"><template>catalog/product/compare/compare_link.phtml</template></action>
@@ -195,11 +201,18 @@
                 <action method="addTab" translate="title" module="review" ><alias>review_tabbed</alias><title>Reviews</title><block>review/product_view_list</block><template>review/product_info_review.phtml</template></action>
             </block>
         </reference>
+        <reference name="left">
+            <block type="core/template" before="-" template="catalog/category/side_nav_with_title.phtml"/>
+            <remove name="tags_popular"/>
+            <block type="cms/block" name="product.left.custom1"><action method="setBlockId"><block_id>porto_product_right_side_1</block_id></action></block>
+            <block type="cms/block" name="product.left.custom2" after="product.right.custom1"><action method="setBlockId"><block_id>porto_product_right_side_2</block_id></action></block>
+        </reference>
         <reference name="right">
             <remove name="right.poll"/>
             <remove name="right.reports.product.viewed"/>
             <remove name="catalog.compare.sidebar"/>
             <remove name="right.permanent.callout"/>
+            <block type="core/template" before="product.right.custom1" name="product_view_brand" template="catalog/product/view/brand.phtml"/>
             <block type="cms/block" name="product.right.custom1" before="-"><action method="setBlockId"><block_id>porto_product_right_side_1</block_id></action></block>
             <block type="cms/block" name="product.right.custom2" after="product.right.custom1"><action method="setBlockId"><block_id>porto_product_right_side_2</block_id></action></block>
         </reference>

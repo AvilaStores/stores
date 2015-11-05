@@ -27,7 +27,7 @@
 					<?php if(Mage::getStoreConfig('ajaxcart/addtocart/enablecategory')): ?>
                     	<?php if($_product->isSaleable()): ?>					
 							<?php  if ( !($_product->getData('has_options') || $_product->isGrouped()) ) :  ?>
-								<p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocationAjax('<?php echo $this->getAddToCartUrl($_product) ?>','<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+								<p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocationAjax(this,'<?php echo $this->getAddToCartUrl($_product) ?>','<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
 							<?php else : ?>
 								<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="showOptions('<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
 								<a href='<?php echo $this->getUrl('ajaxcart/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>Options</a>
@@ -95,7 +95,7 @@
 					<?php if(Mage::getStoreConfig('ajaxcart/addtocart/enablecategory')): ?>
 						<?php if($_product->isSaleable()): ?>					
 							<?php  if ( !($_product->getData('has_options') || $_product->isGrouped()) ) :  ?>
-								<p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocationAjax('<?php echo $this->getAddToCartUrl($_product) ?>','<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
+								<p><button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="setLocationAjax(this,'<?php echo $this->getAddToCartUrl($_product) ?>','<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button></p>
 							<?php else : ?>
 								<button type="button" title="<?php echo $this->__('Add to Cart') ?>" class="button btn-cart" onclick="showOptions('<?php echo $_product->getId()?>')"><span><span><?php echo $this->__('Add to Cart') ?></span></span></button>
 								<a href='<?php echo $this->getUrl('ajaxcart/index/options',array('product_id'=>$_product->getId()));?>' class='fancybox' id='fancybox<?php echo $_product->getId()?>' style='display:none'>Options</a>
@@ -113,10 +113,10 @@
 					<?php if(Mage::getStoreConfig('ajaxcart/addtolinks/enablecategory')): ?>
 						<ul class="add-to-links">
 							<?php if ($this->helper('wishlist')->isAllow()) : ?>
-								<li><a href="#" onclick='ajaxWishlist("<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>","<?php echo $_product->getId()?>");return false;' class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
+								<li><a href="#" onclick='ajaxWishlist(this,"<?php echo $this->helper('wishlist')->getAddUrl($_product) ?>","<?php echo $_product->getId()?>");return false;' class="link-wishlist"><?php echo $this->__('Add to Wishlist') ?></a></li>
 							<?php endif; ?>
 							<?php if($_compareUrl=$this->getAddToCompareUrl($_product)): ?>
-								<li><span class="separator">|</span> <a href="#" onclick='ajaxCompare("<?php echo $_compareUrl ?>","<?php echo $_product->getId()?>");return false;' class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
+								<li><span class="separator">|</span> <a href="#" onclick='ajaxCompare(this,"<?php echo $_compareUrl ?>","<?php echo $_product->getId()?>");return false;' class="link-compare"><?php echo $this->__('Add to Compare') ?></a></li>
 							<?php endif; ?>						
 						</ul>
 					<?php else :?>

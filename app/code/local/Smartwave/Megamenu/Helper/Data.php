@@ -68,6 +68,8 @@ class Smartwave_Megamenu_Helper_Data extends Mage_Core_Helper_Abstract
         $menuData = $this->getMenuData();
         extract($menuData);
         $homeLinkUrl        = Mage::app()->getStore($store_id)->getBaseUrl(Mage_Core_Model_Store::URL_TYPE_LINK);
+        $homeLinkUrl = str_replace("http://","//",$homeLinkUrl);
+        $homeLinkUrl = str_replace("https://","//",$homeLinkUrl);
         $homeLinkText       = $this->__('Home');
         $homeLink           = '';
         $homeIconClass      = '';
@@ -113,14 +115,18 @@ HTML;
         
     }
     
-    public function getMobileMenuContent()
+    public function getMobileMenuContent($without_custom_block = false)
     {
         $menuData = $this->getMenuData();
         extract($menuData);
-        // --- Home Link ---
-        $homeLink = $this->getHomeLink('mb');
-        // --- Blog Link ---
-        $blogLink = $this->getBlogLink();
+        $homeLink = "";
+        $blogLink = "";
+        if(!$without_custom_block){
+            // --- Home Link ---
+            $homeLink = $this->getHomeLink('mb');
+            // --- Blog Link ---
+            $blogLink = $this->getBlogLink();
+        }
         // --- Menu Content ---
         $mobileMenuContent = '';
         $mobileMenuContentArray = array();
@@ -129,9 +135,13 @@ HTML;
         }
         if (count($mobileMenuContentArray)) {
             $mobileMenuContent = implode("\n", $mobileMenuContentArray);
+            $mobileMenuContent = str_replace("http://","//",$mobileMenuContent);
+            $mobileMenuContent = str_replace("https://","//",$mobileMenuContent);
         }
-        
-        $customMobileLinks = $_block->drawCustomMobileLinks();
+        $customMobileLinks = "";
+        if(!$without_custom_block){
+            $customMobileLinks = $_block->drawCustomMobileLinks();
+        }
         // --- Result ---
         $menu = <<<HTML
 $homeLink
@@ -142,14 +152,18 @@ HTML;
         return $menu;
     }
     
-    public function getMenuContent()
+    public function getMenuContent($without_custom_block = false)
     {
         $menuData = $this->getMenuData();
         extract($menuData);
-        // --- Home Link ---        
-        $homeLink = $this->getHomeLink();
-        // --- Blog Link ---
-        $blogLink = $this->getBlogLink();
+        $homeLink = "";
+        $blogLink = "";
+        if(!$without_custom_block){
+            // --- Home Link ---        
+            $homeLink = $this->getHomeLink();
+            // --- Blog Link ---
+            $blogLink = $this->getBlogLink();
+        }
         // --- Menu Content ---
         $menuContent = '';
         $menuContentArray = array();
@@ -158,11 +172,18 @@ HTML;
         }
         if (count($menuContentArray)) {
             $menuContent = implode("\n", $menuContentArray);
+            $menuContent = str_replace("http://","//",$menuContent);
+            $menuContent = str_replace("https://","//",$menuContent);
         }
-        // --- Custom Links
-        $customLinks = $_block->drawCustomLinks();              
-        // --- Custom Blocks
-        $customBlocks = $_block->drawCustomBlock();              
+        $customLinks = "";
+        $customBlocks = "";
+        
+        if(!$without_custom_block){
+            // --- Custom Links
+            $customLinks = $_block->drawCustomLinks();              
+            // --- Custom Blocks
+            $customBlocks = $_block->drawCustomBlock();
+        }
         // --- Result ---
         $menu = <<<HTML
 $homeLink

@@ -10,14 +10,24 @@ $_items = $_helper->getItemCount() > 0 ? $_helper->getItemCollection() : null;
         <?php foreach($_items as $_index => $_item): ?>
             <li class="item">
                 <input type="hidden" class="compare-item-id" value="<?php echo $_item->getId() ?>" />
-                <a href="<?php echo $_helper->getRemoveUrl($_item) ?>" title="<?php echo $this->__('Remove This Item') ?>" class="btn-remove" onclick="return confirm('<?php echo $this->__('Are you sure you would like to remove this item from the compare products?') ?>');"><?php echo $this->__('Remove This Item') ?></a>
+                <?php
+                    $delete_url=$_helper->getRemoveUrl($_item);
+                    if(strpos($delete_url,'uenc')>-1)
+                        $delete_url=substr($delete_url,0,strpos($delete_url,'uenc')-1);
+                ?>
+                <a href="<?php echo $delete_url ?>" title="<?php echo $this->__('Remove This Item') ?>" class="btn-remove" onclick="return confirm('<?php echo $this->__('Are you sure you would like to remove this item from the compare products?') ?>');"><?php echo $this->__('Remove This Item') ?></a>
                 <p class="product-name"><a href="<?php echo $this->getProductUrl($_item) ?>"><?php echo $this->helper('catalog/output')->productAttribute($_item, $_item->getName(), 'name') ?></a></p>
             </li>
         <?php endforeach; ?>
         </ol>
         <script type="text/javascript">decorateList('compare-items')</script>
         <div class="actions">
-            <a href="<?php echo $_helper->getClearListUrl() ?>" onclick="return confirm('<?php echo $this->__('Are you sure you would like to remove all products from your comparison?') ?>');"><?php echo $this->__('Clear All') ?></a>
+            <?php
+                    $clearLinkUrl=$_helper->getClearListUrl();
+                    if(strpos($clearLinkUrl,'uenc')>-1)
+                        $clearLinkUrl=substr($clearLinkUrl,0,strpos($clearLinkUrl,'uenc')-1);
+                ?>
+            <a href="<?php echo $clearLinkUrl ?>" onclick="return confirm('<?php echo $this->__('Are you sure you would like to remove all products from your comparison?') ?>');"><?php echo $this->__('Clear All') ?></a>
             <button type="button" title="<?php echo $this->__('Compare') ?>" class="button" onclick="popWin('<?php echo $_helper->getListUrl() ?>','compare','top:0,left:0,width=820,height=600,resizable=yes,scrollbars=yes')"><span><span><?php echo $this->__('Compare') ?></span></span></button>
         </div>
     <?php else: ?>

@@ -3,12 +3,20 @@
     $code  = $store->getCode();
 
     $_infoblock = Mage::getStoreConfig('porto_settings/contacts/infoblock', $code);
+    $custom_block = Mage::getStoreConfig('porto_settings/contacts/customblock', $code);
 ?>
 <div id="messages_product_view"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<?php if($custom_block): ?>
+<div class="row">
+    <div class="col-sm-12">
+        <?php echo $this->getLayout()->createBlock('cms/block')->setBlockId($custom_block)->toHtml(); ?>
+    </div>
+</div>
+<?php endif; ?>
 <div class="row">
     <div class="col-sm-8">
 <form action="<?php echo $this->getFormAction(); ?>" id="contactForm" method="post">
-    <h2 class="legend"><?php echo Mage::helper('contacts')->__('Leave') ?> <b><?php echo Mage::helper('contacts')->__('Comment') ?></b></h2>
+    <h2 class="legend"><?php echo Mage::helper('contacts')->__('Leave') ?> <?php echo Mage::helper('contacts')->__('a') ?> <b><?php echo Mage::helper('contacts')->__('Message') ?></b></h2>
     <div class="row">
         <ul class="form-list col-sm-6">
             <li>

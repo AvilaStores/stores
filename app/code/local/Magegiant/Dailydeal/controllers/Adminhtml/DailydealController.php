@@ -145,14 +145,9 @@ class Magegiant_Dailydeal_Adminhtml_DailydealController extends Mage_Adminhtml_C
 		if ($this->getRequest()->getParam('id') > 0) {
 			try {
 				$model = Mage::getModel('dailydeal/dailydeal');
-				$t     = ($model->load($this->getRequest()->getParam('id'))
-					->getStatus());
-				if (($t == 4) || ($t == 2)) {
-					$model->delete();
-					Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Deal was successfully deleted'));
-				} else {
-					Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Deal should not be deleted'));
-				}
+				$model->delete();
+				Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Deal was successfully deleted'));
+
 				$this->_redirect('*/*/');
 			} catch (Exception $e) {
 				Mage::getSingleton('adminhtml/session')->addError($e->getMessage());
@@ -172,11 +167,8 @@ class Magegiant_Dailydeal_Adminhtml_DailydealController extends Mage_Adminhtml_C
 				$i = 0;
 				foreach ($dealIds as $dealId) {
 					$deal = Mage::getModel('dailydeal/dailydeal')->load($dealId);
-					$t         = $deal->getStatus();
-					if (($t == 4) || ($t == 2)) {
-						$deal->delete();
-						$i++;
-					}
+					$deal->delete();
+					$i++;
 				}
 				if ($i > 0) {
 					Mage::getSingleton('adminhtml/session')->addSuccess(Mage::helper('adminhtml')->__('Total of %d Deal(s) were successfully deleted', $i));

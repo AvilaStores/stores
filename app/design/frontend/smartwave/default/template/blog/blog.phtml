@@ -1,7 +1,7 @@
 <?php $posts = $this->getPosts(); ?>
 <div id="messages_product_view">
-    <?php Mage::app()->getLayout()->getMessagesBlock()->setMessages(Mage::getSingleton('customer/session')->getMessages(true)); ?> 
-    <?php echo Mage::app()->getLayout()->getMessagesBlock()->getGroupedHtml(); ?> 
+    <?php Mage::app()->getLayout()->getMessagesBlock()->setMessages(Mage::getSingleton('customer/session')->getMessages(true)); ?>
+    <?php echo Mage::app()->getLayout()->getMessagesBlock()->getGroupedHtml(); ?>
 </div>
 
 <?php echo $this->getChildHtml('smartwave_blog_comments_toolbar'); ?>
@@ -17,7 +17,7 @@
         <div class="tags"><?php echo $this->getTagsHtml($post) ?></div>
         <div class="postDetails">
             <?php if ($this->getCommentsEnabled()): ?>
-                <?php echo $post->getCommentCount(); ?> <a href="<?php echo $post->getAddress(); ?>#commentBox" >Comments</a> |
+                <?php echo $post->getCommentCount(); ?> <a href="<?php echo $post->getAddress(); ?>#commentBox" > <?php echo Mage::helper('blog')->__('Comments'); ?></a> |
             <?php endif; ?>
             <?php $postCats = $post->getCats(); ?>
             <?php if (!empty($postCats)): ?>
@@ -29,5 +29,5 @@
                 <?php echo Mage::helper('blog')->__('Posted'); ?>
             <?php endif; ?><?php echo $this->__("By"); ?> <?php echo $post->getUser(); ?></div>
     </div>
-<?php endforeach; ?> 
+<?php endforeach; ?>
 <?php echo $this->getChildHtml('smartwave_blog_comments_toolbar'); ?>

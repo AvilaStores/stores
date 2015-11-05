@@ -2,7 +2,8 @@
 <layout>
     <default>
         <reference name="head">
-            <action method="addJs"><script>smartwave/jquery/jquery-1.10.2.min.js</script></action>
+            <action method="addJs"><script>smartwave/jquery/jquery-1.11.3.min.js</script></action>
+			<action method="addJs"><script>smartwave/jquery/jquery-migrate-1.2.1.min.js</script></action>
             <action method="addJs"><script>smartwave/jquery/jquery-noconflict.js</script></action>
             <action method="addItem"><type>skin_js</type><name>socialfeeds/js/twitterfetcher.js</name><params/></action>
             <action method="addItem">

@@ -1,6 +1,6 @@
 <?php
 
-class Smartwave_Blog_Block_Cat extends Smartwave_Blog_Block_Abstract
+class Smartwave_Blog_Block_Cat extends Smartwave_Blog_Block_Blog
 {
     public function getPosts()
     {

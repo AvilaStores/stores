@@ -14,6 +14,7 @@
                 <input type="hidden" name="shipping[address_id]" value="<?php echo $this->getAddress()->getId() ?>" id="shipping:address_id" />
                 <ul>
                     <li class="fields"><?php echo $this->getLayout()->createBlock('customer/widget_name')->setObject($this->getAddress())->setFieldIdFormat('shipping:%s')->setFieldNameFormat('shipping[%s]')->toHtml() ?></li>
+                    <div class="clear"></div>
                     <li class="fields">
                         <div class="fields">
                             <label for="shipping:company"><?php echo $this->__('Company') ?></label>
@@ -22,6 +23,7 @@
                             </div>
                         </div>
                     </li>
+                    <div class="clear"></div>
             <?php $_streetValidationClass = $this->helper('opc')->getAttributeValidationClass('street'); ?>
                     <li class="wide">
                         <label for="shipping:street1" class="required"><em>*</em><?php echo $this->__('Address') ?></label>

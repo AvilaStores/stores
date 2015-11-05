@@ -4,6 +4,7 @@ $code  = $store->getCode();
 $custom_block = Mage::getStoreConfig('porto_settings/header/static_block_2', $code);
 $menu_title = Mage::getStoreConfig('porto_settings/header/menu_title', $code);
 ?>
+<?php $only_categories = $this->getOnlyCategories(); ?>
 <div class="header-wrapper">
         <div class="container">
             <div class="menu-wrapper">
@@ -13,7 +14,7 @@ $menu_title = Mage::getStoreConfig('porto_settings/header/menu_title', $code);
                         <?php $menuHelper = Mage::helper('megamenu'); ?>
                         <?php $menuData = $menuHelper->getMenuData(); extract($menuData); ?>
                         <ul class="menu side-menu">
-                            <?php echo $menuHelper->getMenuContent(); ?>
+                            <?php echo $menuHelper->getMenuContent($only_categories); ?>
                         </ul>
                         <script type="text/javascript">
                             //<![CDATA[

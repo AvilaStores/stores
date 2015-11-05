@@ -9,10 +9,10 @@
                     <div class="blog-category">
                         <a href="<?php echo $cat->getAddress(); ?>"><?php echo $cat->getTitle(); ?></a>
                     </div>
-        <?php endforeach; ?>
+                    <?php endforeach; ?>
     </div>
-</div>
-<?php endif; ?>
+            </div>
+        <?php endif; ?>
 
 <?php if ($posts = $this->getRecent()): ?>
 <div class="block block-blog-recent">
@@ -20,7 +20,7 @@
         <strong><span><?php echo Mage::helper('blog')->__('Recent Posts'); ?></span></strong>
     </div>
     <div class="block-content">
-        <ul>
+                <ul>
         <?php foreach ($posts as $post): ?>
             <li>
                 <div class="post-image">
@@ -37,10 +37,10 @@
                 <!-- <div class="comments-count"><?php echo $post->getCommentCount(); ?>&nbsp;<?php echo $this->__('Comment(s)'); ?></div> -->
                 <div class="clear"></div>
             </li>
-        <?php endforeach; ?>
-        </ul>
-    </div>    
+                    <?php endforeach; ?>
+                </ul>
+            </div>
 </div>
-<?php endif; ?>
+        <?php endif; ?>
 
-<?php echo $this->getChildHtml('blog_tags'); ?>
+        <?php echo $this->getChildHtml('blog_tags'); ?>

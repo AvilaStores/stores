@@ -1,6 +1,8 @@
 var page_loaded = false;
 function reloadData(a) {
 	jQuery('#fullajax_loader').show();
+	a = a.replace("https://","//");
+	a = a.replace("http://","//");
 	jQuery.ajax({
 		url: a,
         data:{fullpageajax:true},

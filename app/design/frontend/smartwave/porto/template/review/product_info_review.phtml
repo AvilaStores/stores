@@ -37,29 +37,20 @@
                 <div class="avatar-image">
                     <img src="<?php echo Mage::getDesign()->getSkinUrl("images/avatar.jpg"); ?>" width="65" height="65" alt=""/>
                 </div>
-                <div class="review-area" itemscope itemtype="http://schema.org/Review">
-
-                    <div itemprop="itemReviewed" itemscope itemtype="http://schema.org/IndividualProduct">
-                        <span itemprop="name"><?php echo $this->getProduct()->getName(); ?></span>
-                    </div>
-
-                    <strong class="review-title" itemprop="name"><?php echo $this->htmlEscape($_review->getTitle()) ?></strong>
-                    <span class="review-by" itemprop="author" itemscope itemtype="http://schema.org/Person">
-                        <span itemprop="name"><?php echo $this->__('review by %s', "<b>".$this->htmlEscape($_review->getNickname())."</b>") ?> </span>
-                        <?php echo $this->__('on %s', $this->formatDate($_review->getCreatedAt()), 'long') ?>
-                    </span>
+                <div class="review-area">
+                    <strong class="review-title"><?php echo $this->htmlEscape($_review->getTitle()) ?></strong>
+                    <span class="review-by"> <?php echo $this->__('review by %s', "<b>".$this->htmlEscape($_review->getNickname())."</b>") ?> <?php echo $this->__('on %s', $this->formatDate($_review->getCreatedAt()), 'long') ?></span>
                     <div class="ratings-list">
                     <?php foreach ($_review->getRatingVotes() as $_vote): ?>
-                        <div class="rating-item" itemprop="reviewRating" itemscope itemtype="http://schema.org/Rating">
+                        <div class="rating-item">
                             <span class="label"><?php echo $_vote->getRatingCode() ?></span>
-                            <span class="hidden" itemprop="ratingValue"><?php echo $_vote->getValue() ?></span>
                             <div class="rating-box">
                                 <div class="rating" style="width: <?php echo $_vote->getPercent() ?>%;"></div>
                             </div>
                         </div>
                     <?php endforeach; ?>
                     </div>
-                    <p itemprop="reviewBody"><?php echo nl2br($this->htmlEscape($_review->getDetail())) ?></p>
+                    <p><?php echo nl2br($this->htmlEscape($_review->getDetail())) ?></p>
                 </div>
                 <div class="clearer"></div>
             </li>

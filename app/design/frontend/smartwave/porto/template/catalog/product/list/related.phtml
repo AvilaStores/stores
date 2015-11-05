@@ -4,6 +4,11 @@
     $aspect_ratio = Mage::getStoreConfig("porto_settings/category/aspect_ratio",$code);
     $ratio_width = Mage::getStoreConfig("porto_settings/category/ratio_width",$code);
     $ratio_height = Mage::getStoreConfig("porto_settings/category/ratio_height",$code);
+    
+    if(!$ratio_width)
+        $ratio_width = 300;
+    if(!$ratio_height)
+        $ratio_height = 400;
 ?>
 <?php if($this->getItems()->getSize()): ?>
 <div class="block block-related">
@@ -31,13 +36,12 @@
                     <?php endif; ?>
                     <div class="row">
                         <div class="col-xs-6">
-                            <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>" class="product-image"><img src="<?php if($aspect_ratio):?><?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize(200);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize($ratio_width,$ratio_height); ?><?php endif; ?>" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
+                            <a href="<?php echo $_item->getProductUrl() ?>" title="<?php echo $this->escapeHtml($_item->getName()) ?>" class="product-image"><img src="<?php if($aspect_ratio):?><?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->constrainOnly(FALSE)->keepAspectRatio(TRUE)->keepFrame(FALSE)->resize($ratio_width);?><?php else: ?><?php echo $this->helper('catalog/image')->init($_item, 'thumbnail')->resize($ratio_width,$ratio_height); ?><?php endif; ?>" alt="<?php echo $this->escapeHtml($_item->getName()) ?>" /></a>
                         </div>
                         <div class="product-details col-xs-6">
                             <p class="product-name"><a href="<?php echo $_item->getProductUrl() ?>"><?php echo $this->escapeHtml($_item->getName()) ?></a></p>
-                            <?php 
-                            if (Mage::helper('catalog')->isModuleEnabled('Mage_Review')):
-                            ?>
+                            <?php if(Mage::getStoreConfig("porto_settings/category/rating_star", $code)):?>
+                            <?php if (Mage::helper('catalog')->isModuleEnabled('Mage_Review')): ?>
                             <?php 
                                 $review_html = $this->getReviewsSummaryHtml($_item, 'short');
                                 if($review_html){
@@ -58,10 +62,11 @@
                                         <div class="rating" style="width:0"></div>
                                     </div>
                                 </div>
-                            <?php 
-                            endif;
-                            ?>
+                            <?php endif; ?>
+                            <?php endif; ?>
+                            <?php if(Mage::getStoreConfig("porto_settings/category/product_price", $code)):?>
                             <?php echo $this->getPriceHtml($_item, true, '-related') ?>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>

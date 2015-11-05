@@ -236,7 +236,10 @@ class Smartwave_Porto_Helper_Data extends Mage_Core_Helper_Abstract
         if(!$category){
             $c = $product->getCategoryCollection()->addAttributeToSelect("*");
             $category = $c->getLastItem();
-        } 
+        }
+        if(!$category->getId()){
+            return false;
+        }
         return $this->isEnabledonParentCategory($attribute, $category);
     }
     public function isEnabledTab($type, $id, $product_id){

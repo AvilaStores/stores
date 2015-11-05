@@ -141,6 +141,17 @@ class Smartwave_Blog_Manage_CatController extends Mage_Adminhtml_Controller_Acti
     public function saveAction()
     {
         if ($data = $this->getRequest()->getPost()) {
+            if (isset($data['stores'])) {
+                if ($data['stores'][0] == 0) {
+                    unset($data['stores']);
+                    $data['stores'] = array();
+                    $stores = Mage::getSingleton('adminhtml/system_store')->getStoreCollection();
+                    foreach ($stores as $store) {
+                        $data['stores'][] = $store->getId();
+                    }
+                }
+            }
+
             $model = Mage::getModel('blog/cat');
             $model
                 ->setData($data)

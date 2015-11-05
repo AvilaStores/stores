@@ -4,11 +4,11 @@ Add Comment,Voeg reactie toe
 Add Post,Voeg blogbericht toe
 Advanced Options,Geavanceerde instellingen
 Advanced Post Options,Geavanceerde blogberichtinstellingen
-If enabled, all comments appear immediately without admin approval.,Alle reacties zullen direct getoond worden zonder goedkeuring door een admin.
-An error occured. Please try again,Er trad een fout op. Probeer a.u.b. opnieuw
+"If enabled, all comments appear immediately without admin approval.","Alle reacties zullen direct getoond worden zonder goedkeuring door een admin."
+"An error occured. Please try again","Er trad een fout op. Probeer a.u.b. opnieuw"
 Approve,Goedkeuren
 Approved,Goedgekeurd
-Are you sure?,Weet u het zeker?
+"Are you sure?","Weet u het zeker?"
 Auto Approve Comments,Automatisch goedkeuren reacties
 Blog,Blog
 Blog,Blog
@@ -53,10 +53,10 @@ Delete Post,Verwijder blogbericht
 Description,Omschrijving
 Disabled,Uitgeschakeld
 Duplicate Post,Dubbel blogbericht
-Edit Category  '%s',Bewerk categorie  '%s'
-Edit Comment By '%s',Bewerk reactie van '%s'
+"Edit Category  '%s'","Bewerk categorie  '%s'"
+"Edit Comment By '%s'","Bewerk reactie van '%s'"
 Edit,Bewerk
-Edit Post '%s',Bewerk blogbericht '%s'
+"Edit Post '%s'","Bewerk blogbericht '%s'"
 "Must NOT contain any slashes. ""news"" makes the blog accessible from domain.com/news. Leave blank for default value.","Bijv. ""nieuws"" zal de blog beschikbaar maken onder domein.nl/nieuws. Mag geen slashes bevatten. Laat leeg voor standaardinstelling"
 Email Address,E-mailadres
 Email,E-mail
@@ -96,9 +96,9 @@ Meta Keywords,Metasleutelwoorden
 Name,Naam
 Newer Posts,Nieuwere blogberichten
 No,Nee
-No Posts in this Category.,Geen blogberichten in deze categorie.
-Number of characters in a post to be displayed before it is truncated and the Read More link is added. 0 for unlimited.,Het aantal karakters in een blogbericht om te tonen voordat het wordt afgebroken en de lees meer link wordt getoond. Gebruik 0 voor onbeperkt.
-Number of post to display in the RSS feed.,Aantal blogberichten te tonen in de RSS feed.
+"No Posts in this Category.","Geen blogberichten in deze categorie."
+"Number of characters in a post to be displayed before it is truncated and the Read More link is added. 0 for unlimited.","Het aantal karakters in een blogbericht om te tonen voordat het wordt afgebroken en de lees meer link wordt getoond. Gebruik 0 voor onbeperkt."
+"Number of post to display in the RSS feed.","Aantal blogberichten te tonen in de RSS feed."
 Older Posts,Oudere blogberichten
 Only comments added by logged in users will be approved automatically,Alleen reacties die gemaakt zijn door gebruikers die zijn ingelogd zullen automatisch worden goedgekeurd.
 Page Layout,Paginalayout
@@ -112,8 +112,8 @@ Posted in,Geplaatst in
 posted on,geplaatst op
 Posted,Geplaatst
 Poster,Auteur
-Post Identifier already exist.,Blogbericht alias bestaat al.
-Post Identifier cannot consist only of numbers.,Blogbericht alias kan niet uit alleen maar getallen bestaan.
+"Post Identifier already exist.","Blogbericht alias bestaat al."
+"Post Identifier cannot consist only of numbers.","Blogbericht alias kan niet uit alleen maar getallen bestaan."
 Post information,Plaatsingsinformatie
 Post Information,Plaatsingsinformatie
 Post,Blogbericht
@@ -131,8 +131,8 @@ ReCAPTCHA,ReCAPTCHA
 Recent Posts,Recente blogbericht
 Recent Posts,Recente blogbericht
 Related post,Gerelateerd blogbericht
-Relative to current skin directory, e.g. images/rsslogo.jpg,Relatief ten opzichte van de huidige skin directory bijv. images/rsslogo.jpg
-* Required Fields,* Verplichte velden
+"Relative to current skin directory, e.g. images/rsslogo.jpg","Relatief ten opzichte van de huidige skin directory bijv. images/rsslogo.jpg"
+"* Required Fields","* Verplichte velden"
 Return to,Terug naar
 Route to Blog,Route naar Blog
 RSS Feed Image,RSS Feed Afbeelding

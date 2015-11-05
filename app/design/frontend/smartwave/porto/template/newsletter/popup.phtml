@@ -53,6 +53,11 @@ function beginNewsletterForm() {
         },
         'tpl': { 
             closeBtn: '<a title="Close" class="fancybox-item fancybox-close fancybox-newsletter-close" href="javascript:;"></a>' 
+        },
+        'helpers': {
+            overlay: {
+                locked: false
+            }
         }
     });
     jQuery('#newsletter_popup').trigger('click');

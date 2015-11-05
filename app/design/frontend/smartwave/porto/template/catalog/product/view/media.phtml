@@ -39,7 +39,7 @@
 <?php endforeach; ?>
 </ul>
 <?php else: ?>
-<ul id="etalage_<?php echo $rnd_str; ?>">
+<ul id="etalage_<?php echo $rnd_str; ?>" class="<?php echo $thumb_type; ?>">
     <li>
         <?php
             if(!$aspect_ratio)
@@ -65,6 +65,7 @@
 <?php
     $zoom_disabled = Mage::getStoreConfig("porto_settings/product_view/disable_product_zoom", $code);
     $zoom_type = Mage::getStoreConfig("porto_settings/product_view/zoom_type", $code);
+    $thumb_type = Mage::getStoreConfig("porto_settings/product_view/thumbnail_image_type", $code);
 ?>
 <div class="product-view-zoom-area">
 </div>
@@ -88,13 +89,31 @@
         jQuery('.etalage-next').on('click', function(){ etalage_<?php echo $rnd_str; ?>_next(); });
         jQuery("a.fancy-images_<?php echo $rnd_str; ?>").fancybox();
         function reloadEtalage(){
-            var width = jQuery('.product-view .product-img-box').width()-8;
             var src_img_width = <?php echo $ratio_width; ?>;
             var src_img_height = "auto";
             var ratio_width = <?php echo $ratio_width; ?>;
             var ratio_height = <?php echo $ratio_height; ?>;
-
-            var height = "auto";
+            var width, height, thumb_position, small_thumb_count;
+            small_thumb_count = 4;
+            <?php if($thumb_type == "vertical"): ?>
+            width = (jQuery(".product-view .product-img-box").width()-15)*small_thumb_count/(small_thumb_count+1);
+            height = width*ratio_height/ratio_width;
+            <?php if(!Mage::getStoreConfig("porto_settings/general/rtl", $code)): ?>
+            thumb_position = "left";
+            <?php else: ?>
+            thumb_position = "right";
+            <?php endif; ?>
+            if(jQuery(window).width()<768){
+                width = jQuery(".product-view .product-img-box").width()-8;
+                height = "auto";
+                thumb_position = "bottom";
+            }
+            <?php else: ?>
+            width = jQuery(".product-view .product-img-box").width()-8;
+            height = "auto";
+            thumb_position = "bottom";
+            <?php endif; ?>
+            
             jQuery('#etalage_<?php echo $rnd_str; ?>').etalage({
                 thumb_image_width: width,
                 thumb_image_height: height,
@@ -103,14 +122,25 @@
                 zoom_area_width: width,
                 zoom_area_height: height,
                 zoom_enable: false,
-                small_thumbs:4,
+                small_thumbs:small_thumb_count,
                 smallthumb_hide_single: <?php echo $hide_smallthumb_single; ?>,
-                smallthumbs_position: 'bottom',
+                smallthumbs_position: thumb_position,
                 small_thumbs_width_offset: 0,
                 show_icon: false,
                 autoplay: false
             });
-
+            if(jQuery(window).width()<768){
+				var first_img = jQuery("#etalage_<?php echo $rnd_str; ?> img.etalage_thumb_image").first();
+				var tmp_img = jQuery('<img src="" alt=""/>');
+				tmp_img.attr("src",first_img.attr("src"));
+				tmp_img.unbind("load");
+				tmp_img.bind("load",function(){
+					jQuery("#etalage_<?php echo $rnd_str; ?>").height(Math.round(width*this.naturalHeight/this.naturalWidth+8)+"px");
+				});
+				jQuery('#etalage_<?php echo $rnd_str; ?>').removeClass("vertical");
+				jQuery(".product-view .product-img-box li.etalage_thumb").css({left:0});
+			}
+            <?php if($thumb_type != "vertical"): ?>
             var first_img = jQuery("#etalage_<?php echo $rnd_str; ?> img.etalage_thumb_image").first();
             var tmp_img = jQuery('<img src="" alt=""/>');
             tmp_img.attr("src",first_img.attr("src"));
@@ -118,6 +148,9 @@
             tmp_img.bind("load",function(){
                 jQuery("#etalage_<?php echo $rnd_str; ?>").height(Math.round(width*this.naturalHeight/this.naturalWidth+8)+"px");
             });
+            <?php else: ?>
+            jQuery('#etalage_<?php echo $rnd_str; ?>').addClass("vertical");
+            <?php endif; ?>
         }
     });
 </script>

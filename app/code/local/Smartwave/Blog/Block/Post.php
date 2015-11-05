@@ -2,6 +2,9 @@
 
 class Smartwave_Blog_Block_Post extends Smartwave_Blog_Block_Abstract
 {
+    const DEFAULT_COMMENT_SORT_ORDER = 'created_time';
+    const DEFAULT_COMMENT_SORT_DIR = 'desc';
+
     public function getPost()
     {
         if (!$this->hasData('post')) {
@@ -45,12 +48,14 @@ class Smartwave_Blog_Block_Post extends Smartwave_Blog_Block_Abstract
     public function getComment()
     {
         if (!$this->hasData('commentCollection')) {
+            $sortOrder = $this->getRequest()->getParam('order', self::DEFAULT_COMMENT_SORT_ORDER);
+            $sortDirection = $this->getRequest()->getParam('dir', self::DEFAULT_COMMENT_SORT_DIR);
             $collection = Mage::getModel('blog/comment')
                 ->getCollection()
                 ->addPostFilter($this->getPost()->getPostId())
-                ->setOrder('created_time', 'DESC')
                 ->addApproveFilter(2)
             ;
+            $collection->setOrder($collection->getConnection()->quote($sortOrder), $sortDirection);
             $collection->setPageSize((int)Mage::helper('blog')->commentsPerPage());
             $this->setData('commentCollection', $collection);
         }
@@ -87,7 +92,7 @@ class Smartwave_Blog_Block_Post extends Smartwave_Blog_Block_Abstract
         Mage::helper('blog/toolbar')->create(
             $this,
             array(
-                 'orders'        => array('created_time' => $this->__('Created At'), 'email' => $this->__('Added By')),
+                 'orders'        => array('created_time' => $this->__('Created At'), 'user' => $this->__('Added By')),
                  'default_order' => 'created_time',
                  'dir'           => 'desc',
                  'limits'        => self::$_helper->commentsPerPage(),
@@ -116,11 +121,11 @@ class Smartwave_Blog_Block_Post extends Smartwave_Blog_Block_Abstract
                 $breadcrumbs->addCrumb(
                     'cat',
                     array(
-                         'label' => $title,
-                         'title' => $this->__('Return to %s', $title),
-                         'link'  => Mage::getUrl(
-                             $helper->getRoute(), array('cat' => $this->getCategory()->getIdentifier())
-                         ),
+                        'label' => $title,
+                        'title' => $this->__('Return to %s', $title),
+                        'link'  => Mage::getUrl(
+                            $helper->getRoute() . '/cat/' . $this->getCategory()->getIdentifier()
+                        ),
                     )
                 );
             }

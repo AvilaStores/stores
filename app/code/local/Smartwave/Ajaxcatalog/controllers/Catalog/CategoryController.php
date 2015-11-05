@@ -12,7 +12,7 @@ class Smartwave_Ajaxcatalog_Catalog_CategoryController extends Mage_Catalog_Cate
 
 	public function viewAction()
 	{
-		if($this->getRequest()->isXmlHttpRequest() && (!$this->getRequest()->getParam("fullpageajax") || $this->getRequest()->getParam("ajaxcatalog"))){ //Check if it was an AJAX request
+		if($this->getRequest()->isXmlHttpRequest() && (!$this->getRequest()->getParam("fullpageajax") || $this->getRequest()->getParam("ajaxcatalog") || $this->getRequest()->getParam("infinite"))){ //Check if it was an AJAX request
 			$response = array();
 			
 			if ($category = $this->_initCatagory()) {
@@ -62,7 +62,7 @@ class Smartwave_Ajaxcatalog_Catalog_CategoryController extends Mage_Catalog_Cate
 			$this->getResponse()->setBody(Mage::helper('core')->jsonEncode($response));
 			return;
 		}
-		
+        
 		if ($category = $this->_initCatagory()) {
 			$design = Mage::getSingleton('catalog/design');
 			$settings = $design->getDesignSettings($category);

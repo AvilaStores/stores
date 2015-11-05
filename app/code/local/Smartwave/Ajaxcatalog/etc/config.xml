@@ -73,6 +73,7 @@
         <layered>1</layered>
         <slider>1</slider>
         <toolbar>1</toolbar>
+        <infinitescroll>1</infinitescroll>
       </price_slider_settings>
       <price_slider_conf>
         <timeout>0</timeout>
